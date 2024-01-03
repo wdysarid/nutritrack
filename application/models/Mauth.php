@@ -1,6 +1,8 @@
 <?php
 class Mauth extends CI_Model
 {
+
+//proseslogin
 function proseslogin()
     {
         //ambil data dari form 
@@ -51,6 +53,7 @@ function proseslogin()
         }
     }
 
+    //profile
     public function get_full_name($id_member) {
         $this->db->select('nama_lengkap');
         $this->db->where('id_member', $id_member);
@@ -78,6 +81,9 @@ function proseslogin()
 
         $this->session->set_flashdata(['pesan' => 'Berhasil Register...', 'color' => 'success']);
         redirect(base_url('auth/register'), 'refresh');
+    }
+    function getdatamember(){
+        return $this->db->get('tbmember')->result();
     }
 }
 ?>

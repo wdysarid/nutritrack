@@ -31,7 +31,7 @@
 			$data['data_makananform']=$this->mmakanan->getmakanan();
 			$this->load->view('forms/tambahmakanan',$data);
 		}
-		public function tampilmakanan()
+		public function dataakunmember()
 		{
 			$data=[
 				'header' => 'partials/header',
@@ -39,9 +39,9 @@
 				'sidebaradmin' => 'partials/sidebaradmin',
 				'footer' => 'partials/footer'
 			];
-			$this->load->model('mmakanan');
-			$data['data_makananform']=$this->mmakanan->getmakanan();
-			$this->load->view('tables/makanantbl','');
+			$this->load->model('mauth');
+			$data['data_akunmember']=$this->mauth->getdatamember();
+			$this->load->view('tables/datamember',$data);
 		}
 	}
 ?>

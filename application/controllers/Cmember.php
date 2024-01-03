@@ -15,7 +15,7 @@
             'sidebar' => 'partials/sidebar',
 			'footer' => 'partials/footer'
 			];
-			$this->load->view('dashboard/index',$data);	
+			$this->load->view('member/index',$data);	
 		}
 
 //catatan nutrisi		
@@ -44,6 +44,18 @@
 			$this->load->model('mnutrisi');
 			$data['data_nutrisi']=$this->mnutrisi->getnutrisi();
 			$this->load->view('tables/nutrisitbl',$data);
+		}
+		public function tampilnutrisiharian()
+		{
+			$data=[
+				'header' => 'partials/header',
+				'navbar' => 'partials/navbar',
+				'sidebar' => 'partials/sidebar',
+				'footer' => 'partials/footer'
+			];
+			$this->load->model('mnutrisi');
+			$data['data_nutrisihr']=$this->mnutrisi->getnutrisi();
+			$this->load->view('tables/nutrisiharian',$data);
 		}
 
 

@@ -53,15 +53,8 @@
     </a>
     <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="charts-chartjs.html" class="text-decoration-none">
+        <a href="<?php echo base_url('cmember/tampilnutrisiharian') ?>" class="text-decoration-none">
           <i class="bi bi-circle"></i><span class="text-light">Laporan Nutrisi</span>
-        </a>
-      </li>
-    </ul>
-    <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="charts-chartjs.html" class="text-decoration-none">
-          <i class="bi bi-circle"></i><span class="text-light">Laporan Aktivitas</span>
         </a>
       </li>
     </ul>

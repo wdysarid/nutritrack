@@ -55,18 +55,6 @@
 			<div style="display: flex; flex-wrap: wrap;">
 				<div style="flex: 1; margin-right: 10px;">
 					<div class="form-group mb-3">
-						<h6>Kalori</h6>
-						<input type="text" name="kalori" id="kalori" placeholder="Kalori" class="form-control">
-					</div>
-
-					<div class="form-group mb-3">
-						<h6>Lemak</h6>
-						<input type="text" name="lemak" id="lemak" placeholder="Lemak" class="form-control">
-					</div>
-				</div>
-
-				<div style="flex: 1; margin-left: 10px;">
-					<div class="form-group mb-3">
 						<h6>Karbohidrat</h6>
 						<input type="text" name="karbohidrat" id="karbohidrat" placeholder="Karbohidrat"
 							class="form-control">
@@ -75,6 +63,17 @@
 					<div class="form-group mb-4">
 						<h6>Protein</h6>
 						<input type="text" name="protein" id="protein" placeholder="Protein" class="form-control">
+					</div>
+				</div>
+				<div style="flex: 1; margin-left: 10px;">
+
+					<div class="form-group mb-3">
+						<h6>Lemak</h6>
+						<input type="text" name="lemak" id="lemak" placeholder="Lemak" class="form-control">
+					</div>
+					<div class="form-group mb-3">
+						<h6>Kalori</h6>
+						<input type="text" name="kalori" id="kalori" placeholder="Kalori" class="form-control">
 					</div>
 				</div>
 			</div>
@@ -99,11 +98,13 @@
 				<thead>
 					<tr>
 						<th scope="col">No.</th>
-						<th scope="col">Tanggal</th>
 						<th scope="col">Nama Makanan</th>
+						<th scope="col">Porsi</th>
+						<th scope="col">Satuan</th>
+						<th scope="col">Karbohidrat</th>
+						<th scope="col">Protein</th>
+						<th scope="col">Lemak</th>
 						<th scope="col">Kalori</th>
-						<th scope="col">Jumlah</th>
-						<th scope="col">Keterangan</th>
 						<th scope="col">Aksi</th>
 					</tr>
 				</thead>
@@ -115,16 +116,18 @@ foreach($data_makananform as $row):
 ?>
 					<tr>
 						<th scope="row"><?php echo $no++?></th>
-						<td><?php echo date('d-m-Y', strtotime($row->tgl_catatan)) ?></td>
 						<td><?php echo $row->nama_makanan?></td>
-						<td><?php echo $row->kalori?></td>
-						<td><?php echo $row->jumlah. " ". $row->satuan ?></td>
-						<td><?php echo $row->keterangan?></td>
+						<td><?php echo $row->porsi?></td>
+						<td><?php echo $row->satuan?></td>
+						<td><?php echo $row->karbohidrat?> gr</td>
+						<td><?php echo $row->protein?> gr</td>
+						<td><?php echo $row->lemak?> gr</td>
+						<td><?php echo $row->kalori?> kkal</td>
 						<td>
 							<button type="button" class="btn btn-warning"
-								onclick="editnutrisi(<?php echo $row->id_nutrisi?>)">Edit</button>
+								onclick="editmakanan(<?php echo $row->id_makanan?>)">Edit</button>
 							<button type="button" class="btn btn-danger"
-								onclick="hapusnutrisi(<?php echo $row->id_nutrisi?>)">Hapus</button>
+								onclick="hapusmakanan(<?php echo $row->id_makanan?>)">Hapus</button>
 						</td>
 					</tr>
 					<?php
@@ -139,14 +142,14 @@ endforeach;
 	<script>
 		let table = new DataTable('#myTable');
 
-		function hapusnutrisi(id_nutrisi) {
+		function hapusmakanan(id_makanan) {
 			if (confirm('Apakah anda ingin menghapus?')) {
-				window.open('<?= base_url ("cnutrisi/hapusnutrisi/")?>' + id_nutrisi, '_self')
+				window.open('<?= base_url ("cmakanan/hapusmakanan/")?>' + id_makanan, '_self')
 			}
 		}
 
-		function editnutrisi(id_nutrisi) {
-			load('cnutrisi/editnutrisi/' + id_nutrisi, '#script')
+		function editmakanan(id_makanan) {
+			load('cmakanan/editmakanan/' + id_makanan, '#script')
 		}
 
 	</script>

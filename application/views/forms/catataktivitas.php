@@ -53,7 +53,7 @@
 				<button type="submit" class="btn btn-primary">Simpan</button>
 				&nbsp;
 				<!-- Spasi horizontal -->
-				<button type="reset" class="btn btn-warning">Batal</button>
+			<button type="reset" class="btn btn-warning">Batal</button>
 			</div>
 		</form>
 	</div>
