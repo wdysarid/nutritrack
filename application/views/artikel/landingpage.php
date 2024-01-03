@@ -53,7 +53,7 @@
 <header>
     <h1>About Website</h1>
 </header>
-    <div class="card-container">
+    <div class="card-container" id="about">
       <div class="custom-card" style="background-color: #DDFFBB">
           <h2>Who We Are</h2>
           <p>
@@ -83,7 +83,7 @@ membantu pengguna melakukan pencatatan dengan memasukan input berupa
       <h1>Website Benefits</h1>
   </header>
 
-  <div class="card-container">
+  <div class="card-container" id="benefit" >
       <div class="card">
           <h2>Dapat Melakukan Pencatatan Makanan</h2>
           <p>Dapat mencatatat makanan yang anda konsumsi perhari, seperti nama makanan, dan berapa jumlah konsumsi makanan tersebut.</p>

@@ -14,10 +14,10 @@
                     <a class="nav-link mr-4 text-light" href="#artikel">ARTIKEL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4 text-light" href="<?php echo base_url().'assets/about.html';?>">ABOUT</a>
+                    <a class="nav-link mr-4 text-light" href="#about">ABOUT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4 text-light" href="<?php echo base_url().'assets/benefit.html';?>">BENEFIT</a>
+                    <a class="nav-link mr-4 text-light" href="#benefit">BENEFIT</a>
                 </li>
             </ul>
             <div class="auth-buttons">
