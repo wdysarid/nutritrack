@@ -13,6 +13,7 @@ function proseslogin()
 			$data = $query->row_array();
 			if(password_verify($password,$data['password'])){
 					$array=[
+                        'nama_lengkap'=>$data['nama_lengkap'],
 						'id_admin'=>$data['id_admin'],
 						'email'=>$data['email'],
 					];	
@@ -31,6 +32,7 @@ function proseslogin()
 			$data1 = $query1->row_array();
 			if(password_verify($password,$data1['password'])){
 					$array1=[
+						'nama_lengkap'=>$data1['nama_lengkap'],
 						'id_member'=>$data1['id_member'],
 						'email'=>$data1['email'],
 					];	
@@ -46,6 +48,18 @@ function proseslogin()
                 $this->session->set_flashdata(['pesan' => 'Anda belum punya akun', 'color' => 'danger']);
                redirect(base_url('auth/login'), 'refresh');
             }
+        }
+    }
+
+    public function get_full_name($id_member) {
+        $this->db->select('nama_lengkap');
+        $this->db->where('id_member', $id_member);
+        $query = $this->db->get('tbmember');
+
+        if ($query->num_rows() > 0) {
+            return $query->row()->$nama_lengkap;
+        } else {
+            return false;
         }
     }
 

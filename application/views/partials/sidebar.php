@@ -13,15 +13,15 @@
     <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
       <i class="bi bi-journal-text"></i><span>Catatan Member</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>
-    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="<?php echo base_url('cmember/catatnutrisi') ?>">
-          <i class="bi bi-circle"></i><span>Catatan Nutrisi</span>
+    <ul id="forms-nav" class="nav-content collapse text" data-bs-parent="#sidebar-nav" >
+      <li >
+        <a href="<?php echo base_url('cmember/catatnutrisi') ?>" class="text-decoration-none">
+          <i class="bi bi-circle"></i><span class="text-light">Catatan Nutrisi</span>
         </a>
       </li>
       <li>
-        <a href="<?php echo base_url('cmember/catataktivitas') ?>">
-          <i class="bi bi-circle"></i><span>Catatan Aktivitas</span>
+        <a href="<?php echo base_url('cmember/catataktivitas') ?>" class="text-decoration-none">
+          <i class="bi bi-circle"></i><span  class="text-light">Catatan Aktivitas</span>
         </a>
       </li>
 
@@ -35,13 +35,13 @@
     </a>
     <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="<?php echo base_url('cmember/tampilnutrisi') ?>">
-          <i class="bi bi-circle"></i><span>Data Nutrisi</span>
+        <a href="<?php echo base_url('cmember/tampilnutrisi') ?>" class="text-decoration-none" >
+          <i class="bi bi-circle"></i><span class="text-light">Data Nutrisi</span>
         </a>
       </li>
       <li>
-        <a href="<?php echo base_url('cmember/tampilaktivitas') ?>">
-          <i class="bi bi-circle"></i><span>Data Aktivitas</span>
+        <a href="<?php echo base_url('cmember/tampilaktivitas') ?>" class="text-decoration-none">
+          <i class="bi bi-circle"></i><span class="text-light">Data Aktivitas</span>
         </a>
       </li>
     </ul>
@@ -53,15 +53,15 @@
     </a>
     <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="charts-chartjs.html">
-          <i class="bi bi-circle"></i><span>Laporan Nutrisi</span>
+        <a href="charts-chartjs.html" class="text-decoration-none">
+          <i class="bi bi-circle"></i><span class="text-light">Laporan Nutrisi</span>
         </a>
       </li>
     </ul>
     <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="charts-chartjs.html">
-          <i class="bi bi-circle"></i><span>Laporan Aktivitas</span>
+        <a href="charts-chartjs.html" class="text-decoration-none">
+          <i class="bi bi-circle"></i><span class="text-light">Laporan Aktivitas</span>
         </a>
       </li>
     </ul>
