@@ -3,7 +3,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link " href="<?php echo base_url('cdashboard') ?>">
+    <a class="nav-link " href="<?php echo base_url('cmember') ?>">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>
@@ -15,12 +15,12 @@
     </a>
     <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="<?php echo base_url('cdashboard/catatnutrisi') ?>">
+        <a href="<?php echo base_url('cmember/catatnutrisi') ?>">
           <i class="bi bi-circle"></i><span>Catatan Nutrisi</span>
         </a>
       </li>
       <li>
-        <a href="<?php echo base_url('cdashboard/catataktivitas') ?>">
+        <a href="<?php echo base_url('cmember/catataktivitas') ?>">
           <i class="bi bi-circle"></i><span>Catatan Aktivitas</span>
         </a>
       </li>
@@ -35,12 +35,12 @@
     </a>
     <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="<?php echo base_url('cdashboard/tampilnutrisi') ?>">
+        <a href="<?php echo base_url('cmember/tampilnutrisi') ?>">
           <i class="bi bi-circle"></i><span>Data Nutrisi</span>
         </a>
       </li>
       <li>
-        <a href="<?php echo base_url('cdashboard/tampilaktivitas') ?>">
+        <a href="<?php echo base_url('cmember/tampilaktivitas') ?>">
           <i class="bi bi-circle"></i><span>Data Aktivitas</span>
         </a>
       </li>
