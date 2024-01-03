@@ -8,7 +8,7 @@
         //     $this->db->insert('tbaktivitas',$data);
         //     $this->session->set_flashdata('pesan','Data berhasil disimpan');
         //     redirect('cdashboard/catataktivitas','refresh');
-        // }
+        // }.l
         //GAGALLLL
         function simpanaktivitas()
         {
