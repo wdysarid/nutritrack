@@ -17,14 +17,14 @@ class Mmakanan extends CI_Model{
     //         $this->db->update('tbmakanan',$data);
     //         $this->session->set_flashdata('pesan','Data berhasil diedit');
     //     }
-    //     redirect('cdashboardadmin/tambahmakanan','refresh');
+    //     redirect('cadmin/tambahmakanan','refresh');
     // }
             function simpanmakanan()
         {
             $data=$_POST;
             $this->db->insert('tbmakanan',$data);
             $this->session->set_flashdata('pesan','Data berhasil disimpan');
-            redirect('cdashboardadmin/tambahmakanan','refresh');
+            redirect('cadmin/tambahmakanan','refresh');
         }
     function getmakanan(){
         return $this->db->get('catatnutrisi')->result();

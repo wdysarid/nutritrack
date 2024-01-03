@@ -14,7 +14,7 @@
                 $this->db->update('tbnutrisi',$data);
                 $this->session->set_flashdata('pesan','Data berhasil diedit');
             }
-            redirect('cdashboard/catatnutrisi','refresh');
+            redirect('cmember/catatnutrisi','refresh');
         }
 
         //cara memanggil view
@@ -27,7 +27,7 @@
         $this->db->where('id_nutrisi',$id_nutrisi);
         $this->db->delete('tbnutrisi');
         $this->session->set_flashdata('pesan','Data berhasil dihapus');
-        redirect('cdashboard/catatnutrisi','refresh');
+        redirect('cmember/catatnutrisi','refresh');
     }
     function editnutrisi($id_nutrisi){
         $query=$this->db->get_where('tbnutrisi',['id_nutrisi'=>$id_nutrisi]);

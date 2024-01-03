@@ -7,7 +7,7 @@
         //    $data['lama_aktivitas']= (strtotime($data['waktu_selesai'])-strtotime($data['waktu_mulai'])) /60;
         //     $this->db->insert('tbaktivitas',$data);
         //     $this->session->set_flashdata('pesan','Data berhasil disimpan');
-        //     redirect('cdashboard/catataktivitas','refresh');
+        //     redirect('cmember/catataktivitas','refresh');
         // }
         //GAGALLLL
         function simpanaktivitas()
@@ -29,7 +29,7 @@
                 $this->session->set_flashdata('pesan', 'Data berhasil diedit');
             }
         
-            redirect('cdashboard/catataktivitas', 'refresh');
+            redirect('cmember/catataktivitas', 'refresh');
         }
         
         
@@ -42,7 +42,7 @@
             $this->db->where('id_aktivitas',$id_aktivitas);
             $this->db->delete('tbaktivitas');
             $this->session->set_flashdata('pesan','Data berhasil dihapus');
-            redirect('cdashboard/catataktivitas','refresh');
+            redirect('cmember/catataktivitas','refresh');
         }
         function editaktivitas($id_aktivitas){
             $query=$this->db->get_where('tbaktivitas',['id_aktivitas'=>$id_aktivitas]);
