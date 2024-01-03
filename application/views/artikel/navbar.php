@@ -1,7 +1,8 @@
 
 <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #1E5128">
     <div class="container">
-        <a class="navbar-brand text-white" href="index.html"><strong>Nutri</strong>Track</a>
+        <a class="navbar-brand text-white" href="index.html">
+        <img src="assets/img/logo.png" alt="NutriTrack Logo" height="60" class="mr-2"><strong>Nutri</strong>Track</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
