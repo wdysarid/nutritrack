@@ -32,9 +32,6 @@
 </head>
 <body>
 
-<div class="artikel1 artikel1-fluid text-center" style="background-image: url(<?=base_url()?>assets/img/mknartikel1.jpg)";>
-  
-
 <style>
   article {
     max-width: 900px; /* Atur lebar maksimum artikel */
@@ -48,8 +45,6 @@
   }
 </style>
 <article>
-<div class="artikel1 artikel1-fluid text-center" style="background-image: url(<?=base_url()?>assets/img/mknsehat.jpg)";>
-  
     <header>
       <h1><center>Menggali Manfaat Sehat <br> Dari Konsumsi Makanan Seimbang</center></h1>
     </header>

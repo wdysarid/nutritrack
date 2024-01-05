@@ -8,12 +8,12 @@
 			'navbar' => 'artikel/navbar',
 			'footer' => 'artikel/footer'
 			];
-			$this->load->view('artikel/landingpage',$data);	
+			$this->load->view('artikel/index',$data);	
 		}
 		
-		function artikel1()
+		function blog()
 		{
-			$this->load->view('artikel/artikel1');
+			$this->load->view('artikel/blog');
 		}
 
 		function artikel2()

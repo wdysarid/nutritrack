@@ -51,7 +51,7 @@
     <h1>Konsumsi Makanan Sehat Tiap Harinya</h1>
   </header>
 
-  <article>
+  <article id="article1">
     <p>Makanan sehat sangat penting untuk memastikan tubuh mendapatkan asupan nutrisi yang cukup setiap hari. Makanan sehat bukan hanya tentang rasa yang lezat, tetapi juga tentang memberikan nutrisi yang diperlukan untuk menjaga kesehatan tubuh.</p>
 
     <p><strong>Apa yang Dimaksud dengan Makanan Sehat?</strong></p>
