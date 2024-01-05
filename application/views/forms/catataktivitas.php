@@ -75,6 +75,8 @@
     			<div id="reportsChart">
     			</div>
           <div class="card-body">
+		  <div class="" style="overflow: scroll;">
+
 <table class="table display" id="myTable" >
   <thead>
     <tr>
@@ -122,6 +124,8 @@
   </tbody>
 </table>
   </div>
+  </div>
+
 </div>
 </div>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>

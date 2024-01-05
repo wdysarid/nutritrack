@@ -12,7 +12,7 @@
 			// $data['admin'] = $this->db->get_where('tbadmin', ['email' => $this->session->userdata('email')])->row_array();
 			$data=[
 			'header' => 'partials/header',
-            'navbar' => 'partials/navbar',
+            'navbaradmin' => 'partials/navbaradmin',
             'sidebaradmin' => 'partials/sidebaradmin',
 			'footer' => 'partials/footer'
 			];
@@ -23,7 +23,7 @@
 		{
 			$data=[
 			'header' => 'partials/header',
-            'navbar' => 'partials/navbar',
+            'navbaradmin' => 'partials/navbaradmin',
             'sidebaradmin' => 'partials/sidebaradmin',
 			'footer' => 'partials/footer'
 			];
@@ -35,7 +35,7 @@
 		{
 			$data=[
 				'header' => 'partials/header',
-				'navbar' => 'partials/navbar',
+				'navbaradmin' => 'partials/navbaradmin',
 				'sidebaradmin' => 'partials/sidebaradmin',
 				'footer' => 'partials/footer'
 			];

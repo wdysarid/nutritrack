@@ -47,18 +47,6 @@
     </ul>
   </li><!-- End Tables Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-bar-chart"></i><span>Laporan Harian</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="<?php echo base_url('cmember/tampilnutrisiharian') ?>" class="text-decoration-none">
-          <i class="bi bi-circle"></i><span class="text-light">Laporan Nutrisi</span>
-        </a>
-      </li>
-    </ul>
-  </li><!-- End Charts Nav -->
 </ul>
 
 

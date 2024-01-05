@@ -17,6 +17,7 @@ function proseslogin()
 					$array=[
                         'nama_lengkap'=>$data['nama_lengkap'],
 						'id_admin'=>$data['id_admin'],
+                        'username'=>$data['username'],
 						'email'=>$data['email'],
 					];	
 					$this->session->set_userdata($array);	
@@ -35,8 +36,12 @@ function proseslogin()
 			if(password_verify($password,$data1['password'])){
 					$array1=[
 						'nama_lengkap'=>$data1['nama_lengkap'],
+                        'username'=>$data1['username'],
 						'id_member'=>$data1['id_member'],
 						'email'=>$data1['email'],
+                        'jenis_kelamin'=>$data1['jenis_kelamin'],
+                        'password'=>$data1['password'],
+                        'tgl_lahir'=>$data1['tgl_lahir'],
 					];	
 					$this->session->set_userdata($array1);	
 					redirect(base_url('cmember/index'),'refresh');
@@ -54,17 +59,17 @@ function proseslogin()
     }
 
     //profile
-    public function get_full_name($id_member) {
-        $this->db->select('nama_lengkap');
-        $this->db->where('id_member', $id_member);
-        $query = $this->db->get('tbmember');
+    // public function get_full_name($id_member) {
+    //     $this->db->select('nama_lengkap');
+    //     $this->db->where('id_member', $id_member);
+    //     $query = $this->db->get('tbmember');
 
-        if ($query->num_rows() > 0) {
-            return $query->row()->$nama_lengkap;
-        } else {
-            return false;
-        }
-    }
+    //     if ($query->num_rows() > 0) {
+    //         return $query->row()->$nama_lengkap;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
     public function prosesregister()
     {
@@ -85,5 +90,8 @@ function proseslogin()
     function getdatamember(){
         return $this->db->get('tbmember')->result();
     }
+    // function getdataadmin(){
+    //     return $this->db->get('tbadmin')->result();
+    // }
 }
 ?>

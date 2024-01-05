@@ -27,10 +27,10 @@
       <th scope="col">Tanggal</th>
       <th scope="col">Nama Makanan</th>
       <th scope="col">Jumlah</th>
+      <th scope="col">Kalori</th>
       <th scope="col">Karbohidrat</th>
       <th scope="col">Protein</th>
       <th scope="col">Lemak</th>
-      <th scope="col">Kalori</th>
       <th scope="col">Keterangan</th>
 
     </tr>
@@ -46,10 +46,10 @@
       <td><?php echo date('d-m-Y', strtotime($row->tgl_catatan)) ?></td>
       <td><?php echo $row->nama_makanan?></td>
       <td><?php echo $row->jumlah. " ". $row->satuan ?></td>
-      <td><?php echo $row->karbohidrat?> gram</td>
-      <td><?php echo $row->protein?> gram</td>
-      <td><?php echo $row->lemak?> gram</td>
       <td><?php echo $row->total_kalori?> kkal</td>
+      <td><?php echo $row->total_karbohidrat?> gr</td>
+      <td><?php echo $row->total_protein?> gr</td>
+      <td><?php echo $row->total_lemak?> gr</td>
       <td><?php echo $row->keterangan?></td>
 
     </tr>

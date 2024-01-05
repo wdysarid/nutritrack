@@ -21,6 +21,9 @@
         function getnutrisi(){
         return $this->db->get('catatnutrisi')->result();
         }
+        function getnutrisihr(){
+            return $this->db->get('nutrisiharian')->result();
+        }
 
     function hapusnutrisi($id_nutrisi)
     {
