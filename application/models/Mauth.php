@@ -19,8 +19,8 @@ function proseslogin()
 					$this->session->set_userdata($array);	
 					redirect(base_url('cadmin/index'),'refresh');
 			}else{
-				$this->session->set_flashdata(['pesan'=>'password salah','color'=>'danger']);
-				redirect(base_url('auth/login'),'refresh');
+				$this->session->set_flashdata(['pesan'=>'Password salah','color'=>'danger']);
+				redirect(base_url('auth/login'),'refresh'); 
 			}
 		}
     
@@ -37,33 +37,52 @@ function proseslogin()
 					$this->session->set_userdata($array1);	
 					redirect(base_url('cmember/index'),'refresh');
 			}else{
-				$this->session->set_flashdata(['pesan'=>'password salah','color'=>'danger']);
+				$this->session->set_flashdata(['pesan'=>'Password salah','color'=>'danger']);
 				redirect(base_url('auth/login'),'refresh');
 			}
 		}
        // If not found in tb_admin and tb_member
             else {
-                $this->session->set_flashdata(['pesan' => 'Anda belum punya akun', 'color' => 'danger']);
-               redirect(base_url('auth/login'), 'refresh');
+                $this->session->set_flashdata(['pesan' => 'Akun anda belum terdaftar, silahkan daftar!', 'color' => 'danger']);
+                redirect(base_url('auth/login'), 'refresh');
             }
         }
     }
 
     public function prosesregister()
     {
-        $data = [
-            'nama_lengkap' => $this->input->post('nama_lengkap'),
-            'username' => $this->input->post('username'),
-            'email' => $this->input->post('email'),
-            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-            'tgl_lahir' => $this->input->post('tgl_lahir'),
-            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-        ];
+        $this->load->library('form_validation');
 
-        $this->db->insert('tbmember', $data);
+        $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]', [
+            'min_length' => 'Password too short!']);
 
-        $this->session->set_flashdata(['pesan' => 'Berhasil Register...', 'color' => 'success']);
-        redirect(base_url('auth/register'), 'refresh');
+        if ($this->form_validation->run() == FALSE) {
+            $this->RegisterError(validation_errors());
+        } else {
+            $data = [
+                'nama_lengkap' => $this->input->post('nama_lengkap'),
+                'username' => $this->input->post('username'),
+                'email' => $this->input->post('email'),
+                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                'tgl_lahir' => $this->input->post('tgl_lahir'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            ];
+
+            $this->db->insert('tbmember', $data);
+
+            $this->session->set_flashdata(['pesan' => 'Berhasil Register...', 'color' => 'success']);
+            redirect(base_url('auth/register'), 'refresh');
+        }
     }
+        private function RegisterError($message)
+            {
+                $this->session->set_flashdata(['pesan' => $message, 'color' => 'danger']);
+                redirect(base_url('auth/register'), 'refresh');
+            }
 }
 ?>
