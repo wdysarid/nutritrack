@@ -35,15 +35,15 @@ body {
 /* /Navbar/ */
 .navbar {
 	margin-top: -32px;
-	color: #A4BC92
+	color: #9ED2BE
 }
 
 .navbar .navbar-nav .nav-link {
-	color: #A4BC92(239, 231, 231);
+	color: #9ED2BE(239, 231, 231);
 }
 
 .navbar .navbar-nav .nav-link:hover {
-	color: rgba(77, 226, 134, 0.326);
+	color: #9ED2BE(77, 226, 134, 0.326);
 }
 
 .navbar .navbar-brand  {
@@ -116,7 +116,7 @@ body {
 }
 
 header {
-    background-color: #A4BC92;
+    background-color: #0e4378;
     color: white;
     text-align: center;
     padding: 0.5em; /* Mengurangi padding */

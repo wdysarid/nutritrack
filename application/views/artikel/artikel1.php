@@ -13,6 +13,11 @@
       color: #333;
     }
 
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     article {
       max-width: 800px;
       margin: 0 auto;
@@ -22,19 +27,25 @@
       border-radius: 8px;
     }
 
-    blockquote {
-      margin: 0;
-      padding: 0 20px; /* Menentukan jumlah indentasi */
-      color: #555;
-      border-left: 4px solid #ddd; /* Memberikan garis kiri */
+    h1 {
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    strong {
+      color: #007bff;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
     }
   </style>
 </head>
 <body>
-
-<div class="artikel1 artikel1-fluid text-center" style="background-image: url(<?=base_url()?>assets/img/mknartikel1.jpg)";>
-  
-
 <style>
   article {
     max-width: 900px; /* Atur lebar maksimum artikel */
@@ -48,12 +59,17 @@
   }
 </style>
 <article>
-<div class="artikel1 artikel1-fluid text-center" style="background-image: url(<?=base_url()?>assets/img/mknsehat.jpg)";>
-  
+<div class="artikel artikel-fluid text-center" style="background-image: url(<?=base_url()?>assets/img/bg15.jpg); background-size: cover; background-position: center; height: 300px;">
+    <div class="container">
+    </div>
+</div>
     <header>
       <h1><center>Menggali Manfaat Sehat <br> Dari Konsumsi Makanan Seimbang</center></h1>
     </header>
 
+    <p>Makanan sehat untuk tubuh memiliki manfaat yang luar biasa. Tubuh memerlukan berbagai
+      asupan untuk menunjang kinerja organ tubuh dan kesehatan menjadi lebih baik. Makanan sehat merupakan 
+      makanan yang mengandung unsur-unsur yang dibutuhkan tubuh.</p>
     
       <p>Pentingnya mengonsumsi makanan sehat tidak dapat dipandang sebelah mata. Gaya hidup yang sibuk dan 
         tuntutan pekerjaan seringkali membuat kita mengabaikan pentingnya pola makan yang seimbang. 
@@ -109,9 +125,12 @@
       kita dapat meraih manfaat kesehatan yang komprehensif dan meningkatkan kualitas hidup kita secara keseluruhan. 
       Sebuah perubahan kecil dalam pola makan dapat menghasilkan perbedaan besar dalam kesehatan jangka panjang.</p>
 
-    
-
+    <button onclick="goBack()" class="back-button">Kembali ke Halaman Artikel</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
   </article>
-
 </body>
 </html>
