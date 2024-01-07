@@ -36,7 +36,7 @@
             'navbar' => 'partials/navbar',
             'sidebar' => 'partials/sidebar',
 			'footer' => 'partials/footer',
-			'data_makanan'=>$this->mmakanan->get_makanan()
+			'data_makanan'=>$this->mmakanan->getmakanan()
 			];
 			$this->load->model('mnutrisi');
 			$data['data_nutrisiform']=$this->mnutrisi->getnutrisi();

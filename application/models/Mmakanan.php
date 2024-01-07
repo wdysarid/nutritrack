@@ -1,7 +1,6 @@
 <?php
 class Mmakanan extends CI_Model{
-    public function get_makanan()
-    {
+    function getmakanan(){
         return $this->db->get('tbmakanan')->result();
     }
     function simpanmakanan()
@@ -18,9 +17,6 @@ class Mmakanan extends CI_Model{
             $this->session->set_flashdata('pesan','Data berhasil diedit');
         }
         redirect('cadmin/tambahmakanan','refresh');
-    }
-    function getmakanan(){
-        return $this->db->get('tbmakanan')->result();
     }
 
     function hapusmakanan($id_makanan)

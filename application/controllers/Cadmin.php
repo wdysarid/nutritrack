@@ -7,6 +7,7 @@
              $this->load->model('mvalidasi');
 			 $this->load->model('mmakanan');
 			 $this->load->model('mauth');
+			 $this->load->model('martikel');
              $this->mvalidasi->validasi();
 		}
 		public function index()
