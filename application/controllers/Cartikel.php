@@ -20,4 +20,5 @@
 			$this->martikel->editartikel($id_artikel);
 		}
 	}
+	
 ?>
