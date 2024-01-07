@@ -133,7 +133,7 @@
 											<div id="reportsChart">
 											</div>
 							<div class="card-body">
-							<button type="button" class="btn btn-warning mb-3" >Cetak Data Harian</button>
+							<button type="button" class="btn btn-warning mb-3" onclick="cetaknutrisihr()" >Cetak Data Harian</button>
 							<div class="" style="overflow: scroll;">
 							<table class="table display" id="myTable" >
 							<thead>
@@ -193,5 +193,10 @@
 	</section>
 
 </main><!-- End #main -->
-
+	<script>    
+		function cetaknutrisihr()
+		{
+				window.open("<?php echo base_url() ?>cnutrisi/cetaknutrisihr","_blank");	
+		}
+	</script>
 <?php $this->load->view($footer);?>

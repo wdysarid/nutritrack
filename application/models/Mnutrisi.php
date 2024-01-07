@@ -44,5 +44,6 @@
             echo "<script>$('#keterangan').val('".$data->keterangan."')</script>";
         }
     }
+
     }
 ?>

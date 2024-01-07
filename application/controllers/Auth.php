@@ -23,23 +23,7 @@ class Auth extends CI_Controller
     {
         $this->mauth->proseslogin();
     }
-
-    // public function profile() {
-    //     // Make sure the user is logged in
-    // $this->mauth->login();
-
-    //     // Get the user ID from the session
-    // $id_member = $this->session->userdata('id_member');
-
-    //     // Load the m auth
-    //     $this->load->model('mauth');
-
-    //     // Fetch the full name from the database
-    //     $data['nama_lengkap'] = $this->mauth->get_full_name($id_member);
-
-    //     // Load your profile view with the full name data
-    //     $this->load->view('profile', $data);
-    // }
+    
     public function profile()
     {
         $data=[
