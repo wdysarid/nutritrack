@@ -1,4 +1,4 @@
-<?php $this->load->view($header);?>
+<!-- <?php $this->load->view($header);?>
 <!-- Navbar -->
 <?php $this->load->view($navbar);?>
 <!--Artikel-->
@@ -10,7 +10,7 @@
         /* Sesuaikan margin bottom dalam piksel sesuai keinginan Anda */
     }
 </style>
-<header>
+<!-- <header>
 <<<<<<< HEAD
     <h1>Artikel </h1>     
 </header >
@@ -39,7 +39,7 @@
                     <button class="btn btn-primary btn-lg btn-block" onclick="artikel1()">Read More</button>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="col-md-4">
             <div class="card mb-3" style="background-color: #a8debd">
                 <img src="<?php echo base_url().'assets/img/polasehat.jpg';?>" class="card-img-top" alt="...">
@@ -163,4 +163,4 @@
         </div>
     </div>
     <!-- Akhir benefits -->
-    <?php $this->load->view($footer);?>
+    <?php $this->load->view($footer);?> -->
