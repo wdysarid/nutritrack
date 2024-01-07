@@ -3,21 +3,37 @@ class Martikel extends CI_Model{
     function getartikel(){
         return $this->db->get('tbartikel')->result();
     }
-    function simpanartikel()
+    public function simpanartikel()
     {
-        $data=$_POST;
-        $id_artikel=$data['id_artikel'];
-        if(empty($id_artikel)){
-            $this->db->insert('tbartikel',$data);
-            $this->session->set_flashdata('pesan','Data berhasil disimpan');
+        $data = array(
+            'judul_artikel' => $this->input->post('judul_artikel'),
+            'tgl_upload' => $this->input->post('tgl_upload'),
+            'deskripsi' => $this->input->post('deskripsi')
+        );
+
+        // Upload Image
+        $config['upload_path'] = 'assets/imgadmin/'; // Specify your upload directory
+        $config['allowed_types'] = 'gif|jpg|jpeg|png'; // Specify allowed file types
+        $config['max_size'] = 1024; // Specify max file size in KB
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('gambar')) {
+            $upload_data = $this->upload->data();
+            $data['gambar'] = $upload_data['file_name']; // Use 'file_name' to get the uploaded file's name
+        } else {
+            $error = $this->upload->display_errors();
+            // Handle the error
+            echo $error;
+            return false;
         }
-        else{
-            $this->db->where('id_artikel',$id_artikel);
-            $this->db->update('tbartikel',$data);
-            $this->session->set_flashdata('pesan','Data berhasil diedit');
-        }
+
+        // Insert data into the database
+        $this->db->insert('tbartikel', $data);
+        // Redirect or show success message
         redirect('cadmin/tambahartikel','refresh');
     }
+
 
     function hapusartikel($id_artikel)
     {

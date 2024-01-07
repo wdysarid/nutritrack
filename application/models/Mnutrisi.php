@@ -25,6 +25,11 @@
             return $this->db->get('nutrisiharian')->result();
         }
 
+        function getnutrisictk($id_member){
+            return $this->db->get_where('nutrisiharian',['id_member'=>$id_member])->row();
+        }
+        
+
     function hapusnutrisi($id_nutrisi)
     {
         $this->db->where('id_nutrisi',$id_nutrisi);

@@ -31,8 +31,7 @@
                 }
             ?>
 		</div>
-		<form class="card-body" name="simpanformartikel" method="post"
-			action="<?php echo base_url('cartikel/psimpanartikel');?>">
+		<form class="card-body" name="simpanformartikel" method="post" enctype="multipart/form-data" action="<?php echo base_url('cartikel/psimpanartikel');?>">
 			<input type="hidden" name="id_admin" id="id_admin"
 				value="<?php echo $this->session->userdata('id_admin')?>">
 			<input type="hidden" name="id_artikel" id="id_artikel">
