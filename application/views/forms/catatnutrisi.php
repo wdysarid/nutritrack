@@ -18,7 +18,7 @@
 			</nav>
 		</div>
 		<div class="card">
-			<h5 class="card-title" style="padding-left: 15px;">Catatan Nutrisi<span>/Today</span></h5>
+			<h5 class="card-title" style="padding-left: 15px;">Catatan Nutrisi<span> /form</span></h5>
 			<div id="reportsChart">
 				<?php
                     $pesan = $this->session->flashdata('pesan');
@@ -74,18 +74,21 @@
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 	<main id="main" class="main">
 		<div class="card">
-			<h5 class="card-title" style="padding-left: 15px;">Data Catatan<span>/All</span></h5>
+			<h5 class="card-title" style="padding-left: 15px;">Data Catatan<span> /All</span></h5>
 			<div id="reportsChart">
 			</div>
 			<div class="card-body">
+			<div class="" style="overflow: scroll;">
+
 				<table class="table display" id="myTable">
 					<thead>
 						<tr>
 							<th scope="col">No.</th>
 							<th scope="col">Tanggal</th>
 							<th scope="col">Nama Makanan</th>
-							<th scope="col">Kalori</th>
 							<th scope="col">Jumlah</th>
+							
+							<th scope="col">Total Kalori</th>
 							<th scope="col">Keterangan</th>
 							<th scope="col">Aksi</th>
 						</tr>
@@ -100,8 +103,9 @@
 							<th scope="row"><?php echo $no++?></th>
 							<td><?php echo date('d-m-Y', strtotime($row->tgl_catatan)) ?></td>
 							<td><?php echo $row->nama_makanan?></td>
-							<td><?php echo $row->kalori?></td>
 							<td><?php echo $row->jumlah. " ". $row->satuan ?></td>
+							
+							<td><?php echo $row->total_kalori?> kkal</td>
 							<td><?php echo $row->keterangan?></td>
 							<td>
 								<button type="button" class="btn btn-warning"
@@ -116,6 +120,7 @@
 					</tbody>
 				</table>
 			</div>
+</div>
 		</div>
 		</div>
 		<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>

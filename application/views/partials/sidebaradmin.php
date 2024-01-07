@@ -13,7 +13,14 @@
       <span>Tambah Makanan</span>
     </a>
   </li><!-- End Forms Nav -->
-  
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="<?php echo base_url('cadmin/tambahartikel') ?>">
+      <i class="bi bi-journal-text"></i>
+      <span>Tambah Artikel</span>
+      <i class="bi bi-chevron"></i>
+    </a>
+  </li><!-- End Forms Nav -->
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="<?php echo base_url('cadmin/dataakunmember') ?>">
@@ -21,5 +28,6 @@
       <span>Data Akun Member</span>
     </a>
   </li><!-- End Tables Nav -->
+
 </ul>
 </aside><!-- End Sidebar-->

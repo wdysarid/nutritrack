@@ -1,15 +1,5 @@
 <?php
     class Maktivitas extends CI_Model{
-        //fungsi simpan
-        // function simpanaktivitas()
-        // {
-        //     $data=$_POST;
-        //    $data['lama_aktivitas']= (strtotime($data['waktu_selesai'])-strtotime($data['waktu_mulai'])) /60;
-        //     $this->db->insert('tbaktivitas',$data);
-        //     $this->session->set_flashdata('pesan','Data berhasil disimpan');
-        //     redirect('cdashboard/catataktivitas','refresh');
-        // }.l
-        //GAGALLLL
         function simpanaktivitas()
         {
             $data = $_POST;

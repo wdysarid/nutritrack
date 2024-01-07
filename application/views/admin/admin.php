@@ -1,6 +1,6 @@
 <?php $this->load->view($header);?>
 <!-- ======= Navbar ======= -->
-<?php $this->load->view($navbar);?>
+<?php $this->load->view($navbaradmin);?>
 
 <!-- ======= Sidebar ======= -->
 <?php $this->load->view($sidebaradmin);?>

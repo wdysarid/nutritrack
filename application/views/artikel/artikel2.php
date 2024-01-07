@@ -62,9 +62,14 @@
          serta meningkatkan produktivitas. Jangan tunda untuk mulai merencanakan dan menerapkan kebiasaan gaya hidup
           sehat.</p>
 
+<<<<<<< HEAD
       <p>Meskipun sulit untuk keluar dari kebiasaan lama, terapkan gaya hidup sehat secara bertahap namun konsisten.
          Meski perlahan namun dampak yang dirasakan cukup signifikan, yakni dapat memberi lebih banyak energi pada tubuh, 
          meningkatkan kesehatan mental, dan menyingkirkan penyakit.</p>
+=======
+  <article id="article1">
+    <p>Makanan sehat sangat penting untuk memastikan tubuh mendapatkan asupan nutrisi yang cukup setiap hari. Makanan sehat bukan hanya tentang rasa yang lezat, tetapi juga tentang memberikan nutrisi yang diperlukan untuk menjaga kesehatan tubuh.</p>
+>>>>>>> 641e5f51c029f18b75dc7da3eb26a6004a16b420
 
          <p>Berikut lima langkah mudah menuju pola hidup sehat.</p>
           
