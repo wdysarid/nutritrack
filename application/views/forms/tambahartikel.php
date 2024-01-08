@@ -53,7 +53,7 @@
 
 			<div class="form-group mb-3">
 				<h6>Tanggal Upload</h6>
-				<input type="date" name="tgl_upload" id="tgl_upload" placeholder="Tanggal upload" class="form-control">
+				<input type="datetime-local" name="tgl_upload" id="tgl_upload" placeholder="Tanggal upload" class="form-control">
 			</div>
 
 			<div class="form-group mb-3">
