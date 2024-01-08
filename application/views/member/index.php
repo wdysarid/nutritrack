@@ -133,7 +133,8 @@
 											<div id="reportsChart">
 											</div>
 							<div class="card-body">
-							<button type="button" class="btn btn-warning mb-3" onclick="cetaknutrisihr()" >Cetak Data Harian</button>
+							<a class="btn btn-primary mb-3"  href="<?php echo base_url('cmember/catatnutrisi') ?>">Form Catat Nutrisi</a>
+							<button type="button" class="btn btn-warning mb-3" onclick="cetaknutrisihr(<?= $this->session->userdata('id_member');?>)" >Cetak Data Harian</button>
 							<div class="" style="overflow: scroll;">
 							<table class="table display" id="myTable" >
 							<thead>
@@ -182,8 +183,6 @@
 								let table = new DataTable('#myTable');
 
 							</script> 
-
-
 							</div>
 
 						</div>
@@ -194,9 +193,9 @@
 
 </main><!-- End #main -->
 	<script>    
-		function cetaknutrisihr()
+		function cetaknutrisihr(id_member)
 		{
-				window.open("<?php echo base_url() ?>cnutrisi/cetaknutrisihr","_blank");	
+				window.open("<?php echo base_url() ?>cnutrisi/cetaknutrisihr/"+id_member,"_blank");	
 		}
 	</script>
 <?php $this->load->view($footer);?>

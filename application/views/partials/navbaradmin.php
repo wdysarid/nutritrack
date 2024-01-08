@@ -60,8 +60,7 @@
             <span>Sign Out</span>
           </a>
         </li>
-      </ul><!-- End Profile Dropdown Items -->
-      
+      </ul><!-- End Profile Dropdown Items -->  
     </li><!-- End Profile Nav -->
 
   </ul>

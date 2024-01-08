@@ -21,12 +21,13 @@
 		}
 
 
-		function cetaknutrisihr($id_member,$id_nutrisi)
+		function cetaknutrisihr($id_member)
         {
-            $data1['data_nutrisihr']=$this->mnutrisi->getnutrisi($id_member,$id_nutrisi);
+            $data1['data_nutrisihr']=$this->mnutrisi->getnutrisictk($id_member);
+			require_once(APPPATH . 'libraries/dompdf/autoload.inc.php');
             $pdf = new Dompdf\Dompdf();
 
-            $pdf->setPaper('a4', 'portrait');
+            $pdf->setPaper('a4', 'landscape');
             $pdf->set_option('isRemoteEnabled', TRUE);
             $pdf->set_option('isHtml5ParserEnabled', true);
             $pdf->set_option('isPhpEnabled', true);
