@@ -44,30 +44,85 @@
       padding-left: 20px;
     }
   </style>
-</head>
-<body>
+<article>
+<div class="artikel artikel-fluid text-center" style="background-image: url(<?=base_url()?>assets/img/bg15.jpg); background-size: cover; background-position: center; height: 300px;">
+    <div class="container">
+    </div>
+</div>
+    <header>
+      <h1><center>Tips Menjaga Pola Hidup Sehat</center></h1>
+    </header>
+    
+      <p>Pola hidup sehat sebaiknya dijalankan sejak dini agar terhindar dari berbagai serangan penyakit. 
+        Penyakit yang mengintai akibat pola hidup yang buruk antara lain diabetes, gagal ginjal, kanker,
+         maupun penyakit kardiovaskular seperti stroke, darah tinggi, dan jantung.Sebaliknya, apabila menerapkan 
+         pola hidup sehat nantinya akan memberi efek yang luar biasa dan terhindar dari penyakit tersebut.</p>
 
-  <header>
-    <h1>Konsumsi Makanan Sehat Tiap Harinya</h1>
-  </header>
+      <p>Dengan memiliki kesehatan tubuh yang lebih baik, Anda dapat merasa lebih semangat dalam menjalani hidup
+         serta meningkatkan produktivitas. Jangan tunda untuk mulai merencanakan dan menerapkan kebiasaan gaya hidup
+          sehat.</p>
 
+<<<<<<< HEAD
+      <p>Meskipun sulit untuk keluar dari kebiasaan lama, terapkan gaya hidup sehat secara bertahap namun konsisten.
+         Meski perlahan namun dampak yang dirasakan cukup signifikan, yakni dapat memberi lebih banyak energi pada tubuh, 
+         meningkatkan kesehatan mental, dan menyingkirkan penyakit.</p>
+=======
   <article id="article1">
     <p>Makanan sehat sangat penting untuk memastikan tubuh mendapatkan asupan nutrisi yang cukup setiap hari. Makanan sehat bukan hanya tentang rasa yang lezat, tetapi juga tentang memberikan nutrisi yang diperlukan untuk menjaga kesehatan tubuh.</p>
+>>>>>>> 641e5f51c029f18b75dc7da3eb26a6004a16b420
 
-    <p><strong>Apa yang Dimaksud dengan Makanan Sehat?</strong></p>
-    <p>Makanan sehat adalah jenis makanan yang menyediakan nutrisi yang diperlukan oleh tubuh untuk menjalankan fungsinya dengan baik. Nutrisi tersebut mencakup protein, karbohidrat, lemak, vitamin, dan mineral. Makanan sehat juga harus seimbang dan mengandung berbagai jenis nutrisi agar tubuh dapat berfungsi optimal.</p>
+         <p>Berikut lima langkah mudah menuju pola hidup sehat.</p>
+          
+    <blockquote>
+      <p><strong>1. Perhatikan Menu Diet:</strong></p>
+      <p>Untuk mempertahankan gaya hidup sehat, Anda harus makan makanan sehat seperti sayur dan buah. Makanlah sedikit karbohidrat,
+         garam, lemak tidak sehat, dan hindari junk food. Anda bisa meminum segelas jus dan buah di pagi hari dan porsi sayuran yang 
+         berbeda setiap kali makan. Sayuran hijau dan buah-buahan mengandung banyak nutrisi seperti vitamin dan antioksidan yang membantu 
+         meningkatkan sistem kekebalan tubuh dan melawan penyakit yang menyebabkan racun. Antioksidan membantu melawan penyakit mata, meningkatkan
+          kesehatan kulit, dan kesehatan secara keseluruhan.</p>
+    </blockquote>
 
-    <p><strong>Aspek Penting Makanan Sehat:</strong></p>
-    <ul>
-      <li>Mengandung serat untuk menjaga kesehatan pencernaan.</li>
-      <li>Kaya akan vitamin dan mineral untuk mendukung fungsi organ tubuh.</li>
-      <li>Mengandung protein untuk membangun dan memperbaiki jaringan tubuh.</li>
-      <li>Mengandung lemak sehat, seperti asam lemak omega-3, untuk mendukung fungsi otak dan jantung.</li>
-      <li>Meminimalkan konsumsi gula dan lemak jenuh yang berlebihan.</li>
-    </ul>
+    <blockquote>
+    <p><strong>2. Perbanyak minum air putih:</strong></p>
+    <p>Anda dapat meningkatkan kesehatan sekaligus menghemat uang dengan banyak minum air putih. Air putih memberikan banyak manfaat bagi tubuh seperti
+       menutrisi, membersihkan racun dari tubuh, meningkatkan fungsi otak, memberi energi pada otot, mengontrol kenaikan berat badan, dan menyeimbangkan 
+       suhu dan cairan tubuh. Semakin sedikit minum akan menurunkan cadangan cairan dalam tubuh dan berisiko mengentalkan darah. Apabila darah mengental, 
+       jantung akan bekerja lebih keras untuk memompa. Jantung yang bekerja ekstra dalam jangka panjang akan mengalami gangguan dan masalah lainnya. Oleh
+       sebab itu, dianjurkan untuk minum sekitar 8 gelas air per hari. </p>
+    </blockquote>
 
-    <p>Mengonsumsi makanan sehat tiap harinya dapat membantu mencegah berbagai penyakit dan menjaga kesehatan tubuh secara keseluruhan. Oleh karena itu, penting untuk memilih makanan dengan bijak dan menjaga pola makan yang seimbang.</p>
-  </article>
+    <blockquote>
+    <p><strong>3. Kelola kesehatan mental:</strong></p>
+    <p>Menerapkan gaya hidup sehat tak cukup hanya dengan makan makanan bergizi. Kesehatan mental juga perlu diperhatikan karena mental merupakan fondasi 
+      kesehatan secara keseluruhan. Penting untuk mengelola pikiran dan perasaan setiap hari. Kelilingi diri dengan orang-orang yang dapat memberi semangat 
+      dan masukan konstruktif. Biasakan untuk selalu melihat sisi kehidupan yang positif. Sekalipun berada dalam situasi terburuk, yakin bahwa selalu ada sisi 
+      positifnya. Hindari menaruh perasaan negatif terhadap diri sendiri maupun orang lain. Hal itu hanya akan memunculkan ketidakbahagiaan dalam kehidupan sosial
+      Anda. Meningkatkan kesehatan mental dan emosional dapat dilakukan dengan bersosialisasi. Jangan lupa untuk selalu tidur cukup, 7-9 jam setiap malam.</p>
+    </blockquote>
 
+    <blockquote>
+    <p><strong>4. Jauhi stres:</strong></p>
+    <p>Agar terhindar dari stres dan tuntutan hidup, coba rileks dan istirahatlah. Ada saatnya untuk berhenti, menarik napas dalam-dalam, dan bersantai dengan melakukan
+       sesuatu yang Anda sukai. Cobalah beberapa kegiatan santai seperti meditasi, mendengarkan musik, membaca, tidur, menonton komedi, atau berlibur. Kegiatan-kegiatan
+      ini dapat membantu Anda bersantai dan mereka menimbulkan perasaan tenang dan bahagia.</p>
+    </blockquote>
+
+    <blockquote>
+    <p><strong>5. Rutin berolahraga:</strong></p>
+    <p>Ibarat Anda sudah memiliki kesehatan mental yang baik, maka harus didukung dengan kondisi fisik yang sehat dan bugar. Penelitian menunjukkan bahwa rutin melakukan 
+      aktivitas fisik seperti olahraga membantu memperpanjang umur dan meningkatkan kesehatan secara keseluruhan. Cobalah berolahraga satu minggu tiga kali. The American 
+      Heart Association menyarankan 150 menit berolahraga per minggunya. Pilih jadwal yang tepat dan luangkan waktu untuk berolahraga di pagi hari.Agar tidak membosankan
+      dan merasa malas, pilih olahraga yang menyenangkan. Anda harus menikmati olahraga dan tidak merasa seperti dipaksa. Lakukan olahraga yang menyenangkan sekaligus 
+      memungkinkan bagi tubuh seperti senam aerobik, yoga, latihan sirkuit, berenang, berjalan, lari, atau bersepeda.</p>
+      </blockquote>
+      
+      <button onclick="goBack()" class="back-button">Kembali ke Halaman Artikel</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+   
+</article>
 </body>
 </html>
