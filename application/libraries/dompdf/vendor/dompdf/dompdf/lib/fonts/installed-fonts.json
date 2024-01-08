@@ -1,0 +1,13 @@
+{
+    "glyphicons halflings": {
+        "normal": "glyphicons_halflings_normal_91a063d0f3772b152f606edc0383c99d"
+    },
+    "roboto": {
+        "normal": "C:\\xampp\\htdocs\\nutritrack\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_normal_7bc701b343c10631f60048716b96e4f7",
+        "bold": "roboto_bold_8db5cb5d0586c1e891426d13097b1d04"
+    },
+    "poppins": {
+        "normal": "C:\\xampp\\htdocs\\nutritrack\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_normal_442dffd12abdf0df26c14405d3f49bfa",
+        "bold": "poppins_bold_2d1c4b360c3ac297e98fc2cfd808a2cc"
+    }
+}

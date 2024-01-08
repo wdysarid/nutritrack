@@ -19,5 +19,24 @@
 		function editnutrisi($id_nutrisi){
 			$this->mnutrisi->editnutrisi($id_nutrisi);
 		}
-	}
+
+
+		function cetaknutrisihr($id_member)
+        {
+            $data1['data_nutrisihr']=$this->mnutrisi->getnutrisictk($id_member);
+			require_once(APPPATH . 'libraries/dompdf/autoload.inc.php');
+            $pdf = new Dompdf\Dompdf();
+
+            $pdf->setPaper('a4', 'landscape');
+            $pdf->set_option('isRemoteEnabled', TRUE);
+            $pdf->set_option('isHtml5ParserEnabled', true);
+            $pdf->set_option('isPhpEnabled', true);
+            $pdf->set_option('isFontSubsettingEnabled', true);
+
+            $pdf->loadHtml($this->load->view('member/cetaknutrisihr',$data1, true));
+            $pdf->render();
+            $pdf->stream('Nutrisi Harian Member', ['Attachment' => false]);
+
+    	} 
+}
 ?>

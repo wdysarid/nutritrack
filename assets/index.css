@@ -1,0 +1,178 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'sans-serif','poppins';
+	font-size: 16px;
+	
+}
+
+/* /Jumbotron/ */
+.jumbotron {
+	background-image: url(images/background/bg12.jpg);
+	background-size: cover;
+	height: 350px;
+	width: 100%;
+	color: #A4BC92;
+}
+
+.jumbotron .display-4 {
+	margin-top: 30px;
+}
+
+.jumbotron p {
+	font-size: 23px;
+}
+
+.jumbotron hr {
+	border-color: white;
+	width: 400px;
+	border-width: 3px;
+}
+/* /Akhir Jumbotron/ */
+
+/* /Navbar/ */
+.navbar {
+	margin-top: -32px;
+	color: #9ED2BE
+}
+
+.navbar .navbar-nav .nav-link {
+	color: #9ED2BE(239, 231, 231);
+}
+
+.navbar .navbar-nav .nav-link:hover {
+	color: #9ED2BE(77, 226, 134, 0.326);
+}
+
+.navbar .navbar-brand  {
+	font-size: 30px;
+}
+/* /Akhir Navbar/ */
+
+/* /Footer/ */
+.footer {
+	margin-top: 150px;
+	border-width: 3px;
+}
+
+.footer-body {
+	margin-top: 60px;
+	margin-bottom: 50px;
+}
+/* /Akhir Footer/ */
+
+/* /Home/ */
+.judul {
+	margin-bottom: 120px;
+}
+
+.card-img:hover {
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.4);	
+}
+
+/* /Akhir Home/ */
+
+/* /Artikel/ */
+.artikel-body {
+    background-color: #578ec5; /* Warna latar belakang yang diinginkan */
+}
+
+.artikel-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.artikel-card {
+	width: 70%;
+	background-color: #a8debd;
+	border: 1px solid #0e4378;
+	border-radius: 15px;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card h2 {
+	color: #A4BC92;
+}
+
+.custom-card p {
+	color: #6c757d;
+}
+/* /Akhir artikel/ */
+
+
+/* /about/ */
+
+body {
+	font-family: 'Montserrat', 'Montserrat';
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header {
+    background-color: #0e4378;
+    color: white;
+    text-align: center;
+    padding: 0.5em; /* Mengurangi padding */
+    font-size: 1.5em; /* Mengurangi ukuran font */
+}
+
+
+.card-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 100vh;
+}
+
+.card {
+	background-color: rgba(195, 239, 195, 0.8);
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	max-width: 300px;
+	text-align: center;
+	margin: 10px;
+}
+
+h2 {
+	color: #6bce0f;
+}
+
+p {
+	color: #666;
+}
+/* /Akhir about/ */
+
+/* benefits */
+.card-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+  }
+  
+  .custom-card {
+	width: 70%;
+	background-color: #f8f9fa;
+	border: 1px solid #dee2e6;
+	border-radius: 15px;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	font-family: 'Times New Roman', 'Times New Roman'; /* Menggunakan font Montserrat */
+  }
+  
+  .custom-card h2 {
+	color: #007bff;
+  }
+  
+  .custom-card p {
+	color: #6c757d;
+  }
+  /* Akhir benefits */
