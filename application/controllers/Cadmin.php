@@ -8,6 +8,7 @@
 			 $this->load->model('mmakanan');
 			 $this->load->model('mauth');
 			 $this->load->model('martikel');
+			 $this->load->helper(array('form', 'url'));
              $this->mvalidasi->validasi();
 		}
 		public function index()
