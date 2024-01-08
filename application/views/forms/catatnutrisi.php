@@ -43,7 +43,7 @@
 				<div class="form-group mb-3">
 					<h6>Makanan</h6>
 					<select name="id_makanan" id="id_makanan" class="form-control">
-						<option value="" hidden>====PILIH MAKANAN====</option>
+						<option value=""HIDDEN >====PILIH MAKANAN====</option>
 						<?php foreach($data_makanan as $row):?>
 						<option value="<?=$row->id_makanan?>">
 							<?=$row->nama_makanan." ". $row->porsi." ". $row->satuan?></option>

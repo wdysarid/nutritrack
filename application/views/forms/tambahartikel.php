@@ -99,7 +99,7 @@
 							<td>
 								<?php 
 									$imagePath = base_url('assets/imgadmin/' . $row->foto_artikel);
-									echo '<img src="' . $imagePath . '" alt="Article Image" style="width: 100px; height: auto;">';
+									echo '<img src="' . $imagePath . '" alt="Article Image" style="width: 300px; height: auto;">';
 								?>
 							</td>
 
