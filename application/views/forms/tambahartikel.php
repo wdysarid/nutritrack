@@ -79,24 +79,38 @@
 <!-- Data Catatan Nutrisi -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 <main id="main" class="main">
-	<div class="card">
-		<h5 class="card-title" style="padding-left: 15px;">Data Artikel<span>/All</span></h5>
-		<div id="reportsChart">
-		</div>
-		<div class="card-body">
-			<table class="table display" id="myTable">
-				<thead>
-					<tr>
-						<th scope="col">No.</th>
-						<th scope="col">Judul Artikel</th>
-						<th scope="col">Tanggal Upload</th>
-						<th scope="col">Deskripsi</th>
-						<th scope="col">Aksi</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-$no=1;
+    <div class="card">
+        <h5 class="card-title" style="padding-left: 15px;">Data Artikel<span>/All</span></h5>
+        <div id="reportsChart">
+        </div>
+        <div class="card-body">
+            <table class="table display" id="myTable">
+                <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Judul Artikel</th>
+                        <th scope="col">Tanggal Upload</th>
+                        <th scope="col">Deskripsi</th>
+						<th scope="col">Foto Artikel</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1;
+                    foreach ($data_artikel as $row) :
+                    ?>
+                        <tr>
+                            <th scope="row"><?php echo $no++ ?></th>
+                            <td><?php echo $row->judul_artikel ?></td>
+                            <td><?php echo $row->tgl_upload ?></td>
+							<td><?php echo $row->deskripsi ?></td>
+							<td>
+								<?php 
+									$imagePath = base_url('assets/imgadmin/' . $row->foto_artikel);
+									echo '<img src="' . $imagePath . '" alt="Article Image" style="width: 300px; height: auto;">';
+								?>
+							</td>
 
 foreach($data_artikel as $row):
 ?>
