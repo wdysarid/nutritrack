@@ -23,7 +23,8 @@
 
 		function cetaknutrisihr($id_member)
         {
-            $data1['data_nutrisihr']=$this->mnutrisi->getnutrisictk($id_member);
+            $data1['data_nutrisihr']=$this->mnutrisi->getnutrisihrn($id_member)->result_array();
+			$data1['total_kalori']=$this->mvalidasi->sumkaloriharian($id_member);
 			require_once(APPPATH . 'libraries/dompdf/autoload.inc.php');
             $pdf = new Dompdf\Dompdf();
 

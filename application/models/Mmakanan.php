@@ -1,7 +1,8 @@
 <?php
 class Mmakanan extends CI_Model{
+    //get data makanan dari tabel makanan
     function getmakanan(){
-        return $this->db->get('tbmakanan')->result();
+        return $this->db->get('tbmakanan');
     }
     function simpanmakanan()
     {

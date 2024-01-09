@@ -40,7 +40,7 @@
 				}
             ?>
 		</div>
-		<form class="card-body" name="simpanformartikel" method="post"
+		<form class="card-body" name="simpanformartikel" method="post" enctype="multipart/form-data"
 			action="<?php echo base_url('cartikel/psimpanartikel');?>">
 			<input type="hidden" name="id_admin" id="id_admin"
 				value="<?php echo $this->session->userdata('id_admin')?>">
@@ -53,12 +53,12 @@
 
 			<div class="form-group mb-3">
 				<h6>Tanggal Upload</h6>
-				<input type="date" name="tgl_upload" id="tgl_upload" placeholder="Tanggal upload" class="form-control">
+				<input type="datetime-local" name="tgl_upload" id="tgl_upload" placeholder="Tanggal upload" class="form-control">
 			</div>
 
 			<div class="form-group mb-3">
 				<h6>Deskripsi</h6>
-				<input type="text" name="deskripsi" id="deskripsi" placeholder="Deskripsi" class="form-control">
+				<textarea placeholder="Deskripsi" class="form-control" name="deskripsi" id="deskripsi" cols="30" rows="5"></textarea>
 			</div>
 
             <div class="form-group mb-3">
@@ -84,6 +84,7 @@
         <div id="reportsChart">
         </div>
         <div class="card-body">
+		<div class="" style="overflow: scroll;">
             <table class="table display" id="myTable">
                 <thead>
                     <tr>
@@ -108,29 +109,24 @@
 							<td>
 								<?php 
 									$imagePath = base_url('assets/imgadmin/' . $row->foto_artikel);
-									echo '<img src="' . $imagePath . '" alt="Article Image" style="width: 300px; height: auto;">';
+									echo '<img src="' . $imagePath . '" alt="Article Image" style="width: 200px; height: auto;">';
 								?>
 							</td>
 
-foreach($data_artikel as $row):
-?>
-					<tr>
-						<th scope="row"><?php echo $no++?></th>
-						<td><?php echo $row->judul_artikel?></td>
-						<td><?php echo $row->tgl_upload?></td>
-						<td><?php echo $row->deskripsi?></td>
-						<td>
+							<td>
 							<button type="button" class="btn btn-warning"
 								onclick="editartikel(<?php echo $row->id_artikel?>)">Edit</button>
 							<button type="button" class="btn btn-danger"
 								onclick="hapusartikel(<?php echo $row->id_artikel?>)">Hapus</button>
 						</td>
+
 					</tr>
 					<?php
 endforeach;
 ?>
 				</tbody>
 			</table>
+			</div>
 		</div>
 	</div>
 	</div>

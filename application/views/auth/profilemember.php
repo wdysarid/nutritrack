@@ -59,37 +59,47 @@
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-
+                <?php
+                  foreach(
+                    $member as $key
+                  ):
+                  ?>
                   <h5 class="card-title">Detail Profil</h5>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Username</div>
-                    <div class="col-lg-9 col-md-8"><?= $this->session->userdata('username')?></div>
+                    <div class="col-lg-9 col-md-8"><?= $key['username']?></div>
                   </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
-                    <div class="col-lg-9 col-md-8"><?= $this->session->userdata('nama_lengkap')?></div>
+                    <div class="col-lg-9 col-md-8"><?= $key['nama_lengkap']?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Tanggal Lahir</div>
-                    <div class="col-lg-9 col-md-8"><?= $this->session->userdata('tgl_lahir')?></div>
+                    <div class="col-lg-9 col-md-8"><?= date('d F Y', strtotime($key['tgl_lahir'])) ?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-                    <div class="col-lg-9 col-md-8"><?= $this->session->userdata('jenis_kelamin')?></div>
+                    <div class="col-lg-9 col-md-8"><?= $key['jenis_kelamin']?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8"><?= $this->session->userdata('email')?></div>
+                    <div class="col-lg-9 col-md-8"><?= $key['email']?></div>
                   </div>
-
+                  <?php endforeach;?>
                 </div>
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                   <!-- Profile Edit Form -->
-                  <form>
+                  <?php
+                  foreach(
+                    $member as $key
+                  ):
+                  ?>
+                  <form action="<?= base_url('cmember/editprofilemember')?>" method="post">
+                  <input type="hidden" name="id_member" value="<?=$key['id_member']?>">
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto Profil</label>
                       <div class="col-md-8 col-lg-9">
@@ -100,39 +110,39 @@
                         </div>
                       </div>
                     </div>
-                    
+                    <input type="hidden" name="id_member" value="<?=$key['id_member']?>">
                     <div class="row mb-3">
                       <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="username" type="text" class="form-control" id="username" value=""></input>
+                        <input name="username" type="text" class="form-control" id="username" value="<?=$key['username']?>"></input>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="nama_lengkap" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="nama_lengkap" type="text" class="form-control" id="nama_lengkap" value="">
+                        <input name="nama_lengkap" type="text" class="form-control" id="nama_lengkap" value="<?=$key['nama_lengkap']?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="tgl_lahir" class="col-md-4 col-lg-3 col-form-label">Tanggal Lahir</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="tgl_lahir" type="text" class="form-control" id="tgl_lahir" value="">
+                        <input name="tgl_lahir" type="text" class="form-control" id="tgl_lahir" value="<?=$key['tgl_lahir']?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="jenis_kelamin" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="jenis_kelamin" type="text" class="form-control" id="jenis_kelamin" value="">
+                        <input name="jenis_kelamin" type="text" class="form-control" id="jenis_kelamin" value="<?=$key['jenis_kelamin']?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="text" class="form-control" id="email" value="">
+                        <input name="email" type="text" class="form-control" id="email" value="<?=$key['email']?>">
                       </div>
                     </div>
 
@@ -140,7 +150,7 @@
                       <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
-
+                  <?php endforeach;?>
                 </div>
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">

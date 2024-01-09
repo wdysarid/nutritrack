@@ -86,8 +86,7 @@
 							<th scope="col">No.</th>
 							<th scope="col">Tanggal</th>
 							<th scope="col">Nama Makanan</th>
-							<th scope="col">Jumlah</th>
-							
+							<th scope="col">Jumlah</th>	
 							<th scope="col">Total Kalori</th>
 							<th scope="col">Keterangan</th>
 							<th scope="col">Aksi</th>
@@ -96,7 +95,6 @@
 					<tbody>
 						<?php
     $no=1;
-    
     foreach($data_nutrisiform as $row):
     ?>
 						<tr>
@@ -104,7 +102,6 @@
 							<td><?php echo date('d-m-Y', strtotime($row->tgl_catatan)) ?></td>
 							<td><?php echo $row->nama_makanan?></td>
 							<td><?php echo $row->jumlah. " ". $row->satuan ?></td>
-							
 							<td><?php echo $row->total_kalori?> kkal</td>
 							<td><?php echo $row->keterangan?></td>
 							<td>
