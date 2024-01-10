@@ -37,11 +37,11 @@
 					value="<?php echo $this->session->userdata('id_member')?>">
 				<input type="hidden" name="id_nutrisi" id="id_nutrisi">
 				<div class="form-group mb-3">
-					<h6>Tanggal Catatan</h6>
+					<h6>Tanggal Catatan*</h6>
 					<input type="date" name="tgl_catatan" id="tgl_catatan" class="form-control">
 				</div>
 				<div class="form-group mb-3">
-					<h6>Makanan</h6>
+					<h6>Makanan*</h6>
 					<select name="id_makanan" id="id_makanan" class="form-control">
 						<option value=""HIDDEN >====PILIH MAKANAN====</option>
 						<?php foreach($data_makanan as $row):?>
@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="form-group mb-3">
-					<h6>Jumlah</h6>
+					<h6>Jumlah*</h6>
 					<input type="text" name="jumlah" id="jumlah" placeholder="Jumlah" class="form-control">
 				</div>
 

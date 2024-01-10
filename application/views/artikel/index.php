@@ -177,97 +177,54 @@
 
     <!--  Section Title -->
     <div class="container section-title" data-aos="fade-up">
+
       <h2>Artikel</h2>
       <p></p>
     </div><!-- End Section Title -->
 
     <div class="container">
+    <div class="row gy-4">
+        <?php foreach($admin as $key): ?>
+            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <article>
+                    <input type="hidden" name="id_artikel" value="<?=$key['id_artikel']?>">
+                  
+                    <div class="post-img">
+                        <img src="<?= base_url('assets/imgadmin/' . $key['foto_artikel']) ?>" alt="" class="img-fluid">
+                    </div>
+                    <h2 class="title">
+                          <?= $key['judul_artikel'] ?>
+                      </h2>
+                    <p class="post-category"><?=$key['deskripsi']?></p>
 
-      <div class="row gy-4">
+                    <div class="d-flex align-items-center">
+                        <div class="post-meta">
+                            <p class="post-author">Admin</p>
+                            <p class="post-date">
+                              <time datetime="<?= $key['tgl_upload'] ?>">
+                                  <?= date('M j, Y', strtotime($key['tgl_upload'])) ?>
+                              </time>
+                            </p>
 
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <article>
-
-            <div class="post-img">
-              <img src="<?=base_url('assets1/img/blog/makanansehat.jpg')?>" alt="" class="img-fluid">
-            </div>
-
-            <p class="post-category">Makanan</p>
-
-            <h2 class="title">
-              <a href="<?=base_url('assets1/blog-details.html')?>">Manfaat Menkonsumsi Makanan Sehat</a>
-            </h2>
-
-            <div class="d-flex align-items-center">
-
-              <div class="post-meta">
-                <p class="post-author">Author</p>
-                <p class="post-date">
-                  <time datetime="2022-01-01">Jan 1, 2022</time>
-                </p>
-              </div>
-            </div>
-
-          </article>
-        </div><!-- End post list item -->
-
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <article>
-
-            <div class="post-img">
-              <img src="<?=base_url('assets1/img/blog/polasehat.jpg')?>" alt="" class="img-fluid">
-            </div>
-
-            <p class="post-category">Pola Hidup Sehat</p>
-
-            <h2 class="title">
-              <a href="<?=base_url('assets1/blog-details2.html')?>">Tips Menjaga Pola Hidup Sehat</a>
-            </h2>
-
-            <div class="d-flex align-items-center">
-
-              <div class="post-meta">
-                <p class="post-author">Author</p>
-                <p class="post-date">
-                  <time datetime="2022-01-01">Jun 5, 2022</time>
-                </p>
-              </div>
-            </div>
-
-          </article>
-        </div><!-- End post list item -->
-
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <article>
-
-            <div class="post-img">
-              <img src="<?=base_url('assets1/img/blog/alergy.jpg')?>" alt="" class="img-fluid">
-            </div>
-
-            <p class="post-category">Alergi Makanan</p>
-
-            <h2 class="title">
-              <a href="<?=base_url('assets1/blog-details3.html')?>">Penyebab Alergi Makanan</a>
-            </h2>
-
-            <div class="d-flex align-items-center">
-
-              <div class="post-meta">
-                <p class="post-author">Author</p>
-                <p class="post-date">
-                  <time datetime="2022-01-01">Jun 22, 2022</time>
-                </p>
-              </div>
-            </div>
-
-          </article>
-        </div><!-- End post list item -->
+                        </div>
+                    </div>
+                    
+                </article>
+            </div><!-- End post list item -->
+        <?php endforeach; ?>
+    </div>
+</div>
 
       </div><!-- End recent posts list -->
 
     </div>
 
   </section><!-- End Recent-posts Section Artikel-->
+  <!-- Tombol Selengkapnya di Tengah Halaman -->
+<div class="text-center mt-4">
+    <a href="<?= base_url('clandingpg/listartikel') ?>" class="btn btn-primary btn-lg">Lihat Semua Artikel</a>
+</div>
+
 
 </main>
 <?php $this->load->view($footer);?>

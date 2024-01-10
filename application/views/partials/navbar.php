@@ -19,7 +19,15 @@
 
     <li class="nav-item dropdown pe-3">
       <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-        <img src="<?=base_url('assets/img/profile-img.jpg')?>" alt="Profile" class="rounded-circle">
+      <?php foreach($member as $key):?>
+            <?php
+                if(empty($key['foto_member'])):
+            ?>  
+                    <img src="<?=base_url('assets/img/profile-img.jpg')?>" alt="Profile" class="w-100 rounded-circle">
+            <?php else:?>
+                    <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" class="w-100 rounded-circle">
+            <?php endif;?>
+        <?php endforeach;?>
         <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?=$this->session->userdata('nama_lengkap')?></span>
       </a><!-- End Profile Iamge Icon -->
 
@@ -35,7 +43,7 @@
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="<?=base_url('auth/logout')?>">
+          <a class="dropdown-item d-flex align-items-center" href="#" onclick="logout()">
             <i class="bi bi-box-arrow-right"></i>
             <span>Sign Out</span>
           </a>
@@ -43,7 +51,15 @@
       </ul><!-- End Profile Dropdown Items -->
       
     </li><!-- End Profile Nav -->
-
+    <script>
+    // JavaScript Function
+    function logout() {
+        var confirmLogout = confirm("Apakah anda ingin keluar dari halaman ini?");
+        if (confirmLogout) {
+            window.location.href = '<?=base_url('clandingpg/tampil')?>';
+        }
+    }
+</script>
   </ul>
 </nav><!-- End Icons Navigation -->
 </header><!-- End Header -->

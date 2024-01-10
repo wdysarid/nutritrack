@@ -4,6 +4,10 @@ class Martikel extends CI_Model{
     public function getartikel($id_admin){
         return $this->db->get_where('tbartikel',['id_admin'=>$id_admin]);
     }
+
+    function getdataartikel(){
+        return $this->db->get('tbartikel');
+    }
     public function simpanartikel() {
         $data = array(
             'judul_artikel' => $this->input->post('judul_artikel'),
@@ -20,7 +24,7 @@ class Martikel extends CI_Model{
 
     private function upload_foto() {
         $config['upload_path'] = FCPATH . 'assets/imgadmin/';
-        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['allowed_types'] = 'jpg|jpeg|png';
         $config['max_size'] = 1024;
 
         $this->load->library('upload', $config);
@@ -43,23 +47,27 @@ class Martikel extends CI_Model{
         redirect('cadmin/tambahartikel','refresh');
     }
 
-    // function editmakanan($id_makanan){
-    //     $query=$this->db->get_where('tbmakanan',['id_makanan'=>$id_makanan]);
-    //     if($query->num_rows()>0){
-    //         $data=$query->row();
-    //         echo "<script>$('#id_admin').val('".$data->id_admin."')</script>";
-    //         echo "<script>$('#id_makanan').val('".$data->id_makanan."')</script>";
-    //         echo "<script>$('#nama_makanan').val('".$data->nama_makanan."')</script>";
-    //         echo "<script>$('#porsi').val('".$data->porsi."')</script>";
-    //         echo "<script>$('#satuan').val('".$data->satuan."')</script>";
-    //         echo "<script>$('#karbohidrat').val('".$data->karbohidrat."')</script>";
-    //         echo "<script>$('#protein').val('".$data->protein."')</script>";
-    //         echo "<script>$('#lemak').val('".$data->lemak."')</script>";
-    //         echo "<script>$('#kalori').val('".$data->kalori."')</script>";
+    function editartikel($id_artikel){
+        $query=$this->db->get_where('tbartikel',['id_artikel'=>$id_artikel]);
+        if($query->num_rows()>0){
+            $data=$query->row();
+            echo "<script>$('#id_admin').val('".$data->id_admin."')</script>";
+            echo "<script>$('#id_artikel').val('".$data->id_artikel."')</script>";
+            echo "<script>$('#judul_artikel').val('".$data->judul_artikel."')</script>";
+            echo "<script>$('#tgl_upload').val('".$data->tgl_upload."')</script>";
+            echo "<script>$('#deskripsi').val('".$data->deskripsi."')</script>";
             
+            //gambar
+            if (!empty($data->foto_artikel)) {
+                $imagePath = FCPATH."assets/imgadmin/" . $data->foto_artikel; // Replace "path/to/img_admin/" with the actual path
+                echo "<script>$('#foto_artikel').val('".$data->foto_artikel."')</script>";
+                echo "<img src='{$imagePath}' alt='Article Image'>";
+            } else {
+                echo "<script>$('#foto_artikel').val('')</script>"; // Clear the value if 'foto_artikel' is empty
+            }
 
-    //     }
-    // }
+        }
+    }
    
 }
 ?>

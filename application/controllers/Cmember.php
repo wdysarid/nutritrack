@@ -15,10 +15,12 @@
             'navbar' => 'partials/navbar',
             'sidebar' => 'partials/sidebar',
 			'footer' => 'partials/footer',
-			'total_kalori'=>$this->mvalidasi->sumkaloriharian($id_member),
+			
 			'total_karbohidrat'=>$this->mvalidasi->sumkarboharian($id_member),
 			'total_protein'=>$this->mvalidasi->sumproteinharian($id_member),
-			'total_lemak'=>$this->mvalidasi->sumlemakharian($id_member)
+			'total_lemak'=>$this->mvalidasi->sumlemakharian($id_member),
+			'total_kalori'=>$this->mvalidasi->sumkaloriharian($id_member),
+			'member' => $this->mmember->getprofilmember($this->session->userdata('id_member'))->result_array()
 			];
 			$data['data_nutrisihr']=$this->mnutrisi->getnutrisihrn($id_member)->result_array();
 			$data['data_aktivitashr']=$this->maktivitas->getaktivitashrn($id_member)->result_array();
@@ -49,7 +51,7 @@
 		public function catatnutrisi()
 		{
 			$user=$this->session->userdata('id_member');
-			$this->load->model('mmakanan');
+			
 			$data=[
 			'header' => 'partials/header',
             'navbar' => 'partials/navbar',
@@ -71,7 +73,7 @@
 				'sidebar' => 'partials/sidebar',
 				'footer' => 'partials/footer'
 			];
-			$this->load->model('mnutrisi');
+			
 			$data['data_nutrisi']=$this->mnutrisi->getnutrisi($user)->result();
 			$this->load->view('tables/nutrisitbl',$data);
 		}
@@ -85,7 +87,7 @@
 				'sidebar' => 'partials/sidebar',
 				'footer' => 'partials/footer'
 			];
-			$this->load->model('mnutrisi');
+			
 			$data['data_nutrisihr']=$this->mnutrisi->getnutrisi($user)->result();
 			$this->load->view('tables/nutrisiharian',$data);
 		}
@@ -101,7 +103,7 @@
             'sidebar' => 'partials/sidebar',
 			'footer' => 'partials/footer'
 			];
-			$this->load->model('maktivitas');
+			
 			$data['data_aktivitasform']=$this->maktivitas->getaktivitas($user)->result();
 			$this->load->view('forms/catataktivitas',$data);
 		}
@@ -113,7 +115,7 @@
 				'sidebar' => 'partials/sidebar',
 				'footer' => 'partials/footer'
 			];
-			$this->load->model('maktivitas');
+			
 			$data['data_aktivitas']=$this->maktivitas->getaktivitas($user)->result();
 			$this->load->view('tables/aktivitastbl',$data);
 		}

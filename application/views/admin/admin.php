@@ -52,10 +52,7 @@
 									<i class="bi bi-people"></i>
 								</div>
 								<div class="ps-3">
-									<h6>0</h6>
-									<span class="text-success small pt-1 fw-bold">0</span> <span
-										class="text-muted small pt-2 ps-1">increase</span>
-
+									<h6><?php echo $total_artikel?> artikel</h6>
 								</div>
 							</div>
 						</div>

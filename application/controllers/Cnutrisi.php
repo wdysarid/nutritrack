@@ -1,13 +1,11 @@
 <?php
 	class Cnutrisi extends CI_Controller
 	{
-		public function __construct()
-		{
+		public function __construct(){
 			parent::__construct();
-			$this->load->model('mvalidasi');
-			$this->load->model('mnutrisi');
-			$this->mvalidasi->validasi();
-	   }
+			$this->load->model(array('mmember','mvalidasi','mnutrisi'));
+
+		}
 		public function psimpannutrisi(){
 			$this->mnutrisi->simpannutrisi();
 		}
@@ -24,6 +22,9 @@
 		function cetaknutrisihr($id_member)
         {
             $data1['data_nutrisihr']=$this->mnutrisi->getnutrisihrn($id_member)->result_array();
+			$data1['total_karbohidrat']=$this->mvalidasi->sumkarboharian($id_member);
+			$data1['total_protein']=$this->mvalidasi->sumproteinharian($id_member);
+			$data1['total_lemak']=$this->mvalidasi->sumlemakharian($id_member);
 			$data1['total_kalori']=$this->mvalidasi->sumkaloriharian($id_member);
 			require_once(APPPATH . 'libraries/dompdf/autoload.inc.php');
             $pdf = new Dompdf\Dompdf();

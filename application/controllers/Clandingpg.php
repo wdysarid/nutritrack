@@ -3,29 +3,95 @@
 	{
 		function tampil()
 		{
-			$data=[
-			'header' => 'artikel/header',
-			'navbar' => 'artikel/navbar',
-			'footer' => 'artikel/footer'
-			];
-			$this->load->view('artikel/index',$data);	
-		}
+			$this->load->model('martikel');
+
+			// Ganti '=' dengan '=>' pada bagian assignment data1['admin']
+			$data1['admin'] = $this->martikel->getartikel($this->session->userdata('id_admin'))->result_array();
 		
-		function blog()
-		{
-			$this->load->view('artikel/blog');
+			// Gabungkan data yang sudah ada dengan data1 menggunakan array_merge
+			$data = array_merge(
+				[
+					'header' => 'artikel/header',
+					'navbar' => 'artikel/navbar',
+					'footer' => 'artikel/footer',
+				],
+				$data1
+			);
+		
+			$this->load->view('artikel/index', $data);
 		}
 
-		function artikel2()
+		function listartikel()
 		{
-			$this->load->view('artikel/artikel2');
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/listartikel',$data);	
 		}
-		function artikel3()
+		function blog()
 		{
-			$this->load->view('artikel/artikel3');
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog',$data);	
+		}
+
+		function blog2()
+		{
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog2',$data);	
+		}
+
+		function blog3()
+		{
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog3',$data);	
+		}
+
+		function blog4()
+		{
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog4',$data);	
+		}
+
+		function blog5()
+		{
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog5',$data);	
+		}
+		
+		function blog6()
+		{
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog6',$data);	
 		}
 
 
 	}
 	
 ?>
+
