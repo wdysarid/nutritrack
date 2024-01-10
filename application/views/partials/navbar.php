@@ -25,7 +25,7 @@
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li>
-            <a class="dropdown-item d-flex align-items-center" href="<?=base_url('auth/profile')?>">
+            <a class="dropdown-item d-flex align-items-center" href="<?=base_url('cmember/profilemember')?>">
                 <i class="bi bi-person"></i>
                 <span><?=$this->session->userdata('nama_lengkap')?>'s Profile</span>
             </a>

@@ -164,9 +164,6 @@ function proseslogin()
         }
     }
 
-    function getdatamember(){
-        return $this->db->get('tbmember')->result();
-    }
     // function getdataadmin(){
     //     return $this->db->get('tbadmin')->result();
     // }

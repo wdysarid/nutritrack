@@ -1,5 +1,15 @@
 <?php
     class Mnutrisi extends CI_Model{
+        //fungsi memanggil tb nutrisi
+        function getnutrisi($id_member){
+            return $this->db->get_where('catatnutrisi',['id_member'=>$id_member]);
+        }
+
+        //cara memanggil view nutrisi harian
+        function getnutrisihrn($id_member){
+            return $this->db->get_where('nutrisiharian',['id_member'=>$id_member]);
+        }
+        
         //fungsi simpan
         function simpannutrisi()
         {
@@ -16,19 +26,6 @@
             }
             redirect('cmember/catatnutrisi','refresh');
         }
-
-        //cara memanggil view
-        function getnutrisi(){
-        return $this->db->get('catatnutrisi')->result();
-        }
-        function getnutrisihr(){
-            return $this->db->get('nutrisiharian')->result();
-        }
-
-        function getnutrisictk($id_member){
-            return $this->db->get_where('nutrisiharian',['id_member'=>$id_member])->row();
-        }
-        
 
     function hapusnutrisi($id_nutrisi)
     {

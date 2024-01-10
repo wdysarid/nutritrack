@@ -47,9 +47,9 @@
       <td><?php echo $row->nama_makanan?></td>
       <td><?php echo $row->jumlah. " ". $row->satuan ?></td>
       <td><?php echo $row->total_kalori?> kkal</td>
-      <td><?php echo $row->total_karbohidrat?> gr</td>
-      <td><?php echo $row->total_protein?> gr</td>
-      <td><?php echo $row->total_lemak?> gr</td>
+      <td><?php echo number_format($row->total_karbohidrat, 2) ?> gr</td>
+      <td><?php echo number_format($row->total_protein, 2) ?> gr</td>
+      <td><?php echo number_format($row->total_lemak, 2) ?> gr</td>
       <td><?php echo $row->keterangan?></td>
 
     </tr>

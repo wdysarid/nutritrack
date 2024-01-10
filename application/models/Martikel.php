@@ -1,57 +1,40 @@
 <?php
 class Martikel extends CI_Model{
-    function getartikel(){
-        return $this->db->get('tbartikel')->result();
+        //get data dari tabel artikel
+    public function getartikel($id_admin){
+        return $this->db->get_where('tbartikel',['id_admin'=>$id_admin]);
     }
-    public function simpanartikel()
-    {
-        // Validasi Form Input
-        $this->form_validation->set_rules('judul_artikel', 'Judul Artikel', 'required');
-        $this->form_validation->set_rules('tgl_upload', 'Tanggal Upload', 'required');
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
+    public function simpanartikel() {
+        $data = array(
+            'judul_artikel' => $this->input->post('judul_artikel'),
+            'tgl_upload' => $this->input->post('tgl_upload'),
+            'deskripsi' => $this->input->post('deskripsi'),
+            'id_admin' => $this->input->post('id_admin'),
+            'foto_artikel' => $this->upload_foto() // call a separate function to handle file upload
+        );
 
-        if ($this->form_validation->run() == FALSE) {
-            // Handle validation errors
-            // You can redirect back to the form with error messages or display them on the same page
-            $this->load->view('tambahartikel');
+        $this->db->insert('tbartikel', $data);
+
+        return true;
+    }
+
+    private function upload_foto() {
+        $config['upload_path'] = FCPATH . 'assets/imgadmin/';
+        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['max_size'] = 1024;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto_artikel')) {
+            $upload_data = $this->upload->data();
+            return $upload_data['file_name'];
         } else {
-            $data = array(
-                'judul_artikel' => $this->input->post('judul_artikel'),
-                'tgl_upload' => $this->input->post('tgl_upload'),
-                'deskripsi' => $this->input->post('deskripsi'),
-                'id_admin' => $this->input->post('id_admin')
-            );
-
-            // Upload Image
-            $config['upload_path'] = 'assets/imgadmin/'; // Specify your upload directory
-            $config['allowed_types'] = 'gif|jpg|jpeg|png'; // Specify allowed file types
-            $config['max_size'] = 1024; // Specify max file size in KB
-
-            $this->load->library('upload', $config);
-
-            if ($this->upload->do_upload('foto_artikel')) {
-                $upload_data = $this->upload->data();
-                $data['foto_artikel'] = $upload_data['file_name']; // Use 'file_name' to get the uploaded file's name
-            } else {
-                $error = $this->upload->display_errors();
-                // Handle the error
-                echo $error;
-                return false;
-            }
-
-            // Insert data into the database using Query Builder
-            $this->db->insert('tbartikel', $data);
-
-            // Set Flash Message
-            $this->session->set_flashdata('success_message', 'Artikel berhasil ditambahkan.');
-
-            // Redirect to the form or any other page
-            redirect('cadmin/tambahartikel','refresh');
+            $error = $this->upload->display_errors();
+            echo $error;
+            return false;
         }
     }
-
-
-
+    
     function hapusartikel($id_artikel)
     {
         $this->db->where('id_artikel',$id_artikel);
