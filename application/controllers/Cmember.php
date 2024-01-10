@@ -19,7 +19,8 @@
 			'total_karbohidrat'=>$this->mvalidasi->sumkarboharian($id_member),
 			'total_protein'=>$this->mvalidasi->sumproteinharian($id_member),
 			'total_lemak'=>$this->mvalidasi->sumlemakharian($id_member),
-			'total_kalori'=>$this->mvalidasi->sumkaloriharian($id_member)
+			'total_kalori'=>$this->mvalidasi->sumkaloriharian($id_member),
+			'member' => $this->mmember->getprofilmember($this->session->userdata('id_member'))->result_array()
 			];
 			$data['data_nutrisihr']=$this->mnutrisi->getnutrisihrn($id_member)->result_array();
 			$data['data_aktivitashr']=$this->maktivitas->getaktivitashrn($id_member)->result_array();

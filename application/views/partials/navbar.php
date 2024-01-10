@@ -19,7 +19,15 @@
 
     <li class="nav-item dropdown pe-3">
       <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-        <img src="<?=base_url('assets/img/profile-img.jpg')?>" alt="Profile" class="rounded-circle">
+      <?php foreach($member as $key):?>
+            <?php
+                if(empty($key['foto_member'])):
+            ?>  
+                    <img src="<?=base_url('assets/img/profile-img.jpg')?>" alt="Profile" class="w-100 rounded-circle">
+            <?php else:?>
+                    <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" class="w-100 rounded-circle">
+            <?php endif;?>
+        <?php endforeach;?>
         <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?=$this->session->userdata('nama_lengkap')?></span>
       </a><!-- End Profile Iamge Icon -->
 
