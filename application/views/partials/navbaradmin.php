@@ -35,7 +35,7 @@
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="<?=base_url('auth/logout')?>">
+          <a class="dropdown-item d-flex align-items-center" href="#" onclick="logout()">
             <i class="bi bi-box-arrow-right"></i>
             <span>Sign Out</span>
           </a>
@@ -43,6 +43,15 @@
       </ul><!-- End Profile Dropdown Items -->  
     </li><!-- End Profile Nav -->
 
+<script>
+    // JavaScript Function
+    function logout() {
+        var confirmLogout = confirm("Apakah anda ingin keluar dari halaman ini?");
+        if (confirmLogout) {
+            window.location.href = '<?=base_url('clandingpg/tampil')?>';
+        }
+    }
+</script>
   </ul>
 </nav><!-- End Icons Navigation -->
 </header><!-- End Header -->

@@ -60,6 +60,36 @@
 				$this->load->view('artikel/blog3',$data);	
 		}
 
+		function blog4()
+		{
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog4',$data);	
+		}
+
+		function blog5()
+		{
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog5',$data);	
+		}
+		
+		function blog6()
+		{
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog6',$data);	
+		}
+
 
 	}
 	

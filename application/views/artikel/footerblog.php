@@ -91,6 +91,9 @@
     function listartikel() {
       window.open("<?php echo base_url('clandingpg/listartikel'); ?>", "_self");
     }
+    function blog() {
+      window.open("<?php echo base_url('clandingpg/blog'); ?>", "_self");
+    }
 
     function blog2() {
       window.open("<?php echo base_url('clandingpg/blog2'); ?>", "_self");
@@ -98,6 +101,15 @@
 
     function blog3() {
       window.open("<?php echo base_url('clandingpg/blog3'); ?>", "_self");
+    }
+    function blog4() {
+      window.open("<?php echo base_url('clandingpg/blog4'); ?>", "_self");
+    }
+    function blog5() {
+      window.open("<?php echo base_url('clandingpg/blog5'); ?>", "_self");
+    }
+    function blog6() {
+      window.open("<?php echo base_url('clandingpg/blog6'); ?>", "_self");
     }
 
     function login() {

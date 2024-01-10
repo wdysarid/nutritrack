@@ -4,9 +4,16 @@ class Martikel extends CI_Model{
     public function getartikel($id_admin){
         return $this->db->get_where('tbartikel',['id_admin'=>$id_admin]);
     }
+<<<<<<< HEAD
     // public function getartikel($id_artikel){
     //     return $this->db->get_where('tbartikel',['id_admin'=>$id_admin]);
     // }
+=======
+
+    function getdataartikel(){
+        return $this->db->get('tbartikel');
+    }
+>>>>>>> d0af8556ecc32418f91dbd9ab8099d0325ad3f1a
     public function simpanartikel() {
         $data = array(
             'judul_artikel' => $this->input->post('judul_artikel'),
@@ -23,7 +30,7 @@ class Martikel extends CI_Model{
 
     private function upload_foto() {
         $config['upload_path'] = FCPATH . 'assets/imgadmin/';
-        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['allowed_types'] = 'jpg|jpeg|png';
         $config['max_size'] = 1024;
 
         $this->load->library('upload', $config);
@@ -58,7 +65,7 @@ class Martikel extends CI_Model{
             
             //gambar
             if (!empty($data->foto_artikel)) {
-                $imagePath = "path/to/imgadmin/" . $data->foto_artikel; // Replace "path/to/img_admin/" with the actual path
+                $imagePath = FCPATH."assets/imgadmin/" . $data->foto_artikel; // Replace "path/to/img_admin/" with the actual path
                 echo "<script>$('#foto_artikel').val('".$data->foto_artikel."')</script>";
                 echo "<img src='{$imagePath}' alt='Article Image'>";
             } else {

@@ -193,9 +193,8 @@
                         <img src="<?= base_url('assets/imgadmin/' . $key['foto_artikel']) ?>" alt="" class="img-fluid">
                     </div>
                     <h2 class="title">
-                        <a href="<?=base_url('clandingpg/listartikel/'.$key['id_artikel'])?>"><?=$key['judul_artikel']?></a>
-                    </h2>
-
+                          <?= $key['judul_artikel'] ?>
+                      </h2>
                     <p class="post-category"><?=$key['deskripsi']?></p>
 
                     <div class="d-flex align-items-center">
@@ -209,6 +208,7 @@
 
                         </div>
                     </div>
+                    
                 </article>
             </div><!-- End post list item -->
         <?php endforeach; ?>
@@ -220,6 +220,11 @@
     </div>
 
   </section><!-- End Recent-posts Section Artikel-->
+  <!-- Tombol Selengkapnya di Tengah Halaman -->
+<div class="text-center mt-4">
+    <a href="<?= base_url('clandingpg/listartikel') ?>" class="btn btn-primary btn-lg">Lihat Semua Artikel</a>
+</div>
+
 
 </main>
 <?php $this->load->view($footer);?>

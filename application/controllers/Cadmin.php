@@ -16,7 +16,8 @@
             'sidebaradmin' => 'partials/sidebaradmin',
 			'footer' => 'partials/footer',
 			'total_makanan'=>$this->mmakanan->getmakanan()->num_rows(),
-			'total_akunmember'=>$this->mmember->getdatamember()->num_rows(),
+			'total_artikel'=>$this->martikel->getdataartikel()->num_rows(),
+			'total_akunmember'=>$this->mmember->getdatamember()->num_rows()
 			];
 
 			$data['data_akunmember']=$this->mmember->getdatamember()->result();

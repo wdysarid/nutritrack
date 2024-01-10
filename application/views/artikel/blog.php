@@ -18,7 +18,7 @@
       <div class="container">
         <ol>
           <li><a href="index.html">Home</a></li>
-          <li class="current">Blog Details</li>
+          <li class="current">Artikel Details</li>
         </ol>
       </div>
     </nav>
@@ -130,8 +130,8 @@
                   <div class="post-item">
                     <img src="<?=base_url('assets1/img/blog/alergy.jpg')?>" alt="" class="flex-shrink-0">
                     <div>
-                      <h4><a href="<?=base_url('clandingpg/blog3')?>">Penyebab Aleri Makanan</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
+                      <h4><a href="<?=base_url('clandingpg/blog3')?>">Penyebab Alergi Makanan</a></h4>
+                      <time datetime="2020-01-01">Jan 1, 2024</time>
                     </div>
                   </div><!-- End recent post item-->
 
@@ -139,7 +139,31 @@
                     <img src="<?=base_url('assets1/img/blog/polasehat.jpg')?>" alt="" class="flex-shrink-0">
                     <div>
                       <h4><a href="<?=base_url('clandingpg/blog2')?>">Tips Menjaga Pola Hidup Sehat</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
+                      <time datetime="2020-01-01">Juni 8, 2022</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="<?=base_url('assets1/img/blog/sayur.jpg')?>" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="<?=base_url('clandingpg/blog4')?>">Manfaat Makan Sayur Untuk Kesehatan Tubuh</a></h4>
+                      <time datetime="2020-01-01">Januari 6, 2023</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="<?=base_url('assets1/img/blog/kalsium.jpg')?>" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="<?=base_url('clandingpg/blog5')?>">Apa Itu Kalsium Dan Apa Manfaatnya Untuk Tubuh</a></h4>
+                      <time datetime="2020-01-01">Juni 5, 2023</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="<?=base_url('assets1/img/blog/drinkice.jpg')?>" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="<?=base_url('clandingpg/blog6')?>">Es Bikin Batuk, Bener Nggak Sih</a></h4>
+                      <time datetime="2020-01-01">November 20, 2023</time>
                     </div>
                   </div><!-- End recent post item-->
                 </div><!-- End sidebar recent posts-->

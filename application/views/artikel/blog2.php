@@ -20,7 +20,7 @@
     <div class="container">
       <ol>
         <li><a href="index.html">Home</a></li>
-        <li class="current">Blog Details</li>
+        <li class="current">Artikel Details</li>
       </ol>
     </div>
   </nav>
@@ -48,7 +48,7 @@
               <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                   href="<?=base_url('clandingpg/tampil')?>">Sasmitha Putri</a></li>
               <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="<?=base_url()?>"><time
-                    datetime="2020-01-01">Jan 1, 2022</time></a></li>
+                    datetime="2020-01-01">Juni 8, 2022</time></a></li>
               <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?=base_url()?>">12
                   Comments</a></li>
             </ul>
