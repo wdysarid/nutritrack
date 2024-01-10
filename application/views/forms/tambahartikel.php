@@ -141,7 +141,7 @@ endforeach;
 		}
 
 		function editartikel(id_artikel) {
-			load('cartikel/editmakanan/' + id_artikel, '#script')
+			load('cartikel/editartikel/' + id_artikel, '#script')
 		}
 
 	</script>
