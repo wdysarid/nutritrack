@@ -188,14 +188,16 @@
         <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <article>
 
-            <div class="post-img">
+          <div class="post-img">
               <img src="<?=base_url('assets1/img/blog/makanansehat.jpg')?>" alt="" class="img-fluid">
             </div>
 
             <p class="post-category">Makanan</p>
 
             <h2 class="title">
-              <a href="<?=base_url('assets1/blog-details.html')?>">Manfaat Menkonsumsi Makanan Sehat</a>
+              <a href="<?=base_url('clandingpg/blog')?>">Manfaat Menkonsumsi Makanan Sehat</a>
+              <div class="container">
+              
             </h2>
 
             <div class="d-flex align-items-center">
@@ -221,7 +223,7 @@
             <p class="post-category">Pola Hidup Sehat</p>
 
             <h2 class="title">
-              <a href="<?=base_url('assets1/blog-details2.html')?>">Tips Menjaga Pola Hidup Sehat</a>
+              <a href="<?=base_url('clandingpg/blog2')?>">Tips Menjaga Pola Hidup Sehat</a>
             </h2>
 
             <div class="d-flex align-items-center">
@@ -247,7 +249,7 @@
             <p class="post-category">Alergi Makanan</p>
 
             <h2 class="title">
-              <a href="<?=base_url('assets1/blog-details3.html')?>">Penyebab Alergi Makanan</a>
+              <a href="<?=base_url('clandingpg/blog3')?>">Penyebab Alergi Makanan</a>
             </h2>
 
             <div class="d-flex align-items-center">

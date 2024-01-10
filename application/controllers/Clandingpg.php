@@ -10,22 +10,38 @@
 			];
 			$this->load->view('artikel/index',$data);	
 		}
-		
 		function blog()
 		{
-			$this->load->view('artikel/blog');
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog',$data);	
 		}
 
-		function artikel2()
+		function blog2()
 		{
-			$this->load->view('artikel/artikel2');
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog2',$data);	
 		}
-		function artikel3()
+
+		function blog3()
 		{
-			$this->load->view('artikel/artikel3');
+			$data=[
+				'headerblog' => 'artikel/headerblog',
+				'navbarblog' => 'artikel/navbarblog',
+				'footerblog' => 'artikel/footerblog'
+				];
+				$this->load->view('artikel/blog3',$data);	
 		}
 
 
 	}
 	
 ?>
+
