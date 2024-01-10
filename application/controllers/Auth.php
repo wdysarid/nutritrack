@@ -7,7 +7,6 @@ class Auth extends CI_Controller
         $this->load->model('mauth');
         $this->load->model('mmember');
         $this->load->model('madmin');
-       
     }
 
     public function login()
@@ -56,6 +55,11 @@ class Auth extends CI_Controller
             redirect(base_url('auth/login'), 'refresh');
         }
     }
+
+    public function lupaPassword()
+    {
+
+    }
     
     public function logout()
     {
@@ -63,5 +67,4 @@ class Auth extends CI_Controller
         redirect(base_url('auth/login'), 'refresh');
     }
 }
-
 ?>

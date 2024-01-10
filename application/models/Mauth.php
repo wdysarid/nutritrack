@@ -1,55 +1,69 @@
 <?php
 class Mauth extends CI_Model
 {
-//proseslogin
-function proseslogin()
+    // proseslogin
+    function proseslogin()
     {
-        //ambil data dari form 
+        // ambil data dari form 
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-    
+
         // Check in tb_admin (assuming 'username' is the field for admin identification)
-        $query=$this->db->get_where('tbadmin',['email'=> $email]);
-		if($query->num_rows()>0){
-			$data = $query->row_array();
-			if(password_verify($password,$data['password'])){
-					$array=[
-                        'nama_lengkap'=>$data['nama_lengkap'],
-						'id_admin'=>$data['id_admin'],
-                        'username'=>$data['username'],
-						'email'=>$data['email'],
-					];	
-					$this->session->set_userdata($array);	
-					redirect(base_url('cadmin/index'),'refresh');
-			}else{
-				$this->session->set_flashdata(['pesan'=>'Password salah','color'=>'danger']);
-				redirect(base_url('auth/login'),'refresh'); 
-			}
-		}
-    
+        $query = $this->db->get_where('tbadmin', ['email' => $email]);
+        if ($query->num_rows() > 0) {
+            $data = $query->row_array();
+            if (password_verify($password, $data['password'])) {
+                $array = [
+                    'nama_lengkap' => $data['nama_lengkap'],
+                    'id_admin' => $data['id_admin'],
+                    'username' => $data['username'],
+                    'email' => $data['email'],
+                ];
+
+                // Periksa status verifikasi sebelum login
+                if ($data['is_verified'] == 1) {
+                    $this->session->set_userdata($array);
+                    redirect(base_url('cadmin/index'), 'refresh');
+                } else {
+                    $this->session->set_flashdata(['pesan' => 'Akun anda belum terverifikasi!', 'color' => 'danger']);
+                    redirect(base_url('auth/login'), 'refresh');
+                }
+            } else {
+                $this->session->set_flashdata(['pesan' => 'Password salah', 'color' => 'danger']);
+                redirect(base_url('auth/login'), 'refresh');
+            }
+        }
+
         // Check in tb_member
         else {
-            $query1=$this->db->get_where('tbmember',['email'=> $email]);
-		if($query1->num_rows()>0){
-			$data1 = $query1->row_array();
-			if(password_verify($password,$data1['password'])){
-					$array1=[
-						'nama_lengkap'=>$data1['nama_lengkap'],
-                        'username'=>$data1['username'],
-						'id_member'=>$data1['id_member'],
-						'email'=>$data1['email'],
-                        'jenis_kelamin'=>$data1['jenis_kelamin'],
-                        'password'=>$data1['password'],
-                        'tgl_lahir'=>$data1['tgl_lahir'],
-					];	
-					$this->session->set_userdata($array1);	
-					redirect(base_url('cmember/index'),'refresh');
-			}else{
-				$this->session->set_flashdata(['pesan'=>'Password salah','color'=>'danger']);
-				redirect(base_url('auth/login'),'refresh');
-			}
-		}
-       // If not found in tb_admin and tb_member
+            $query1 = $this->db->get_where('tbmember', ['email' => $email]);
+            if ($query1->num_rows() > 0) {
+                $data1 = $query1->row_array();
+                if (password_verify($password, $data1['password'])) {
+                    $array1 = [
+                        'nama_lengkap' => $data1['nama_lengkap'],
+                        'username' => $data1['username'],
+                        'id_member' => $data1['id_member'],
+                        'email' => $data1['email'],
+                        'jenis_kelamin' => $data1['jenis_kelamin'],
+                        'password' => $data1['password'],
+                        'tgl_lahir' => $data1['tgl_lahir'],
+                    ];
+
+                    // Periksa status verifikasi sebelum login
+                    if ($data1['is_verified'] == 1) {
+                        $this->session->set_userdata($array1);
+                        redirect(base_url('cmember/index'), 'refresh');
+                    } else {
+                        $this->session->set_flashdata(['pesan' => 'Akun anda belum terverifikasi!', 'color' => 'danger']);
+                        redirect(base_url('auth/login'), 'refresh');
+                    }
+                } else {
+                    $this->session->set_flashdata(['pesan' => 'Password salah', 'color' => 'danger']);
+                    redirect(base_url('auth/login'), 'refresh');
+                }
+            }
+            // If not found in tb_admin and tb_member
             else {
                 $this->session->set_flashdata(['pesan' => 'Akun anda belum terdaftar, silahkan daftar!', 'color' => 'danger']);
                 redirect(base_url('auth/login'), 'refresh');
@@ -164,9 +178,23 @@ function proseslogin()
         }
     }
 
+    // public function check_session()
+    // {
+    //     if ($this->session->userdata('id_admin')) {
+    //         // Admin masih memiliki sesi, arahkan ke halaman admin
+    //         redirect(base_url('cadmin/index'), 'refresh');
+    //     } elseif ($this->session->userdata('id_member')) {
+    //         // Member masih memiliki sesi, arahkan ke halaman member
+    //         redirect(base_url('cmember/index'), 'refresh');
+    //     } else {
+    //         // Tidak ada sesi, lanjutkan ke halaman login
+    //         redirect(base_url('auth/login'), 'refresh');
+    //     }
+    // }
+
+
     // function getdataadmin(){
     //     return $this->db->get('tbadmin')->result();
     // }
-
 }
 ?>
