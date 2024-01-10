@@ -1,5 +1,12 @@
 <?php
     class Maktivitas extends CI_Model{
+                //cara memanggil tabel
+        function getaktivitas($id_member){
+            return $this->db->get_where('tbaktivitas',['id_member'=>$id_member]);
+        }
+        function getaktivitashrn($id_member){
+            return $this->db->get_where('aktivitasharian',['id_member'=>$id_member]);
+        }
         function simpanaktivitas()
         {
             $data = $_POST;
@@ -19,12 +26,6 @@
             }
         
             redirect('cmember/catataktivitas', 'refresh');
-        }
-        
-        
-        //cara memanggil view
-        function getaktivitas(){
-            return $this->db->get('catataktivitas')->result();
         }
         function hapusaktivitas($id_aktivitas)
         {

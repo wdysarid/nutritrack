@@ -58,43 +58,33 @@
 </table>
 
 <hr/>
-<h2 class="center">Nutrisi Harian Member</h2>
+<h2 class="center">Aktivitas Harian Member</h2>
 <table border="1" width="100%">
 							<thead>
 								<tr>
 								<th scope="col">No.</th>
-								<th scope="col">Tanggal</th>
-								<th scope="col">Nama Makanan</th>
-								<th scope="col">Jumlah</th>
-								<th scope="col">Karbohidrat</th>
-								<th scope="col">Protein</th>
-								<th scope="col">Lemak</th>
-								<th scope="col">Kalori</th>
-								<th scope="col">Keterangan</th>
+                                <th scope="col">Nama Aktivitas</th>
+								<th scope="col">Waktu Mulai</th>
+								<th scope="col">Waktu Selesai</th>
+								<th scope="col">Lama Aktivitas</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
 								$no=1;
-								foreach($data_nutrisihr as $row):
+								foreach($data_aktivitashr as $row):
 								?> 
 								<tr>
 									<th scope="row"><?php echo $no++?></th>
-									<td><?php echo date('d-m-Y', strtotime($row['tgl_catatan'])) ?></td>
-									<td><?php echo $row['nama_makanan']?></td>
-									<td><?php echo $row['jumlah']. " ". $row['satuan'] ?></td>
-									<td><?php echo number_format($row['total_karbohidrat'], 2, '.', '') ?> gr</td>
-									<td><?php echo number_format($row['total_protein'], 2, '.', '')?> gr</td>
-									<td><?php echo number_format($row['total_lemak'], 2, '.', '')?> gr</td>
-									<td><?php echo number_format($row['total_kalori'], 2, '.', '')?> kkal</td>
-									<td><?php echo $row['keterangan']?></td>
-								</tr>
+									<td><?php echo $row['nama_aktivitas']?></td>
+									<td><?php echo date('d-m-Y', strtotime($row['waktu_mulai'])) ?></td>
+									<td><?php echo date('d-m-Y', strtotime($row['waktu_selesai'])) ?></td>
+									<td><?php echo $row['lama_aktivitas']?></td>
 								<?php
 								endforeach;
 								?>
 							</tbody>
 		</table>
-        Total Kalori : <?php echo $total_kalori ?>
 
 </body>
 </html>

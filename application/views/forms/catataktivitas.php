@@ -17,7 +17,7 @@
 	</div>
 	<div class="card">
 
-		<h5 class="card-title" style="padding-left: 15px;">Catatan Aktivitas<span>/Today</span></h5>
+		<h5 class="card-title" style="padding-left: 15px;">Catatan Aktivitas<span>/All</span></h5>
 		<div id="reportsChart">
 		<?php
                     $pesan = $this->session->flashdata('pesan');
@@ -81,7 +81,6 @@
   <thead>
     <tr>
       <th scope="col">No.</th>
-      <th scope="col">Nama Member</th>
       <th scope="col">Nama Aktivitas</th>
       <th scope="col">Waktu Mulai</th>
       <th scope="col">Waktu Selesai</th>
@@ -96,7 +95,6 @@
     ?>
     <tr>
       <th scope="row"><?php echo $no++?></th>
-      <td><?php echo $row->nama_lengkap?></td>
       <td><?php echo $row->nama_aktivitas?></td>
       <td>
         <?php 

@@ -1,8 +1,30 @@
 <?php
 class Mmember extends CI_Model
 {
+    function getprofilmember($id_member){
+        return $this->db->get_where('tbmember',['id_member'=>$id_member]);
+    }
+    //get data dari member
+    function getdatamember(){
+        return $this->db->get('tbmember');
+    }
 
-//proseslogin
+    //profile
+    function simpanprofile(){
+        //mengambil inputan user
+        $data=array(
+            'nama_lengkap'=>$this->input->post('nama_lengkap'),
+            'username'=>$this->input->post('username'),
+            'tgl_lahir'=>$this->input->post('tgl_lahir'),
+            'jenis_kelamin'=>$this->input->post('jenis_kelamin'),
+            'email'=>$this->input->post('email')
+        );
+
+        $this->db->where('id_member',$this->input->post('id_member'));
+        return $this->db->update('tbmember',$data);
+    }
+
+    //proseslogin
     function simpandata()
         {
             //ambil data dari form 
@@ -34,8 +56,6 @@ class Mmember extends CI_Model
             redirect('Cmember/profile','refresh');	
         } 
     }
-    function getprofilmember($id_member){
-        return $this->db->get_where('tbmember',['id_member'=>$id_member])->row();
-    }
+
 }
 ?>

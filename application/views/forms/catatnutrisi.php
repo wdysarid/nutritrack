@@ -43,7 +43,7 @@
 				<div class="form-group mb-3">
 					<h6>Makanan</h6>
 					<select name="id_makanan" id="id_makanan" class="form-control">
-						<option value="" hidden>====PILIH MAKANAN====</option>
+						<option value=""HIDDEN >====PILIH MAKANAN====</option>
 						<?php foreach($data_makanan as $row):?>
 						<option value="<?=$row->id_makanan?>">
 							<?=$row->nama_makanan." ". $row->porsi." ". $row->satuan?></option>
@@ -86,8 +86,7 @@
 							<th scope="col">No.</th>
 							<th scope="col">Tanggal</th>
 							<th scope="col">Nama Makanan</th>
-							<th scope="col">Jumlah</th>
-							
+							<th scope="col">Jumlah</th>	
 							<th scope="col">Total Kalori</th>
 							<th scope="col">Keterangan</th>
 							<th scope="col">Aksi</th>
@@ -96,7 +95,6 @@
 					<tbody>
 						<?php
     $no=1;
-    
     foreach($data_nutrisiform as $row):
     ?>
 						<tr>
@@ -104,7 +102,6 @@
 							<td><?php echo date('d-m-Y', strtotime($row->tgl_catatan)) ?></td>
 							<td><?php echo $row->nama_makanan?></td>
 							<td><?php echo $row->jumlah. " ". $row->satuan ?></td>
-							
 							<td><?php echo $row->total_kalori?> kkal</td>
 							<td><?php echo $row->keterangan?></td>
 							<td>

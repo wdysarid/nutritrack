@@ -28,12 +28,10 @@
 
 							<div class="d-flex align-items-center">
 								<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-									<i class="bi bi-cart"></i>
+									<i class="bi bi-people"></i>
 								</div>
 								<div class="ps-3">
-									<h6>0</h6>
-									<span class="text-success small pt-1 fw-bold">0</span> <span
-										class="text-muted small pt-2 ps-1">increase</span>
+									<h6><?php echo $total_makanan?> data</h6>
 
 								</div>
 							</div>
@@ -51,7 +49,7 @@
 
 							<div class="d-flex align-items-center">
 								<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-									<i class="bi bi-currency-dollar"></i>
+									<i class="bi bi-people"></i>
 								</div>
 								<div class="ps-3">
 									<h6>0</h6>
@@ -76,9 +74,7 @@
 									<i class="bi bi-people"></i>
 								</div>
 								<div class="ps-3">
-									<h6>0</h6>
-									<span class="text-danger small pt-1 fw-bold">0</span> <span
-										class="text-muted small pt-2 ps-1">decrease</span>
+									<h6><?php echo $total_akunmember?> member</h6>
 								</div>
 							</div>
 						</div>
@@ -118,7 +114,49 @@
 							<div id="reportsChart">
 							</div>
 
+							<!-- p data member -->
+							<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+									<div class="card-body">
+							<table class="table display" id="myTable" >
+							<thead>
+								<tr>
+								<th scope="col">No.</th>
+								<th scope="col">Nama Member</th>
+								<th scope="col">Username</th>
+								<th scope="col">Jenis Kelamin</th>
+								<th scope="col">Email</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$no=1;
+								foreach($data_akunmember as $row):
+								?>
+								<tr>
+								<th scope="row"><?php echo $no++?></th>
+								<td><?php echo $row->nama_lengkap?></td>
+								<td><?php echo $row->username?></td>
+								<td><?php echo $row->jenis_kelamin?></td>
+								<td><?php echo $row->email?></td>
+								</tr>
+								<?php
+								endforeach;
+								?>
+							</tbody>
+							</table>
+							</div>
+							</div>
 
+							<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+							<script>
+								// let table = new DataTable('#myTable', {
+
+								// });
+								let table = new DataTable('#myTable');
+
+
+							</script> 
+							<!-- end data  -->
 						</div>
 					</div><!-- End Recent Sales -->
 				</div>
