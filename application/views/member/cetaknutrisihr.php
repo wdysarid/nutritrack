@@ -23,7 +23,7 @@
         }
         td {
             border: 0px solid;
-            padding: 3px;
+            padding: 2px;
             text-align: left;
         }
         td.td1 {
@@ -115,31 +115,30 @@
         <table>
 								<thead>
 									<tr>
-									<th scope="col">Total Karbohidrat Harian</th>
-                                    <th scope="col">Total Protein Harian </th>
-                                    <th scope="col">Total Lemak Harian </th>
-                                    <th scope="col">Total Kalori Harian </th>
-									</tr>
-								</thead>
-								<tbody>
-                                    <tr>
+									<th >Total Karbohidrat Harian</th> 
                                         <td class="td2">
                                             <?php echo number_format($total_karbohidrat, 2, '.', ''); ?> gr
                                         </td>
-                                        <td class="td2"> 
+                                    </tr>
+                                    <tr>
+                                    <th >Total Protein Harian </th>
+                                    <td class="td2"> 
                                             <?php echo number_format($total_protein, 2, '.', ''); ?> gr
                                         </td>
+                                    </tr>
+                                    <tr>
+                                    <th >Total Lemak Harian </th>
                                         <td class="td2">
                                             <?php echo number_format($total_lemak, 2, '.', ''); ?> gr
                                         </td>
+                                    </tr>
+                                    <tr>
+                                    <th >Total Kalori Harian </th>
                                         <td class="td2">
                                             <?php echo number_format($total_kalori, 0, '.', ''); ?> kkal
                                         </td>
-                                    </tr>
-								</tbody>
-
-
-							</table>
+									</tr>
+								</thead>
 
 </body>
 </html>
