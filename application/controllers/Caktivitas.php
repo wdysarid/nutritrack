@@ -1,12 +1,11 @@
 <?php
 	class Caktivitas extends CI_Controller
 	{
-		public function __construct()
-         {
-             parent::__construct();
-             $this->load->model('mvalidasi');
-             $this->mvalidasi->validasi();
-			}
+		public function __construct(){
+			parent::__construct();
+			$this->load->model(array('mmember','mvalidasi','maktivitas'));
+
+		}
 			
 		public function psimpanaktivitas(){
 			$this->load->model('maktivitas');
@@ -22,7 +21,7 @@
 		}
 		function cetakaktivitashr($id_member)
         {
-            $data1['data_aktivitashr']=$this->mnutrisi->getaktivitashrn($id_member)->result_array();
+            $data1['data_aktivitashr']=$this->maktivitas->getaktivitashrn($id_member)->result_array();
 			require_once(APPPATH . 'libraries/dompdf/autoload.inc.php');
             $pdf = new Dompdf\Dompdf();
 

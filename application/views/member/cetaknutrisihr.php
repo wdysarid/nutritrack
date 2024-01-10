@@ -12,17 +12,34 @@
         table {
             border-collapse: collapse;
             width: 100%;
+            margin-bottom: 20px;
             
         }
 
-        th, td {
+        th {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 3px;
+            text-align: center;
+        }
+        td {
+            border: 0px solid;
+            padding: 3px;
             text-align: left;
+        }
+        td.td1 {
+            border: 0px solid;
+            padding: 0px;
+            text-align: left;
+        }
+        td.td2 {
+            border: 0.5px solid #ddd;
+            padding: 3px;
+            text-align: center;
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #D5F0C1;
+            
         }
 
         h3 {
@@ -46,20 +63,20 @@
 <body>
 
 <table width="100%">
-    <tr>
-        <td width="20%" align="right">
+<tr>
+        <td width="15%" align="right">
             <img src="<?php echo base_url() ?>assets/img/logo-top.png" width="100px"/>
         </td>
         <td align="center">
             <font size="5"><b>NUTRITRACK.ID</b></font><br/>
-            <font size="2">Email : nutritrack.co.id </font> <br/>
+            <font size="2">Email : nutritrackofficial@gmail.com</font> <br/>
         </td>
     </tr>
 </table>
 
 <hr/>
 <h2 class="center">Nutrisi Harian Member</h2>
-<table border="1" width="100%">
+<table>
 							<thead>
 								<tr>
 								<th scope="col">No.</th>
@@ -80,21 +97,49 @@
 								?> 
 								<tr>
 									<th scope="row"><?php echo $no++?></th>
-									<td><?php echo date('d-m-Y', strtotime($row['tgl_catatan'])) ?></td>
-									<td><?php echo $row['nama_makanan']?></td>
-									<td><?php echo $row['jumlah']. " ". $row['satuan'] ?></td>
-									<td><?php echo number_format($row['total_karbohidrat'], 2, '.', '') ?> gr</td>
-									<td><?php echo number_format($row['total_protein'], 2, '.', '')?> gr</td>
-									<td><?php echo number_format($row['total_lemak'], 2, '.', '')?> gr</td>
-									<td><?php echo number_format($row['total_kalori'], 2, '.', '')?> kkal</td>
-									<td><?php echo $row['keterangan']?></td>
+									 <td class="td2"><?php echo date('d-m-Y', strtotime($row['tgl_catatan'])) ?></td>
+									 <td class="td2"><?php echo $row['nama_makanan']?></td>
+									 <td class="td2"><?php echo $row['jumlah']. " ". $row['satuan'] ?></td>
+									 <td class="td2"><?php echo number_format($row['total_karbohidrat'], 2, '.', '') ?> gr</td>
+									 <td class="td2"><?php echo number_format($row['total_protein'], 2, '.', '')?> gr</td>
+									 <td class="td2"><?php echo number_format($row['total_lemak'], 2, '.', '')?> gr</td>
+									 <td class="td2"><?php echo number_format($row['total_kalori'], 0, '.', '')?> kkal</td>
+									 <td class="td2"><?php echo $row['keterangan']?></td>
 								</tr>
 								<?php
 								endforeach;
 								?>
 							</tbody>
 		</table>
-        Total Kalori : <?php echo $total_kalori ?>
+        
+        <table>
+								<thead>
+									<tr>
+									<th scope="col">Total Karbohidrat Harian</th>
+                                    <th scope="col">Total Protein Harian </th>
+                                    <th scope="col">Total Lemak Harian </th>
+                                    <th scope="col">Total Kalori Harian </th>
+									</tr>
+								</thead>
+								<tbody>
+                                    <tr>
+                                        <td class="td2">
+                                            <?php echo number_format($total_karbohidrat, 2, '.', ''); ?> gr
+                                        </td>
+                                        <td class="td2"> 
+                                            <?php echo number_format($total_protein, 2, '.', ''); ?> gr
+                                        </td>
+                                        <td class="td2">
+                                            <?php echo number_format($total_lemak, 2, '.', ''); ?> gr
+                                        </td>
+                                        <td class="td2">
+                                            <?php echo number_format($total_kalori, 0, '.', ''); ?> kkal
+                                        </td>
+                                    </tr>
+								</tbody>
+
+
+							</table>
 
 </body>
 </html>

@@ -163,7 +163,7 @@
 									<td><?php echo number_format($row['total_karbohidrat'], 2, '.', '') ?> gr</td>
 									<td><?php echo number_format($row['total_protein'], 2, '.', '')?> gr</td>
 									<td><?php echo number_format($row['total_lemak'], 2, '.', '')?> gr</td>
-									<td><?php echo number_format($row['total_kalori'], 2, '.', '')?> kkal</td>
+									<td><?php echo number_format($row['total_kalori'], 0, '.', '')?> kkal</td>
 									<td><?php echo $row['keterangan']?></td>
 								</tr>
 								<?php
@@ -219,7 +219,7 @@
 											</nav>
 										</div><!-- End Page Title -->
 										<div class="card">
-									<h5 class="card-title" style="padding-left: 15px;">Data Aktivitas Harian<span>/ Day</span></h5>
+									<h5 class="card-title" style="padding-left: 15px;">Data Aktivitas<span>/ All</span></h5>
 											<div id="reportsChart">
 											</div>
 							<div class="card-body">
@@ -247,7 +247,7 @@
 									<td><?php echo $row['nama_aktivitas']?></td>
 									<td><?php echo date('d-m-Y', strtotime($row['waktu_mulai'])) ?></td>
 									<td><?php echo date('d-m-Y', strtotime($row['waktu_selesai'])) ?></td>
-									<td><?php echo $row['lama_aktivitas']?></td>
+									<td><?php echo $row['lama_aktivitas']?> Menit</td>
 									
 								</tr>
 								<?php
@@ -277,9 +277,13 @@
 
 </main><!-- End #main -->
 	<script>    
+			function cetaknutrisihr(id_member)
+		{
+				window.open("<?php echo base_url() ?>cnutrisi/cetaknutrisihr/"+id_member,"_blank");	
+		}
 		function cetakaktivitashr(id_member)
 		{
-				window.open("<?php echo base_url() ?>cnutrisi/cetakaktivitashr/"+id_member,"_blank");	
+				window.open("<?php echo base_url() ?>caktivitas/cetakaktivitashr/"+id_member,"_blank");	
 		}
 	</script>
 <?php $this->load->view($footer);?>
