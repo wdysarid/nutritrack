@@ -1,7 +1,6 @@
 <?php
 class Mauth extends CI_Model
 {
-
 //proseslogin
 function proseslogin()
     {
@@ -148,9 +147,10 @@ function proseslogin()
         $config['validation'] = $validation;
 
         $this->email->initialize($config);
+        $this->email->set_mailtype("html");
 
         $subject = 'Verifikasi Email';
-        $message = "Silakan klik link berikut untuk verifikasi email Anda: " . base_url('auth/verify/') . $token;
+        $message = "Silakan klik link berikut untuk verifikasi email Anda: <a href='" . base_url('auth/verify/') . $token . "' style='display:inline-block; padding:10px 20px; background-color:#3498db; color:#6DA4AA; text-decoration:none; border-radius:5px;'>Verifikasi Email</a>";
 
         $this->email->from($smtp_user, 'NutriTrack');
         $this->email->to($email);
