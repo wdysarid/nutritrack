@@ -4,6 +4,9 @@ class Martikel extends CI_Model{
     public function getartikel($id_admin){
         return $this->db->get_where('tbartikel',['id_admin'=>$id_admin]);
     }
+    // public function getartikel($id_artikel){
+    //     return $this->db->get_where('tbartikel',['id_admin'=>$id_admin]);
+    // }
     public function simpanartikel() {
         $data = array(
             'judul_artikel' => $this->input->post('judul_artikel'),

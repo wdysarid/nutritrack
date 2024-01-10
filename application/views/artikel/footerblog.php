@@ -88,8 +88,8 @@
   <script src="<?=base_url()?>assets1/js/main.js"></script>
 
   <script>
-    function blog() {
-      window.open("<?php echo base_url('clandingpg/blog'); ?>", "_self");
+    function listartikel() {
+      window.open("<?php echo base_url('clandingpg/listartikel'); ?>", "_self");
     }
 
     function blog2() {
