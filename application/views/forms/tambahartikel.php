@@ -61,10 +61,16 @@
 				<textarea placeholder="Deskripsi" class="form-control" name="deskripsi" id="deskripsi" cols="30" rows="5"></textarea>
 			</div>
 
+			<div class="form-group mb-3">
+				<h6>Keterangan</h6>
+				<input type="text" name="keterangan" id="keterangan" placeholder="Keterangan Foto"
+					class="form-control">
+			</div>
+
             <div class="form-group mb-3">
 				<h6>Gambar Artikel</h6>
-				<input type="file" name="foto_artikel" id="foto_artikel"class="form-control">
-				<p class="text-secondary px-5">Max. size 1MB</p>
+				<input type="file" name="foto_artikel" id="foto_artikel" class="form-control">
+				<p class="text-secondary px-5">Max. size 2MB</p>
 			</div>
 
 			<div style="text-align: center;">
@@ -108,7 +114,7 @@
 							<td><?php echo $row->deskripsi ?></td>
 							<td>
 								<?php 
-									$imagePath = base_url('assets/imgadmin/' . $row->foto_artikel);
+									$imagePath = base_url('assets/imgadmin/artikel/' . $row->foto_artikel);
 									echo '<img src="' . $imagePath . '" alt="Article Image" style="width: 200px; height: auto;">';
 								?>
 							</td>

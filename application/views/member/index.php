@@ -6,15 +6,20 @@
 <?php $this->load->view($sidebar);?>
 
 <main id="main" class="main" style="margin-top:80px;">
+<?php
+                  foreach(
+                    $member as $key
+                  ):
+                  ?>
 	<div class="pagetitle">
-		<h1>Halo, <?= $this->session->userdata('nama_lengkap') ?> </h1>
+		<h1>Halo, <?=$key['nama_lengkap']?></h1>
 		<nav>
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item active">Selamat datang di Sistem Pencatatan Nutrisi</li>
 			</ol>
 		</nav>
 	</div><!-- End Page Title -->
-
+<?php endforeach;?>
 	<section class="section dashboard">
 		<div class="row">
 			<!-- Sales Card -->

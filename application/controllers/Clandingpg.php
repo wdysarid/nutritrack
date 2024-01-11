@@ -4,10 +4,8 @@
 		function tampil()
 		{
 			$this->load->model('martikel');
-
 			// Ganti '=' dengan '=>' pada bagian assignment data1['admin']
 			$data1['admin'] = $this->martikel->getartikel($this->session->userdata('id_admin'))->result_array();
-		
 			// Gabungkan data yang sudah ada dengan data1 menggunakan array_merge
 			$data = array_merge(
 				[

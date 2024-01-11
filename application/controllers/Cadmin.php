@@ -4,11 +4,11 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->model(array('madmin','mmember','mvalidasi','mmakanan','martikel'));
+			$this->mvalidasi->validasi();
 
 		}
 		public function index()
 		{
-			//pengecekan session dengan memanggil function validasi di dalam model mvalidasi
 			$this->mvalidasi->validasi();
 			$data=[
 			'header' => 'partials/header',
@@ -24,6 +24,9 @@
 			$this->load->view('admin/admin',$data);	
 		}
 
+		public function hapusmember($id_member){
+			$this->madmin->hapusmember($id_member);
+		}
 		public function profileadmin()
         {
             $data=[

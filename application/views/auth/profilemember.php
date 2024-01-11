@@ -34,15 +34,17 @@
                 <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" alt="Silahkan tambahkan foto anda!">
                 <?php
                 endif;?>
-              <?php endforeach;?>
-              <h2><?php echo $this->session->userdata('nama_lengkap')?></h2>
-              <h3><?php echo $this->session->userdata('username')?></h3>
+              
+              <h2><?= $key['nama_lengkap']?></h2>
+              <h3><?= $key['username']?></h3>
+              
               <div class="social-links mt-2">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="https://twitter.com/" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+              <a href="https://facebook.com/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+              <a href="https://instagram.com/<?= $key['username']?>" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://linkedin.com/in/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
               </div>
+              <?php endforeach;?>
             </div>
           </div>
 
@@ -71,12 +73,28 @@
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                          <!-- Change Password Form -->
+                <?php
+                $pesan = $this->session->flashdata('pesan');
+                if(isset($pesan)){
+                    echo '<div class="alert alert-warning alert-dismissible fade show mt-3 rounded-2 mx-4" role="alert">
+                    '.$pesan.'
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+                $this->session->unset_userdata('pesan');
+                }
+            ?>
                 <?php
                   foreach(
                     $member as $key
                   ):
                   ?>
                   <h5 class="card-title">Detail Profil</h5>
+                  <div class="row">
+                    <div class="col-md-6 text-center">
+                      <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" class="img-fluid w-50 d-block">
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Username</div>
                     <div class="col-lg-9 col-md-8"><?= $key['username']?></div>
@@ -118,7 +136,7 @@
                         <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" alt="Silahkan tambahkan foto anda!">
                         
                         <div class="pt-2">
-                          <input type="file" accept="image/png, image/jpeg" name="foto_member">
+                          <input type="file" accept="image/png, image/jpeg, image/jpg" name="foto_member">
                         </div>
                       </div>
                     </div>
@@ -166,34 +184,34 @@
                 </div>
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
-                  <!-- Change Password Form -->
-                  <form>
+<form method="post" action="<?php echo base_url('auth/change_password'); ?>">
+    <div class="row mb-3">
+        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Password Lama</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="password" type="password" class="form-control" id="currentPassword">
+        </div>
+    </div>
 
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Password Lama</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
-                      </div>
-                    </div>
+    <div class="row mb-3">
+        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Password Baru</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="newpassword" type="password" class="form-control" id="newPassword">
+        </div>
+    </div>
 
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Password Baru</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
-                      </div>
-                    </div>
+    <div class="row mb-3">
+        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Konfirmasi password</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+        </div>
+    </div>
 
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Konfirmasi password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Change Password</button>
+    </div>
+</form>
+<!-- End Change Password Form -->
 
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
-                    </div>
-                  </form><!-- End Change Password Form -->
 
                 </div>
 
@@ -205,6 +223,17 @@
         </div>
       </div>
     </section>
-
   </main><!-- End #main -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+$(document).ready(function() {
+    $(".twitter, .facebook, .instagram, .linkedin").on("click", function(e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        window.open(link, "_blank");
+    });
+});
+</script>
+
   <?php $this->load->view($footer);?>

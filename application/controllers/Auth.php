@@ -61,10 +61,29 @@ class Auth extends CI_Controller
 
     }
     
+
+    //test
+    public function change_password()
+    {
+        // Handle form submission
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id_member = $this->session->userdata('id_member');
+            $current_password = $this->input->post('password');
+            $new_password = $this->input->post('newpassword');
+            $re_password = $this->input->post('renewpassword');
+
+            // Panggil model untuk mengubah password
+                $this->mauth->change_password($id_member, $current_password, $new_password,$re_password);
+                redirect('cmember/profilemember');
+        }
+    }
+
+
+    //logout
     public function logout()
     {
-        $this->session->sess_destroy();
-        redirect(base_url('auth/login'), 'refresh');
+        session_destroy();
+        redirect('auth/login');
     }
 }
 ?>

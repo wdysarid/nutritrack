@@ -26,9 +26,9 @@ class Mmember extends CI_Model
         if(!empty($_FILES['foto_member']['name'])){
             //unlink
             if(!empty($member->foto_member)){
-                unlink('assets/imgadmin/'.$member->foto_member);
+                unlink('assets/imgmember/'.$member->foto_member);
             }
-            $config['upload_path']   = './assets/imgadmin/'; //tempat upload logonya nanti
+            $config['upload_path']   = './assets/imgmember/'; //tempat upload logonya nanti
             $config['allowed_types'] = 'jpg|png'; // esktesion yang diperbolehkan
             $config['max_size']      = 5048; // set ukuran menjadi 5mb
 
@@ -36,7 +36,7 @@ class Mmember extends CI_Model
 
             if ($this->upload->do_upload('foto_member')) {
                 $upload_data = $this->upload->data();
-                $logo_path = 'assets/imgadmin/' . $upload_data['file_name'];
+                $logo_path = 'assets/imgmember/' . $upload_data['file_name'];
                 $file_name = $upload_data['file_name'];
                 $this->save_gambar($member->id_member,$file_name);
             } else {
@@ -53,41 +53,5 @@ class Mmember extends CI_Model
         $this->db->update('tbmember',array('foto_member'=>$file_name));
 
     }
-
-    // //simpan profile member
-    // function simpandata()
-    //     {
-    //         //ambil data dari form 
-    //         $data=$_POST;
-    //         $id_member=$data['id_member'];
-
-    //         $update=array(
-    //             'id_member'=>$id_member
-    //         );
-    //         $this->db->where($update);
-    //         $this->db->update('tbmember',$data);
-    //         $sql="select * from tbmember where id_member='".$id_member."'";
-    //         $query=$this->db->query($sql);
-    //         if($query->num_rows()>0)
-    //         {
-    //         //session
-    //             $data=$query->row();
-    //             $array=array(
-    //                 'id_member'=>$data['id_member'],
-    //                 'nama_lengkap'=>$data['nama_lengkap'],
-    //                 'username'=>$data['username'],
-    //                 'email'=>$data['email'],
-    //                 'jenis_kelamin'=>$data['jenis_kelamin'],
-    //                 'password'=>$data['password'],
-    //                 'tgl_lahir'=>$data['tgl_lahir'],
-    //             );	
-    //         $this->session->set_userdata($array);
-    //         $this->session->set_flashdata('pesan','Data sudah diedit...');
-    //         redirect('Cmember/profile','refresh');	
-    //     } 
-    // }
-
-
-
 }
 ?>
