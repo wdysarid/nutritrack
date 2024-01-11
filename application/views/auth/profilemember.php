@@ -73,6 +73,17 @@
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                          <!-- Change Password Form -->
+                <?php
+                $pesan = $this->session->flashdata('pesan');
+                if(isset($pesan)){
+                    echo '<div class="alert alert-warning alert-dismissible fade show mt-3 rounded-2 mx-4" role="alert">
+                    '.$pesan.'
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+                $this->session->unset_userdata('pesan');
+                }
+            ?>
                 <?php
                   foreach(
                     $member as $key
@@ -173,34 +184,34 @@
                 </div>
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
-                  <!-- Change Password Form -->
-                  <form>
+<form method="post" action="<?php echo base_url('auth/change_password'); ?>">
+    <div class="row mb-3">
+        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Password Lama</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="password" type="password" class="form-control" id="currentPassword">
+        </div>
+    </div>
 
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Password Lama</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
-                      </div>
-                    </div>
+    <div class="row mb-3">
+        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Password Baru</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="newpassword" type="password" class="form-control" id="newPassword">
+        </div>
+    </div>
 
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Password Baru</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
-                      </div>
-                    </div>
+    <div class="row mb-3">
+        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Konfirmasi password</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+        </div>
+    </div>
 
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Konfirmasi password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Change Password</button>
+    </div>
+</form>
+<!-- End Change Password Form -->
 
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
-                    </div>
-                  </form><!-- End Change Password Form -->
 
                 </div>
 

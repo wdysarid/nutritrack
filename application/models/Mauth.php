@@ -71,18 +71,32 @@ class Mauth extends CI_Model
         }
     }
 
-    //profile
-    // public function get_full_name($id_member) {
-    //     $this->db->select('nama_lengkap');
-    //     $this->db->where('id_member', $id_member);
-    //     $query = $this->db->get('tbmember');
+    public function change_password($id_member, $current_password, $new_password, $re_password)
+    {
+        // Ambil password dari database berdasarkan id_member
+        $this->db->where('id_member', $id_member);
+        $query = $this->db->get('tbmember');
+        $user = $query->row();
 
-    //     if ($query->num_rows() > 0) {
-    //         return $query->row()->$nama_lengkap;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+        // Verifikasi password lama
+        if (password_verify($current_password, $user->password)) {
+            // Hash password baru
+            if($new_password==$re_password){
+                $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+                // Simpan password baru ke database
+                $this->db->where('id_member', $id_member);
+                $this->db->update('tbmember', ['password' => $hashed_new_password]);
+                $this->session->set_flashdata('pesan','Password berhasil diperbarui');
+            }
+            else{
+                $this->session->set_flashdata('pesan','Password tidak sama!');
+            }
+        }
+        else{
+            $this->session->set_flashdata('pesan','Password salah');
+        }
+    }
 
     public function prosesregister()
     {
