@@ -48,7 +48,7 @@
               <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                   href="<?=base_url('clandingpg/blog4')?>">Admin</a></li>
               <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="<?=base_url()?>"><time
-                    datetime="2020-01-01">Jan 6, 2023</time></a></li>
+                    datetime="2020-01-01">Januari 6, 2023</time></a></li>
               <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?=base_url()?>">13
                   Comments</a></li>
             </ul>

@@ -45,7 +45,7 @@
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                       href="<?=base_url('clandingpg/tampil')?>">Sasmitha Putri</a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="<?=base_url()?>"><time
-                        datetime="2020-01-01">Jan 1, 2022</time></a></li>
+                        datetime="2020-01-01">Januari 20, 2022</time></a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?=base_url()?>">12
                       Comments</a></li>
                 </ul>
@@ -113,17 +113,6 @@
 
             <div class="col-lg-6 ">
               <div class="sidebar">
-                <div class="sidebar-item categories">
-                  <h3 class="sidebar-title">Categories</h3>
-                  <ul class="mt-3">
-                    <li><a href="#">Kesehatan <span>(25)</span></a></li>
-                    <li><a href="#">Nutrisi <span>(12)</span></a></li>
-                    <li><a href="#">Gizi <span>(5)</span></a></li>
-                    <li><a href="#">Hidup Sehat <span>(22)</span></a></li>
-                    <li><a href="#">Aktivitas <span>(8)</span></a></li>
-                  </ul>
-                </div><!-- End sidebar categories-->
-
                 <div class="sidebar-item recent-posts">
                   <h3 class="sidebar-title">Artikel Terkait</h3>
 

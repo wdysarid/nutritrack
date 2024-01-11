@@ -45,7 +45,7 @@
               <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                   href="<?=base_url('')?>">Sasmitha Putri</a></li>
               <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="<?=base_url()?>"><time
-                    datetime="2020-01-01">Jan 1, 2022</time></a></li>
+                    datetime="2020-01-01">Januari 1, 2022</time></a></li>
               <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?=base_url()?>">12
                   Comments</a></li>
             </ul>
