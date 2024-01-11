@@ -21,8 +21,20 @@
 
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
+            <?php
+                  foreach(
+                    $member as $key
+                  ):
+                  ?>
+                  <?php
+                  if(empty($key['foto_member'])):
+                  ?>
               <img src="<?=base_url('assets/img/profile-img.jpg')?>"  alt="Profile" class="rounded-circle">
+              <?php else:?>
+                <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" alt="Silahkan tambahkan foto anda!">
+                <?php
+                endif;?>
+              <?php endforeach;?>
               <h2><?php echo $this->session->userdata('nama_lengkap')?></h2>
               <h3><?php echo $this->session->userdata('username')?></h3>
               <div class="social-links mt-2">
@@ -98,15 +110,15 @@
                     $member as $key
                   ):
                   ?>
-                  <form action="<?= base_url('cmember/editprofilemember')?>" method="post">
+                  <form action="<?= base_url('cmember/editprofilemember')?>" method="post" enctype="multipart/form-data">
                   <input type="hidden" name="id_member" value="<?=$key['id_member']?>">
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto Profil</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="assets/img/profile-img.jpg" alt="Profile">
+                        <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" alt="Silahkan tambahkan foto anda!">
+                        
                         <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                          <input type="file" accept="image/png, image/jpeg" name="foto_member">
                         </div>
                       </div>
                     </div>
