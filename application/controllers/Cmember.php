@@ -5,6 +5,7 @@
 		{
 			parent::__construct();
 			$this->load->model(array('madmin','mmember','mvalidasi','mmakanan','mnutrisi','maktivitas'));
+			$this->mvalidasi->validasi();
 	   }
 		public function index()
 		{
@@ -49,46 +50,47 @@
 
 //catatan nutrisi		
 		public function catatnutrisi()
-		{
-			$user=$this->session->userdata('id_member');
-			
+		{	
+			$id_member=$this->session->userdata('id_member');
 			$data=[
 			'header' => 'partials/header',
             'navbar' => 'partials/navbar',
             'sidebar' => 'partials/sidebar',
 			'footer' => 'partials/footer',
-			'data_makanan'=>$this->mmakanan->getmakanan()->result()
+			'data_makanan'=>$this->mmakanan->getmakanan()->result(),
+			'member' => $this->mmember->getprofilmember($this->session->userdata('id_member'))->result_array()
 			];
-			$this->load->model('mnutrisi');
-			$data['data_nutrisiform']=$this->mnutrisi->getnutrisi($user)->result();
+			$data['data_nutrisiform']=$this->mnutrisi->getnutrisi($id_member)->result();
 			$this->load->view('forms/catatnutrisi',$data);
 		}
 
 		public function tampilnutrisi()
 		{
-			$user=$this->session->userdata('id_member');
+			$id_member=$this->session->userdata('id_member');
 			$data=[
 				'header' => 'partials/header',
 				'navbar' => 'partials/navbar',
 				'sidebar' => 'partials/sidebar',
-				'footer' => 'partials/footer'
+				'footer' => 'partials/footer',
+				'member' => $this->mmember->getprofilmember($this->session->userdata('id_member'))->result_array()
 			];
 			
-			$data['data_nutrisi']=$this->mnutrisi->getnutrisi($user)->result();
+			$data['data_nutrisi']=$this->mnutrisi->getnutrisi($id_member)->result();
 			$this->load->view('tables/nutrisitbl',$data);
 		}
 
 		public function tampilnutrisiharian()
 		{
-			$user=$this->session->userdata('id_member');
+			$id_member=$this->session->userdata('id_member');
 			$data=[
 				'header' => 'partials/header',
 				'navbar' => 'partials/navbar',
 				'sidebar' => 'partials/sidebar',
-				'footer' => 'partials/footer'
+				'footer' => 'partials/footer',
+				'member' => $this->mmember->getprofilmember($this->session->userdata('id_member'))->result_array()
 			];
 			
-			$data['data_nutrisihr']=$this->mnutrisi->getnutrisi($user)->result();
+			$data['data_nutrisihr']=$this->mnutrisi->getnutrisi($id_member)->result();
 			$this->load->view('tables/nutrisiharian',$data);
 		}
 
@@ -96,27 +98,30 @@
 //catatan aktivitas	
 		public function catataktivitas()
 		{
-			$user=$this->session->userdata('id_member');
+			$id_member=$this->session->userdata('id_member');
 			$data=[
 			'header' => 'partials/header',
             'navbar' => 'partials/navbar',
             'sidebar' => 'partials/sidebar',
-			'footer' => 'partials/footer'
+			'footer' => 'partials/footer',
+			'member' => $this->mmember->getprofilmember($this->session->userdata('id_member'))->result_array()
 			];
 			
-			$data['data_aktivitasform']=$this->maktivitas->getaktivitas($user)->result();
+			$data['data_aktivitasform']=$this->maktivitas->getaktivitas($id_member)->result();
 			$this->load->view('forms/catataktivitas',$data);
 		}
 		public function tampilaktivitas()
-		{$user=$this->session->userdata('id_member');
+		{
+			$id_member=$this->session->userdata('id_member');
 			$data=[
 				'header' => 'partials/header',
 				'navbar' => 'partials/navbar',
 				'sidebar' => 'partials/sidebar',
-				'footer' => 'partials/footer'
+				'footer' => 'partials/footer',
+				'member' => $this->mmember->getprofilmember($this->session->userdata('id_member'))->result_array()
 			];
 			
-			$data['data_aktivitas']=$this->maktivitas->getaktivitas($user)->result();
+			$data['data_aktivitas']=$this->maktivitas->getaktivitas($id_member)->result();
 			$this->load->view('tables/aktivitastbl',$data);
 		}
 	}

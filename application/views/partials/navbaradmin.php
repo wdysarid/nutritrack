@@ -48,7 +48,7 @@
     function logout() {
         var confirmLogout = confirm("Apakah anda ingin keluar dari halaman ini?");
         if (confirmLogout) {
-            window.location.href = '<?=base_url('clandingpg/tampil')?>';
+            window.location.href = '<?=base_url('auth/logout')?>';
         }
     }
 </script>

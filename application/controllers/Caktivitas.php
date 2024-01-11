@@ -4,7 +4,7 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->model(array('mmember','mvalidasi','maktivitas'));
-
+			$this->mvalidasi->validasi();
 		}
 			
 		public function psimpanaktivitas(){

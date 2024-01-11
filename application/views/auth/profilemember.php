@@ -34,15 +34,17 @@
                 <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" alt="Silahkan tambahkan foto anda!">
                 <?php
                 endif;?>
-              <?php endforeach;?>
-              <h2><?php echo $this->session->userdata('nama_lengkap')?></h2>
-              <h3><?php echo $this->session->userdata('username')?></h3>
+              
+              <h2><?= $key['nama_lengkap']?></h2>
+              <h3><?= $key['username']?></h3>
+              
               <div class="social-links mt-2">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="https://twitter.com/" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+              <a href="https://facebook.com/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+              <a href="https://instagram.com/<?= $key['username']?>" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://linkedin.com/in/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
               </div>
+              <?php endforeach;?>
             </div>
           </div>
 
@@ -77,6 +79,11 @@
                   ):
                   ?>
                   <h5 class="card-title">Detail Profil</h5>
+                  <div class="row">
+                    <div class="col-md-6 text-center">
+                      <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" class="img-fluid w-50 d-block">
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Username</div>
                     <div class="col-lg-9 col-md-8"><?= $key['username']?></div>
@@ -118,7 +125,7 @@
                         <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" alt="Silahkan tambahkan foto anda!">
                         
                         <div class="pt-2">
-                          <input type="file" accept="image/png, image/jpeg" name="foto_member">
+                          <input type="file" accept="image/png, image/jpeg, image/jpg" name="foto_member">
                         </div>
                       </div>
                     </div>
@@ -205,6 +212,17 @@
         </div>
       </div>
     </section>
-
   </main><!-- End #main -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+$(document).ready(function() {
+    $(".twitter, .facebook, .instagram, .linkedin").on("click", function(e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        window.open(link, "_blank");
+    });
+});
+</script>
+
   <?php $this->load->view($footer);?>

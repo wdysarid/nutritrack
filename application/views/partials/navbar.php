@@ -27,16 +27,18 @@
             <?php else:?>
                     <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" class="w-100 rounded-circle">
             <?php endif;?>
-        <?php endforeach;?>
-        <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?=$this->session->userdata('nama_lengkap')?></span>
+            <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?=$key['nama_lengkap']?></span>
+
       </a><!-- End Profile Iamge Icon -->
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li>
+
             <a class="dropdown-item d-flex align-items-center" href="<?=base_url('cmember/profilemember')?>">
                 <i class="bi bi-person"></i>
-                <span><?=$this->session->userdata('nama_lengkap')?>'s Profile</span>
-            </a>
+                <span><?=$key['nama_lengkap']?>'s Profile</span>
+              </a>
+              <?php endforeach;?>
         </li>
         <li>
           <hr class="dropdown-divider">
@@ -56,7 +58,7 @@
     function logout() {
         var confirmLogout = confirm("Apakah anda ingin keluar dari halaman ini?");
         if (confirmLogout) {
-            window.location.href = '<?=base_url('clandingpg/tampil')?>';
+            window.location.href = '<?=base_url('auth/logout')?>';
         }
     }
 </script>

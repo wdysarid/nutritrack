@@ -1,6 +1,6 @@
 <?php
 class Martikel extends CI_Model{
-        //get data dari tabel artikel
+    //get data dari tabel artikel
     public function getartikel($id_admin){
         return $this->db->get_where('tbartikel',['id_admin'=>$id_admin]);
     }
@@ -8,39 +8,82 @@ class Martikel extends CI_Model{
     function getdataartikel(){
         return $this->db->get('tbartikel');
     }
-    public function simpanartikel() {
-        $data = array(
-            'judul_artikel' => $this->input->post('judul_artikel'),
-            'tgl_upload' => $this->input->post('tgl_upload'),
-            'deskripsi' => $this->input->post('deskripsi'),
-            'id_admin' => $this->input->post('id_admin'),
-            'foto_artikel' => $this->upload_foto() // call a separate function to handle file upload
-        );
-
-        $this->db->insert('tbartikel', $data);
-
-        return true;
-    }
-
-    private function upload_foto() {
-        $config['upload_path'] = FCPATH . 'assets/imgadmin/';
-        $config['allowed_types'] = 'jpg|jpeg|png';
-        $config['max_size'] = 1024;
-
-        $this->load->library('upload', $config);
-
-        if ($this->upload->do_upload('foto_artikel')) {
-            $upload_data = $this->upload->data();
-            return $upload_data['file_name'];
+    function simpanartikel()
+    {
+        $data = $_POST;
+        $judul_artikel = $data['judul_artikel'];
+        $tgl_upload = $data['tgl_upload'];
+        $deskripsi = $data['deskripsi'];
+        $keterangan = $data['keterangan'];
+        $id_artikel = $data['id_artikel'];
+        $upload_foto = $this->uploadfoto($_FILES['foto_artikel'], 'foto_artikel', $keterangan);
+    
+        if ($id_artikel == "") {
+            // simpan artikel
+            $data['foto_artikel'] = $upload_foto;
+            $this->db->insert('tbartikel', $data);
+            $this->session->set_flashdata('pesan', 'Data sudah disimpan...');
+            redirect('cadmin/tambahartikel', 'refresh');
         } else {
-            $error = $this->upload->display_errors();
-            echo $error;
-            return false;
+            // edit artikel
+            $update = array(
+                'id_artikel' => $id_artikel
+            );
+    
+            // Check if a new photo is uploaded
+            if (!empty($_FILES['foto_artikel']['name'])) {
+                // Delete the old photo before updating
+                $old_photo = $this->db->get_where('tbartikel', array('id_artikel' => $id_artikel))->row()->foto_artikel;
+                if (!empty($old_photo)) {
+                    $this->deletePhotoFromDirectory($old_photo);
+                }
+    
+                // Upload the new photo
+                $data['foto_artikel'] = $this->uploadfoto($_FILES['foto_artikel'], 'foto_artikel', $keterangan);
+            }
+    
+            $this->db->where($update);
+            $this->db->update('tbartikel', $data);
+            $this->session->set_flashdata('pesan', 'Data sudah diedit...');
+            redirect('cadmin/tambahartikel', 'refresh');
+        }
+    }
+    
+    function uploadfoto($upload_foto,$field,$nama)
+    {
+        $NamaFile=str_replace(' ', '', $nama);
+        $extractFile = pathinfo($upload_foto['name']);	
+        $ekst = $extractFile['extension'];
+        $newName = $NamaFile.".".$ekst; 
+        $config['upload_path']				= FCPATH.'assets/imgadmin/artikel/';
+        $config['allowed_types']			= array('png','jpeg','jpg');; 
+        $config['max_size']         		= 2000;
+        $config['overwrite'] 				= true;
+        $config['file_name'] 				= $newName;
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload($field)){
+            $error = array('error' => $this->upload->display_errors());
+            print_r($error);
+            return "";
+        }else{
+            
+            return $newName;
+        }
+     }
+
+    function deletePhotoFromDirectory($photo)
+    {
+        $photo_path = FCPATH . 'assets/imgadmin/artikel/' . $photo;
+        if (file_exists($photo_path)) {
+            unlink($photo_path);
         }
     }
     
     function hapusartikel($id_artikel)
     {
+        $data = $this->db->get_where('tbartikel',['id_artikel'=>$id_artikel])->row();
+        $target_gambar = 'assets/imgadmin/artikel/'.$data->foto_artikel;
+        unlink($target_gambar);
         $this->db->where('id_artikel',$id_artikel);
         $this->db->delete('tbartikel');
         $this->session->set_flashdata('pesan','Data berhasil dihapus');
@@ -56,16 +99,8 @@ class Martikel extends CI_Model{
             echo "<script>$('#judul_artikel').val('".$data->judul_artikel."')</script>";
             echo "<script>$('#tgl_upload').val('".$data->tgl_upload."')</script>";
             echo "<script>$('#deskripsi').val('".$data->deskripsi."')</script>";
-            
-            //gambar
-            if (!empty($data->foto_artikel)) {
-                $imagePath = FCPATH."assets/imgadmin/" . $data->foto_artikel; // Replace "path/to/img_admin/" with the actual path
-                echo "<script>$('#foto_artikel').val('".$data->foto_artikel."')</script>";
-                echo "<img src='{$imagePath}' alt='Article Image'>";
-            } else {
-                echo "<script>$('#foto_artikel').val('')</script>"; // Clear the value if 'foto_artikel' is empty
-            }
-
+            echo "<script>$('#keterangan').val('".$data->keterangan."')</script>";
+            echo "<script>$('#foto_artikel').attr('src', '".base_url('assets/imgadmin/artikel/').$data->foto_artikel."')</script>";
         }
     }
    
