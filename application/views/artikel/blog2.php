@@ -133,28 +133,16 @@
           <div class="col-lg-6">
 
             <div class="sidebar">
-
-              <div class="sidebar-item search-form">
-                <h3 class="sidebar-title">Search</h3>
-                <form action="" class="mt-3">
-                  <input type="text">
-                  <button type="submit"><i class="bi bi-search"></i></button>
-                </form>
-              </div><!-- End sidebar search formn-->
-
-              <div class="sidebar-item categories">
-                <h3 class="sidebar-title">Categories</h3>
-                <ul class="mt-3">
-                  <li><a href="#">Kesehatan <span>(25)</span></a></li>
-                  <li><a href="#">Nutrisi <span>(12)</span></a></li>
-                  <li><a href="#">Gizi <span>(5)</span></a></li>
-                  <li><a href="#">Hidup Sehat <span>(22)</span></a></li>
-                  <li><a href="#">Aktivitas <span>(8)</span></a></li>
-                </ul>
-              </div><!-- End sidebar categories-->
-
               <div class="sidebar-item recent-posts">
                 <h3 class="sidebar-title">Recent Posts</h3>
+
+                <div class="post-item">
+                  <img src="<?=base_url('assets1/img/blog/sayur.jpg')?>" alt="" class="flex-shrink-0">
+                  <div>
+                    <h4><a href="<?=base_url('clandingpg/blog4')?>">Manfaat Makan Sayur Untuk Kesehatan Tubuh</a></h4>
+                    <time datetime="2020-01-01">Januari 6, 2023</time>
+                  </div>
+                </div><!-- End recent post item-->
 
                 <div class="post-item">
                   <img src="<?=base_url('assets1/img/blog/makanansehat.jpg')?>" alt="" class="flex-shrink-0">
@@ -171,6 +159,15 @@
                     <time datetime="2020-01-01">Jan 7, 2022</time>
                   </div>
                 </div><!-- End recent post item-->
+
+                <div class="post-item">
+                  <img src="<?=base_url('assets1/img/blog/alergy.jpg')?>" alt="" class="flex-shrink-0">
+                  <div>
+                    <h4><a href="<?=base_url('clandingpg/blog3')?>">Penyebab Alergi Makanan</a></h4>
+                    <time datetime="2020-01-01">Jan 7, 2022</time>
+                  </div>
+                </div><!-- End recent post item-->
+
 
               </div><!-- End sidebar recent posts-->
             </div><!-- End Sidebar -->

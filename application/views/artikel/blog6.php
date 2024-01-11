@@ -129,7 +129,7 @@
                   <img src="<?=base_url('assets1/img/blog/makanansehat.jpg')?>" alt="" class="flex-shrink-0">
                   <div>
                     <h4><a href="<?=base_url('clandingpg/blog')?>">Manfaat Menkonsumsi Makanan Sehat</a></h4>
-                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                    <time datetime="2020-01-01">Januari 1, 2020</time>
                   </div>
                 </div><!-- End recent post item-->
 
