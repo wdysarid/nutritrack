@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="col-12 text-center">
-                        <p class="small mb-0"><a href="<?= base_url('auth/lupaPassword') ?>">Lupa Password?</a></p>
+                        <p class="small mb-0"><a href="<?= base_url('auth/forgotPassword') ?>">Lupa Password?</a></p>
                         </div>
 
                         <div class="col-12 text-center">

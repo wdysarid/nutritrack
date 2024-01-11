@@ -20,14 +20,9 @@ class Mauth extends CI_Model
                     'email' => $data['email'],
                 ];
 
-                // Periksa status verifikasi sebelum login
-                if ($data['is_verified'] == 1) {
-                    $this->session->set_userdata($array);
-                    redirect(base_url('cadmin/index'), 'refresh');
-                } else {
-                    $this->session->set_flashdata(['pesan' => 'Akun anda belum terverifikasi!', 'color' => 'danger']);
-                    redirect(base_url('auth/login'), 'refresh');
-                }
+                // Tidak perlu memeriksa status verifikasi sebelum login
+                $this->session->set_userdata($array);
+                redirect(base_url('cadmin/index'), 'refresh');
             } else {
                 $this->session->set_flashdata(['pesan' => 'Password salah', 'color' => 'danger']);
                 redirect(base_url('auth/login'), 'refresh');

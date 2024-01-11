@@ -87,5 +87,24 @@ class Mmember extends CI_Model
     //     } 
     // }
 
+    public function proseschangePassword() {
+        $this->form_validation->set_rules('newpassword', 'Password', 'required|trim|min_length[3]');
+        $this->form_validation->set_rules('renewpassword', 'Password', 'required|trim|min_length[3]|matches[newpassword]');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->ChangepasswordError(validation_errors());
+        } else {
+            $data = [
+                'nama_lengkap' => $this->input->post('nama_lengkap'),
+                'username' => $this->input->post('username'),
+                'email' => $this->input->post('email'),
+                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                'tgl_lahir' => $this->input->post('tgl_lahir'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            ];
+
+    }
+}
+
 }
 ?>
