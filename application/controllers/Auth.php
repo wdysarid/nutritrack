@@ -9,6 +9,7 @@ class Auth extends CI_Controller
         $this->load->model('madmin');
     }
 
+
     public function login()
     {
         $data=[

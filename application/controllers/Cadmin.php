@@ -9,7 +9,6 @@
 		}
 		public function index()
 		{
-			$this->mvalidasi->validasi();
 			$data=[
 			'header' => 'partials/header',
             'navbaradmin' => 'partials/navbaradmin',
@@ -62,14 +61,13 @@
 		//artikel
 		public function tambahartikel()
 		{
-			$user=$this->session->userdata('id_admin');
 			$data=[
 			'header' => 'partials/header',
             'navbaradmin' => 'partials/navbaradmin',
             'sidebaradmin' => 'partials/sidebaradmin',
 			'footer' => 'partials/footer'
 			];
-			$data['data_artikel']=$this->martikel->getartikel($user)->result();
+			$data['data_artikel']=$this->martikel->getartikel()->result();
 			$this->load->view('forms/tambahartikel',$data);
 		}
 	}

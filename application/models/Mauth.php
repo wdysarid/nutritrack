@@ -24,7 +24,7 @@ class Mauth extends CI_Model
                 $this->session->set_userdata($array);
                 redirect(base_url('cadmin/index'), 'refresh');
             } else {
-                $this->session->set_flashdata(['pesan' => 'Password salah', 'color' => 'danger']);
+                $this->session->set_flashdata('error', 'Gagal Login');
                 redirect(base_url('auth/login'), 'refresh');
             }
         }
@@ -85,11 +85,11 @@ class Mauth extends CI_Model
                 $this->session->set_flashdata('pesan','Password berhasil diperbarui');
             }
             else{
-                $this->session->set_flashdata('pesan','Password tidak sama!');
+                $this->session->set_flashdata('error','Password tidak sama!');
             }
         }
         else{
-            $this->session->set_flashdata('pesan','Password salah');
+            $this->session->set_flashdata('error','Password salah');
         }
     }
 

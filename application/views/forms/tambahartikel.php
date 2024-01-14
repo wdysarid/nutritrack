@@ -12,7 +12,7 @@
 		<h1>Tambah Artikel</h1>
 		<nav>
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url('cadmin') ?>">Home</a></li>
 				<li class="breadcrumb-item active">Tambah Artikel</li>
 			</ol>
 		</nav>
@@ -124,7 +124,7 @@
 								onclick="editartikel(<?php echo $row->id_artikel?>)">Edit</button>
 							<button type="button" class="btn btn-danger"
 								onclick="hapusartikel(<?php echo $row->id_artikel?>)">Hapus</button>
-						</td>
+							</td>
 
 					</tr>
 					<?php

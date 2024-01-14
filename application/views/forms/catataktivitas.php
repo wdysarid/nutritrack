@@ -10,7 +10,7 @@
 		<h1>Catatan Aktivitas</h1>
 		<nav>
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url('cmember') ?>">Home</a></li>
 				<li class="breadcrumb-item active">Catatan Aktivitas</li>
 			</ol>
 		</nav>
@@ -36,6 +36,11 @@
 			<div class="form-group mb-3">
 				<h6>Nama Aktivitas</h6>
 				<input type="text" name="nama_aktivitas" id="nama_aktivitas" class="form-control">
+			</div>
+
+			<div class="form-group mb-3">
+				<h6>Tanggal</h6>
+				<input type="date" name="tgl_aktivitas" id="tgl_aktivitas"  class="form-control">
 			</div>
 
 			<div class="form-group mb-3">
@@ -65,7 +70,7 @@
     			<h1>Catatan Aktivitas</h1>
     			<nav>
     				<ol class="breadcrumb">
-    					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    					<li class="breadcrumb-item"><a href="<?php echo base_url('cmember') ?>">Home</a></li>
     					<li class="breadcrumb-item active">Data Aktivitas</li>
     				</ol>
     			</nav>
@@ -82,6 +87,7 @@
     <tr>
       <th scope="col">No.</th>
       <th scope="col">Nama Aktivitas</th>
+      <th scope="col">Tanggal</th>
       <th scope="col">Waktu Mulai</th>
       <th scope="col">Waktu Selesai</th>
       <th scope="col">Lama Aktivitas</th>
@@ -96,6 +102,7 @@
     <tr>
       <th scope="row"><?php echo $no++?></th>
       <td><?php echo $row->nama_aktivitas?></td>
+      <td><?php echo $row->tgl_aktivitas?></td>
       <td>
         <?php 
         $waktu_mulai = strtotime($row->waktu_mulai);

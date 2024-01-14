@@ -126,7 +126,7 @@
 							<h1>Laporan Nutrisi</h1>
 							<nav>
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item"><a href="<?php echo base_url('cmember') ?>">Home</a></li>
 									<li class="breadcrumb-item active">Catatan Nutrisi</li>
 								</ol>
 							</nav>
@@ -213,13 +213,13 @@
 						<h1>Laporan Aktivitas</h1>
 						<nav>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+								<li class="breadcrumb-item"><a href="<?php echo base_url('cmember') ?>">Home</a></li>
 								<li class="breadcrumb-item active">Catatan Aktivitas</li>
 							</ol>
 						</nav>
 					</div><!-- End Page Title -->
 					<div class="card">
-						<h5 class="card-title" style="padding-left: 15px;">Data Aktivitas<span>/ All</span></h5>
+						<h5 class="card-title" style="padding-left: 15px;">Data Aktivitas<span>/ Day</span></h5>
 						<div id="reportsChart">
 						</div>
 						<div class="card-body">

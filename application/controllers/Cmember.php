@@ -43,10 +43,58 @@
         }
 
 		public function editprofilemember(){
-			$this->mmember->simpanprofile();
+				//getdatamember
+		
+				$member=$this->mmember->getprofilmember($this->session->userdata('id_member'))->row();
+		
+				if (!empty($_FILES['foto_member']['name'])) {
+		
+					// melakukan penghapusan gambar sebelumnya dari path agar lebih hemat :)
+					if(!empty($member->foto_member)){
+						unlink('assets/imgmember/' .$member->foto_member);
+					}
+		
+					// Config untuk upload file berupa foto
+					$config['upload_path']   = './assets/imgmember'; //tempat upload logonya nanti
+					$config['allowed_types'] = 'jpg|png'; // esktesion yang diperbolehkan
+					$config['max_size']      = 2048; // set ukuran menjadi 5mb
+
+			
+					$this->load->library('upload', $config); 
+			
+					//jika file gambar diupload
+					if ($this->upload->do_upload('foto_member')) {
+						// upload
+						$upload_data = $this->upload->data();
+						// lalu simpan pada path
+						$logo_path = 'assets/imgmember/'.$upload_data['file_name'];
+		
+						$file_name = $upload_data['file_name'];
+			
+						// menyimpan logo ke database
+						$this->mmember->save_gambar($member->id_member, $file_name);
+		
+					} else {
+						// mengatasi jika error
+						$error = $this->upload->display_errors();
+						$this->session->set_flashdata('error', $error);
+						// echo $error;
+						redirect('cmember/profilemember');
+					}
+				}
+
+			//mengambil inputan user
+			$nama=$this->input->post('nama_lengkap');
+			$user=$this->input->post('username');
+			$tgl=$this->input->post('tgl_lahir');
+			$jk=$this->input->post('jenis_kelamin');
+			$email=$this->input->post('email');
+
+			$this->mmember->simpanprofile($nama, $user, $tgl, $jk, $email, $member->id_member);
+			$this->session->set_flashdata('pesan', $error);
 			redirect('cmember/profilemember');
 
-		}
+	}
 
 //catatan nutrisi		
 		public function catatnutrisi()

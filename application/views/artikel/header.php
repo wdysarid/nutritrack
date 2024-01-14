@@ -17,7 +17,7 @@
 
 	<!-- Favicons -->
 	<link href="<?= base_url('assets/img/favicon.png')?>" rel="icon">
-	<link href="<?= base_url('assets1/img/apple-touch-icon.png')?>" rel="apple-touch-icon">
+	<link href="<?= base_url('assets/img/apple-touch-icon.png')?>" rel="apple-touch-icon">
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com" rel="preconnect">

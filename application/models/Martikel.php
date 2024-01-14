@@ -1,8 +1,8 @@
 <?php
 class Martikel extends CI_Model{
     //get data dari tabel artikel
-    public function getartikel($id_admin){
-        return $this->db->get_where('tbartikel',['id_admin'=>$id_admin]);
+    public function getartikel(){
+        return $this->db->get('tbartikel');
     }
 
     function getdataartikel(){
@@ -10,6 +10,7 @@ class Martikel extends CI_Model{
     }
     function simpanartikel()
     {
+        $this->load->library('upload');
         $data = $_POST;
         $judul_artikel = $data['judul_artikel'];
         $tgl_upload = $data['tgl_upload'];
@@ -45,7 +46,7 @@ class Martikel extends CI_Model{
             $this->db->where($update);
             $this->db->update('tbartikel', $data);
             $this->session->set_flashdata('pesan', 'Data sudah diedit...');
-            redirect('cadmin/tambahartikel', 'refresh');
+            //redirect('cadmin/tambahartikel', 'refresh');
         }
     }
     

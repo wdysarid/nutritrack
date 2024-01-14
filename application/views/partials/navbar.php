@@ -25,7 +25,7 @@
             ?>  
                     <img src="<?=base_url('assets/img/profile-img.jpg')?>" alt="Profile" class="w-100 rounded-circle">
             <?php else:?>
-                    <img src="<?= base_url('assets/imgadmin/' . $key['foto_member']) ?>" class="w-100 rounded-circle">
+                    <img src="<?= base_url('assets/imgmember/' . $key['foto_member']) ?>" class="w-100 rounded-circle">
             <?php endif;?>
             <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?=$key['nama_lengkap']?></span>
 

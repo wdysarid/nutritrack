@@ -46,8 +46,5 @@
       </li>
     </ul>
   </li><!-- End Tables Nav -->
-
 </ul>
-
-
 </aside><!-- End Sidebar-->

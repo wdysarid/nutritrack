@@ -11,7 +11,7 @@
 			<div class="row">
 				<div class="col-lg-10">
 					<h2 data-aos="fade-up" data-aos-delay="100">Selamat Datang di Sistem Pencatatan Nutrisi</h2>
-					<p data-aos="fade-up" data-aos-delay="200">Sistem yang mengelola pencatatan nutrisi harian pengguna</p>
+					<p data-aos="fade-up" data-aos-delay="200">Sistem yang mengelola pencatatan nutrisi dan aktivitas harian</p>
 				</div>
 			</div>
 		</div>
@@ -99,7 +99,7 @@
 					<div class="service-item d-flex">
 						<div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
 						<div>
-							<h4 class="title"><a href="services-details.html" class="stretched-link">Pemantauan Asupan Gizi</a></h4>
+							<h4 class="title"><a href="#" class="stretched-link">Pemantauan Asupan Gizi</a></h4>
 							<p class="description">Sistem pencatatan nutrisi memungkinkan pemantauan yang akurat terhadap asupan
 								harian</p>
 						</div>
@@ -111,7 +111,7 @@
 					<div class="service-item d-flex">
 						<div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
 						<div>
-							<h4 class="title"><a href="services-details.html" class="stretched-link">Pencapaian Tujuan Kesehatan</a>
+							<h4 class="title"><a href="#" class="stretched-link">Pencapaian Tujuan Kesehatan</a>
 							</h4>
 							<p class="description">Dengan melacak konsumsi makanan secara teratur, Anda dapat menetapkan dan mencapai
 								tujuan kesehatan</p>
@@ -123,7 +123,7 @@
 					<div class="service-item d-flex">
 						<div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
 						<div>
-							<h4 class="title"><a href="services-details.html" class="stretched-link">Identifikasi Kebiasaan Makan</a>
+							<h4 class="title"><a href="#" class="stretched-link">Identifikasi Kebiasaan Makan</a>
 							</h4>
 							<p class="description">Sistem pencatatan membantu mengidentifikasi kebiasaan makan, baik yang positif
 								maupun negatif</p>
@@ -135,7 +135,7 @@
 					<div class="service-item d-flex">
 						<div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
 						<div>
-							<h4 class="title"><a href="services-details.html" class="stretched-link">Peningkatan Kesadaran Nutrisi</a>
+							<h4 class="title"><a href="#" class="stretched-link">Peningkatan Kesadaran Nutrisi</a>
 							</h4>
 							<p class="description">Melalui pencatatan nutrisi, seseorang dapat menjadi lebih sadar akan nilai gizi
 								makanan dan membuat pilihan yang lebih cerdas</p>
@@ -147,21 +147,10 @@
 					<div class="service-item d-flex">
 						<div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
 						<div>
-							<h4 class="title"><a href="services-details.html" class="stretched-link">Rekam Jejak Perubahan
+							<h4 class="title"><a href="#" class="stretched-link">Rekam Jejak Perubahan
 									Kesehatan</a></h4>
 							<p class="description">Sistem pencatatan menyediakan rekam jejak yang dapat digunakan untuk melihat
 								kemajuan kesehatan seiring waktu</p>
-						</div>
-					</div>
-				</div><!-- End Service Item -->
-
-				<div class="col-lg-6 " data-aos="fade-up" data-aos-delay="600">
-					<div class="service-item d-flex">
-						<div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-						<div>
-							<h4 class="title"><a href="services-details.html" class="stretched-link">Eiusmod Tempor</a></h4>
-							<p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-								soluta nobis est eligendi</p>
 						</div>
 					</div>
 				</div><!-- End Service Item -->
@@ -190,7 +179,7 @@
 						<input type="hidden" name="id_artikel" value="<?=$key['id_artikel']?>">
 
 						<div class="post-img">
-							<img src="<?= base_url('assets/imgadmin/' . $key['foto_artikel']) ?>" alt="" class="img-fluid">
+							<img src="<?= base_url('assets/imgadmin/artikel/' . $key['foto_artikel']) ?>" alt="" class="img-fluid">
 						</div>
 						<h2 class="title">
 							<?= $key['judul_artikel'] ?>
@@ -221,9 +210,9 @@
 
 	</section><!-- End Recent-posts Section Artikel-->
 	<!-- Tombol Selengkapnya di Tengah Halaman -->
-	<div class="text-center mt-4">
+	<div class="text-center mt-2 mb-4">
 		<a href="<?= base_url('clandingpg/listartikel') ?>" class="btn btn-primary btn-lg"
-			style="background-color: #4F6F52; color: #AAD9BB; border-radius: 5px; padding: 10px 20px; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease;"
+			style="background-color: #4F6F52; color: #AAD9BB; border-radius: 5px; padding: 10px 20px; text-decoration: none; transition: background-color 0.3s ease;"
 			onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Lihat Semua
 			Artikel</a>
 	</div>

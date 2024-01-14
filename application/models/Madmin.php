@@ -7,7 +7,7 @@ class Madmin extends CI_Model
         return $this->db->get_where('tbadmin',['id_admin'=>$id_admin]);
     }
 
-    //profile
+    //profile admin
     function simpanprofile(){
         //mengambil inputan user
         $data=array(
@@ -20,6 +20,7 @@ class Madmin extends CI_Model
         return $this->db->update('tbadmin',$data);
     }
 
+    //hapus data member
     function hapusmember($id_member)
     {
         $this->db->where('id_member',$id_member);
