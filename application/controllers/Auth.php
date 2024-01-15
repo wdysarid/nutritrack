@@ -57,10 +57,63 @@ class Auth extends CI_Controller
         }
     }
 
-    public function lupaPassword()
+        public function forgot_password()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $this->input->post('email');
+            $result = $this->mauth->forgot_password($email);
 
+            if ($result) {
+                $this->session->set_flashdata(['pesan' => 'Link reset password telah dikirim ke email Anda.', 'color' => 'success']);
+                redirect(base_url('auth/login'), 'refresh');
+            } else {
+                $this->session->set_flashdata(['pesan' => 'Email tidak ditemukan. Silahkan coba lagi.', 'color' => 'danger']);
+                redirect(base_url('auth/forgot_password'), 'refresh');
+            }
+        } else {
+            $data = [
+                'header' => 'partials/header',
+                'footer' => 'partials/footer'
+            ];
+            $this->load->view('auth/forgot_password', $data);
+        }
     }
+
+    public function reset_password($token = null)
+    {
+        $token = urldecode($token);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $new_password = $this->input->post('new_password');
+            $confirm_password = $this->input->post('confirm_password');
+
+            if ($token) {
+                $result = $this->mauth->reset_password($token, $new_password, $confirm_password);
+
+                if ($result) {
+                    $this->session->set_flashdata(['pesan' => 'Password berhasil direset. Silahkan login dengan password baru Anda.', 'color' => 'success']);
+                    redirect(base_url('auth/login'), 'refresh');
+                } else {
+                    $this->session->set_flashdata(['pesan' => 'Token reset password tidak valid atau password tidak cocok.', 'color' => 'danger']);
+                    redirect(base_url('auth/reset_password/' . $token), 'refresh');
+                }
+            } else {
+                show_404(); // Jika token tidak diberikan, tampilkan halaman 404
+            }
+        } else {
+            if ($token) {
+                $data = [
+                    'header' => 'partials/header',
+                    'footer' => 'partials/footer',
+                    'token' => urldecode($token)
+                ];
+                $this->load->view('auth/reset_password', $data);
+            } else {
+                show_404(); // Jika token tidak diberikan, tampilkan halaman 404
+            }
+        }
+    }
+
+
     
 
     //test

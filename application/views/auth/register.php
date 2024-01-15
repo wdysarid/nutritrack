@@ -60,6 +60,18 @@
                                     </div>
 
                                     <div class="col-12">
+                                        <label for="berat_badan" class="form-label mt-3">Berat Badan (cm) </label>
+                                        <input type="text" name="berat_badan" class="form-control <?= (form_error('berat_badan')) ? 'is-invalid' : ''; ?>" id="berat_badan" value="<?= set_value('berat_badan'); ?>" required>
+                                        <div class="invalid-feedback"><?= form_error('berat_badan'); ?></div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="tinggi_badan" class="form-label mt-3">Tinggi Badan</label>
+                                        <input type="text" name="tinggi_badan" class="form-control <?= (form_error('tinggi_badan')) ? 'is-invalid' : ''; ?>" id="tinggi_badan" value="<?= set_value('tinggi_badan'); ?>" required>
+                                        <div class="invalid-feedback"><?= form_error('tinggi_badan'); ?></div>
+                                    </div>
+
+                                    <div class="col-12">
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" name="password" class="form-control <?= (form_error('password')) ? 'is-invalid' : ''; ?>" id="password" value="<?= set_value('password'); ?>" required>
                                         <div class="invalid-feedback"><?= form_error('password'); ?></div>
@@ -70,7 +82,7 @@
                                     </div>
 
                                     <div class="col-12 text-center">
-                                        <p class="small mb-0"><a href="<?= base_url('auth/lupaPassword') ?>">Lupa Password?</a></p>
+                                        <p class="small mb-0"><a href="<?= base_url('auth/fotgot_password') ?>">Lupa Password?</a></p>
                                     </div>
 
                                     <div class="col-12 text-center">

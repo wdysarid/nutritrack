@@ -173,7 +173,7 @@ class Mauth extends CI_Model
         $this->email->set_mailtype("html");
 
         $subject = 'Verifikasi Email';
-        $message = "Silakan klik link berikut untuk verifikasi email Anda: <a href='" . base_url('auth/verify/') . $token . "' style='display:inline-block; padding:10px 20px; background-color:#3498db; color:#6DA4AA; text-decoration:none; border-radius:5px;'>Verifikasi Email</a>";
+        $message = "Silakan klik link berikut untuk verifikasi email Anda: <a href='" . base_url('auth/verify/') . urlencode($token) . "' style='display:inline-block; padding:10px 20px; background-color:#3498db; color:#6DA4AA; text-decoration:none; border-radius:5px;'>Verifikasi Email</a>";
 
         $this->email->from($smtp_user, 'NutriTrack');
         $this->email->to($email);
@@ -186,6 +186,71 @@ class Mauth extends CI_Model
             echo 'Email gagal terkirim';
         }
     }
+
+        public function forgot_password($email)
+        {
+            $member = $this->db->get_where('tbmember', ['email' => $email])->row_array();
+
+            if ($member) {
+                $token = bin2hex(random_bytes(32)); // Menggunakan format hex untuk token
+
+                $this->db->set('reset_token', $token);
+                $this->db->where('id_member', $member['id_member']);
+                $this->db->update('tbmember');
+
+                $this->send_reset_password_email($member['email'], $token);
+
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        private function send_reset_password_email($email, $token)
+        {
+            $subject = 'Reset Password';
+            $reset_link = base_url('auth/reset_password/') . urlencode($token);
+            $message = "Klik link berikut untuk mereset password Anda: <a href='$reset_link' style='display:inline-block; padding:10px 20px; background-color:#3498db; color:#6DA4AA; text-decoration:none; border-radius:5px;'>Reset Password</a>";
+
+            $this->load->library('email');
+            $this->email->from('nutritrackofficial@gmail.com', 'NutriTrack');
+            $this->email->to($email);
+            $this->email->subject($subject);
+            $this->email->message($message);
+
+            if ($this->email->send()) {
+                return true;
+            } else {
+                // Tampilkan pesan debug jika pengiriman email gagal
+                echo $this->email->print_debugger();
+                return false;
+            }
+        }
+
+        public function reset_password($token, $new_password, $confirm_password)
+        {
+            $member = $this->db->get_where('tbmember', ['reset_token' => $token])->row_array();
+
+            if ($member) {
+                if ($new_password == $confirm_password) {
+                    $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+                    $this->db->set('password', $hashed_new_password);
+                    $this->db->set('reset_token', null);
+                    $this->db->where('id_member', $member['id_member']);
+                    $this->db->update('tbmember');
+
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+
+
 
     // public function check_session()
     // {
