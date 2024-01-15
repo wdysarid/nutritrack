@@ -60,13 +60,13 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="berat_badan" class="form-label mt-3">Berat Badan (cm) </label>
+                                        <label for="berat_badan" class="form-label mt-3">Berat Badan (Kg) </label>
                                         <input type="text" name="berat_badan" class="form-control <?= (form_error('berat_badan')) ? 'is-invalid' : ''; ?>" id="berat_badan" value="<?= set_value('berat_badan'); ?>" required>
                                         <div class="invalid-feedback"><?= form_error('berat_badan'); ?></div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="tinggi_badan" class="form-label mt-3">Tinggi Badan</label>
+                                        <label for="tinggi_badan" class="form-label mt-3">Tinggi Badan (cm)</label>
                                         <input type="text" name="tinggi_badan" class="form-control <?= (form_error('tinggi_badan')) ? 'is-invalid' : ''; ?>" id="tinggi_badan" value="<?= set_value('tinggi_badan'); ?>" required>
                                         <div class="invalid-feedback"><?= form_error('tinggi_badan'); ?></div>
                                     </div>
