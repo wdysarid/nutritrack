@@ -113,57 +113,59 @@
 
 							<!-- p data member -->
 							<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-									<div class="card-body">
-							<table class="table display" id="myTable" >
-							<thead>
-								<tr>
-								<th scope="col">No.</th>
-								<th scope="col">Nama Member</th>
-								<th scope="col">Username</th>
-								<th scope="col">Jenis Kelamin</th>
-								<th scope="col">Email</th>
-								<th scope="col">Aksi</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
+							<div class="card-body">
+								<div class="" style="overflow: scroll;">
+									<table class="table display" id="myTable">
+										<thead>
+											<tr>
+												<th scope="col">No.</th>
+												<th scope="col">Nama Member</th>
+												<th scope="col">Username</th>
+												<th scope="col">Jenis Kelamin</th>
+												<th scope="col">Email</th>
+												<th scope="col">Aksi</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
 								$no=1;
 								foreach($data_akunmember as $row):
 								?>
-								<tr>
-								<th scope="row"><?php echo $no++?></th>
-								<td><?php echo $row->nama_lengkap?></td>
-								<td><?php echo $row->username?></td>
-								<td><?php echo $row->jenis_kelamin?></td>
-								<td><?php echo $row->email?></td>
-								<td>
-								<button type="button" class="btn btn-danger"
-									onclick="hapusmember(<?php echo $row->id_member?>)">Hapus</button>
-								</td>
-								</tr>
-								<?php
+											<tr>
+												<th scope="row"><?php echo $no++?></th>
+												<td><?php echo $row->nama_lengkap?></td>
+												<td><?php echo $row->username?></td>
+												<td><?php echo $row->jenis_kelamin?></td>
+												<td><?php echo $row->email?></td>
+												<td>
+													<button type="button" class="btn btn-danger"
+														onclick="hapusmember(<?php echo $row->id_member?>)">Hapus</button>
+												</td>
+											</tr>
+											<?php
 								endforeach;
 								?>
-							</tbody>
-							</table>
+										</tbody>
+									</table>
+								</div>
 							</div>
-							</div>
-
-							<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-							<script>
-								let table = new DataTable('#myTable');
-
-								function hapusmember(id_member) {
-									if (confirm('Apakah anda ingin menghapus member ini?')) {
-										window.open('<?= base_url ("cadmin/hapusmember/")?>' + id_member, '_self')
-									}
-								}
-
-							</script>
-							<!-- end data  -->
 						</div>
-					</div><!-- End Recent Sales -->
-				</div>
+
+						<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+						<script>
+							let table = new DataTable('#myTable');
+
+							function hapusmember(id_member) {
+								if (confirm('Apakah anda ingin menghapus member ini?')) {
+									window.open('<?= base_url ("cadmin/hapusmember/")?>' + id_member, '_self')
+								}
+							}
+
+						</script>
+						<!-- end data  -->
+					</div>
+				</div><!-- End Recent Sales -->
+			</div>
 	</section>
 
 </main><!-- End #main -->

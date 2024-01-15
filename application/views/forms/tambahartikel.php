@@ -40,7 +40,7 @@
 				}
             ?>
 		</div>
-		<form class="card-body" name="simpanformartikel" method="post" enctype="multipart/form-data"
+		<form class="card-body" name="simpanformartikel" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg, image/jpg"
 			action="<?php echo base_url('cartikel/psimpanartikel');?>">
 			<input type="hidden" name="id_admin" id="id_admin"
 				value="<?php echo $this->session->userdata('id_admin')?>">
@@ -128,8 +128,8 @@
 
 					</tr>
 					<?php
-endforeach;
-?>
+					endforeach;
+					?>
 				</tbody>
 			</table>
 			</div>

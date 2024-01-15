@@ -17,7 +17,7 @@
 	</div>
 	<div class="card">
 
-		<h5 class="card-title" style="padding-left: 15px;">Catatan Aktivitas<span>/All</span></h5>
+		<h5 class="card-title" style="padding-left: 15px;">Catatan Aktivitas<span>/form</span></h5>
 		<div id="reportsChart">
 		<?php
                     $pesan = $this->session->flashdata('pesan');

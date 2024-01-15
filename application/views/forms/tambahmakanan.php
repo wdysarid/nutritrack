@@ -94,6 +94,7 @@
 		<div id="reportsChart">
 		</div>
 		<div class="card-body">
+		<div class="" style="overflow: scroll;">
 			<table class="table display" id="myTable">
 				<thead>
 					<tr>
@@ -135,6 +136,7 @@ endforeach;
 ?>
 				</tbody>
 			</table>
+			</div>
 		</div>
 	</div>
 	</div>

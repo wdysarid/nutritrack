@@ -23,7 +23,7 @@ class Martikel extends CI_Model{
             // simpan artikel
             $data['foto_artikel'] = $upload_foto;
             $this->db->insert('tbartikel', $data);
-            $this->session->set_flashdata('pesan', 'Data sudah disimpan...');
+            $this->session->set_flashdata('pesan', 'Data berhasil disimpan');
             redirect('cadmin/tambahartikel', 'refresh');
         } else {
             // edit artikel
@@ -45,20 +45,21 @@ class Martikel extends CI_Model{
     
             $this->db->where($update);
             $this->db->update('tbartikel', $data);
-            $this->session->set_flashdata('pesan', 'Data sudah diedit...');
-            //redirect('cadmin/tambahartikel', 'refresh');
+            $this->session->set_flashdata('pesan', 'Data berhasil diedit');
+            redirect('cadmin/tambahartikel', 'refresh');
         }
     }
     
     function uploadfoto($upload_foto,$field,$nama)
     {
+        $this->load->library('upload');
         $NamaFile=str_replace(' ', '', $nama);
         $extractFile = pathinfo($upload_foto['name']);	
         $ekst = $extractFile['extension'];
         $newName = $NamaFile.".".$ekst; 
         $config['upload_path']				= FCPATH.'assets/imgadmin/artikel/';
         $config['allowed_types']			= array('png','jpeg','jpg');; 
-        $config['max_size']         		= 2000;
+        $config['max_size']         		= 2000; //max 2mb
         $config['overwrite'] 				= true;
         $config['file_name'] 				= $newName;
         $this->upload->initialize($config);
