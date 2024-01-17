@@ -128,6 +128,17 @@
 									<div class="col-lg-9 col-md-8"><?= $key['jenis_kelamin']?></div>
 								</div>
 
+								
+								<div class="row">
+									<div class="col-lg-3 col-md-4 label">Berat Badan</div>
+									<div class="col-lg-9 col-md-8"><?= $key['berat_badan']?> kg</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-lg-3 col-md-4 label">Tinggi Badan</div>
+									<div class="col-lg-9 col-md-8"><?= $key['tinggi_badan']?> cm</div>
+								</div>
+
 								<div class="row">
 									<div class="col-lg-3 col-md-4 label">Email</div>
 									<div class="col-lg-9 col-md-8"><?= $key['email']?></div>
@@ -185,6 +196,24 @@
 										<div class="col-md-8 col-lg-9">
 											<input name="jenis_kelamin" type="text" class="form-control" id="jenis_kelamin"
 												value="<?=$key['jenis_kelamin']?>">
+										</div>
+									</div>
+
+									
+									<div class="row mb-3">
+										<label for="berat_badan" class="col-md-4 col-lg-3 col-form-label">Berat Badan</label>
+										<div class="col-md-8 col-lg-9">
+											<input name="berat_badan" type="text" class="form-control" id="berat_badan"
+												value="<?=$key['berat_badan']?>">
+										</div>
+									</div>
+
+									
+									<div class="row mb-3">
+										<label for="tinggi_badan" class="col-md-4 col-lg-3 col-form-label">Tinggi Badan</label>
+										<div class="col-md-8 col-lg-9">
+											<input name="tinggi_badan" type="text" class="form-control" id="tinggi_badan"
+												value="<?=$key['tinggi_badan']?>">
 										</div>
 									</div>
 

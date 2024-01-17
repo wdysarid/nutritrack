@@ -22,5 +22,16 @@
     </a>
   </li><!-- End Forms Nav -->
 
+    <!-- Extra space -->
+    <li class="nav-item" style="margin-bottom: 500px;"></li>
+
+    <!-- Button to go back to the main page -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('clandingpg/tampil') ?>">
+            <i class="bi bi-house"></i>
+            <span>Halaman Utama NutriTrack</span>
+        </a>
+    </li>
+
 </ul>
 </aside><!-- End Sidebar-->

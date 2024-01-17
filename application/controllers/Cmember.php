@@ -88,9 +88,11 @@
 			$user=$this->input->post('username');
 			$tgl=$this->input->post('tgl_lahir');
 			$jk=$this->input->post('jenis_kelamin');
+			$bb=$this->input->post('berat_badan');
+			$tb=$this->input->post('tinggi_badan');
 			$email=$this->input->post('email');
 
-			$this->mmember->simpanprofile($nama, $user, $tgl, $jk, $email, $member->id_member);
+			$this->mmember->simpanprofile($nama, $user, $tgl, $jk, $bb, $tb, $email, $member->id_member);
 			$this->session->set_flashdata('pesan', $error);
 			redirect('cmember/profilemember');
 

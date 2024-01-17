@@ -9,12 +9,14 @@ class Mmember extends CI_Model
         return $this->db->get('tbmember');
     }
 
-    function simpanProfile($nama, $username, $tgl, $jk, $email, $id){
+    function simpanProfile($nama, $username, $tgl, $jk, $bb,$tb, $email, $id){
         //mengambil inputan user
 				$data=array(
 					'nama_lengkap'=>$nama,
 					'username'=>$username,
 					'tgl_lahir'=>$tgl,
+                    'berat_badan'=>$bb,
+                    'tinggi_badan'=>$tb,
 					'jenis_kelamin'=>$jk,
 					'email'=>$email
 				);

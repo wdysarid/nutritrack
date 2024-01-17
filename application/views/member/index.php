@@ -33,7 +33,7 @@
 						<h5 class="card-title">Total Kalori <span>| Today</span></h5>
 						<div class="d-flex align-items-center">
 							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-								<i class="bi bi-people"></i>
+							<i class="bi bi-fire"></i>
 							</div>
 							<div class="ps-3">
 								<h6><?=number_format($total_kalori, 0, '.', '');?> kkal</h6>
@@ -56,7 +56,7 @@
 
 						<div class="d-flex align-items-center">
 							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-								<i class="bi bi-people"></i>
+							<i class="bi bi-droplet"></i>
 							</div>
 							<div class="ps-3">
 								<h6><?= number_format($total_karbohidrat, 2, '.', '');?> gr</h6>
@@ -75,7 +75,7 @@
 
 						<div class="d-flex align-items-center">
 							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-								<i class="bi bi-people"></i>
+							<i class="bi bi-droplet"></i>
 							</div>
 							<div class="ps-3">
 								<h6><?= number_format($total_protein, 2, '.', '')?> gr</h6>
@@ -92,7 +92,7 @@
 						<h5 class="card-title">Total Lemak <span>| Today</span></h5>
 						<div class="d-flex align-items-center">
 							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-								<i class="bi bi-people"></i>
+							<i class="bi bi-droplet"></i>
 							</div>
 							<div class="ps-3">
 								<h6><?= number_format($total_lemak, 2, '.', '');?> gr</h6>
