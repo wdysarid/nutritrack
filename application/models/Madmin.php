@@ -20,14 +20,24 @@ class Madmin extends CI_Model
         return $this->db->update('tbadmin',$data);
     }
 
-    //hapus data member
     function hapusmember($id_member)
     {
-        $this->db->where('id_member',$id_member);
+        //hapus data nutrisi member di tbnutrisi
+        $this->db->where('id_member', $id_member);
+        $this->db->delete('tbnutrisi');
+
+        //hapus data aktivitas member di tbaktivitas
+        $this->db->where('id_member', $id_member);
+        $this->db->delete('tbaktivitas');
+    
+        //hapus member
+        $this->db->where('id_member', $id_member);
         $this->db->delete('tbmember');
-        $this->session->set_flashdata('pesan','Data berhasil dihapus');
-        redirect('cadmin/index','refresh');
+    
+        $this->session->set_flashdata('pesan', 'Data berhasil dihapus');
+        redirect('cadmin/index', 'refresh');
     }
+    
 
 
 }

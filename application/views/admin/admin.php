@@ -28,7 +28,7 @@
 
 							<div class="d-flex align-items-center">
 								<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-									<i class="bi bi-people"></i>
+									<i class="bi bi-apple"></i>
 								</div>
 								<div class="ps-3">
 									<h6><?php echo $total_makanan?> data</h6>
@@ -49,7 +49,7 @@
 
 							<div class="d-flex align-items-center">
 								<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-									<i class="bi bi-people"></i>
+									<i class="bi bi-newspaper"></i>
 								</div>
 								<div class="ps-3">
 									<h6><?php echo $total_artikel?> artikel</h6>

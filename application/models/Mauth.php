@@ -104,6 +104,8 @@ class Mauth extends CI_Model
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
         $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('berat_badan', 'Berat Badan', 'required');
+        $this->form_validation->set_rules('tinggi_badan', 'Tinggi Badan', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]', [
             'min_length' => 'Password too short!'
         ]);
@@ -117,6 +119,8 @@ class Mauth extends CI_Model
                 'email' => $this->input->post('email'),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
+                'berat_badan' => $this->input->post('berat_badan'),
+                'tinggi_badan' => $this->input->post('tinggi_badan'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             ];
 
