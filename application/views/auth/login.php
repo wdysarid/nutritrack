@@ -12,12 +12,12 @@
                         <h5 class="card-title text-center pb-0 fs-4">Login</h5>                    
                     </div>
                     
-                    <?php if ($this->session->flashdata('pesan')) { ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?= $this->session->flashdata('pesan') ?>
-                            </div>
-                    <?php } ?>
-
+                    <?php if ($this->session->flashdata('pesan')) : ?>
+                        <div class="alert alert-<?= $this->session->flashdata('color'); ?> alert-dismissible fade show" role="alert">
+                            <?= $this->session->flashdata('pesan'); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <?php endif; ?>
                     <form class="row g-3 needs-validation" method="post" action="<?= base_url('auth/proseslogin'); ?>">
 
                         <div class="col-12">

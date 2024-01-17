@@ -18,9 +18,7 @@
                             </div>
                     <?php } ?>
 
-                    <form class="row g-3 needs-validation" method="post" action="<?= base_url('auth/reset_password  . $token'); ?>">
-
-                        <div class="col-12">
+                    <form class="row g-3 needs-validation" method="post" action="<?=base_url('auth/reset_password/'.urlencode($token));?>">                        <div class="col-12">
                         <label for="new_password" class="form-label">New Password</label>
                         <input type="password" name="new_password" class="form-control" id="new_password" required >
                         </div>
@@ -29,6 +27,7 @@
                         <label for="confirm_password" class="form-label">Confirm Password</label>
                         <input type="password" name="confirm_password" class="form-control" id="confirm_password" required >
                         </div>
+
 
                         <div class="col-12">
                         <button class="btn btn-primary w-100" type="submit">Reset Password</button>

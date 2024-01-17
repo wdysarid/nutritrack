@@ -10,6 +10,7 @@
                                 <div class="pt-4 pb-2">
                                     <h5 class="card-title text-center pb-0 fs-4">Register</h5>
                                 </div>
+
                                 <?php if ($this->session->flashdata('pesan')) : ?>
                                     <div class="alert alert-<?= $this->session->flashdata('color'); ?> alert-dismissible fade show" role="alert">
                                         <?= $this->session->flashdata('pesan'); ?>
@@ -35,7 +36,7 @@
                                     <div class="col-12">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" name="email" class="form-control <?= (form_error('email')) ? 'is-invalid' : ''; ?>" id="email" value="<?= set_value('email'); ?>" required>
-                                      <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>                                    
+                                    <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>                                    
                                       </div>
 
                                     <div class="col-12"> 
@@ -82,7 +83,7 @@
                                     </div>
 
                                     <div class="col-12 text-center">
-                                        <p class="small mb-0"><a href="<?= base_url('auth/fotgot_password') ?>">Lupa Password?</a></p>
+                                        <p class="small mb-0"><a href="<?= base_url('auth/forgot_password') ?>">Lupa Password?</a></p>
                                     </div>
 
                                     <div class="col-12 text-center">

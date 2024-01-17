@@ -173,7 +173,7 @@ class Mauth extends CI_Model
         $this->email->set_mailtype("html");
 
         $subject = 'Verifikasi Email';
-        $message = "Silakan klik link berikut untuk verifikasi email Anda: <a href='" . base_url('auth/verify/') . urlencode($token) . "' style='display:inline-block; padding:10px 20px; background-color:#3498db; color:#6DA4AA; text-decoration:none; border-radius:5px;'>Verifikasi Email</a>";
+        $message = "Silakan klik link berikut untuk verifikasi email Anda: <a href='" . base_url('auth/verify/') . urlencode($token) . "' style='display:inline-block; padding:10px 20px; background-color:#3498db; color:#000000; text-decoration:none; border-radius:5px;'>Verifikasi Email</a>";
 
         $this->email->from($smtp_user, 'NutriTrack');
         $this->email->to($email);
@@ -210,7 +210,7 @@ class Mauth extends CI_Model
         {
             $subject = 'Reset Password';
             $reset_link = base_url('auth/reset_password/') . urlencode($token);
-            $message = "Klik link berikut untuk mereset password Anda: <a href='$reset_link' style='display:inline-block; padding:10px 20px; background-color:#3498db; color:#6DA4AA; text-decoration:none; border-radius:5px;'>Reset Password</a>";
+            $message = "Klik link berikut untuk mereset password Anda: <a href='$reset_link' style='display:inline-block; padding:10px 20px; background-color:#3498db; color:#000000; text-decoration:none; border-radius:5px;'>Reset Password</a>";
 
             $this->load->library('email');
             $this->email->from('nutritrackofficial@gmail.com', 'NutriTrack');
