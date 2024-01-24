@@ -12,19 +12,38 @@
 			//get id member
 			$id_member=$this->session->userdata('id_member');
 			$data=[
-			'header' => 'partials/header',
-            'navbar' => 'partials/navbar',
-            'sidebar' => 'partials/sidebar',
-			'footer' => 'partials/footer',
-			
-			'total_karbohidrat'=>$this->mvalidasi->sumkarboharian($id_member),
-			'total_protein'=>$this->mvalidasi->sumproteinharian($id_member),
-			'total_lemak'=>$this->mvalidasi->sumlemakharian($id_member),
-			'total_kalori'=>$this->mvalidasi->sumkaloriharian($id_member),
-			'member' => $this->mmember->getprofilmember($this->session->userdata('id_member'))->result_array()
+				'header' => 'partials/header',
+				'navbar' => 'partials/navbar',
+				'sidebar' => 'partials/sidebar',
+				'footer' => 'partials/footer',
+				
+				'total_karbohidrat'=>$this->mvalidasi->sumkarboharian($id_member),
+				'total_protein'=>$this->mvalidasi->sumproteinharian($id_member),
+				'total_lemak'=>$this->mvalidasi->sumlemakharian($id_member),
+				'total_kalori'=>$this->mvalidasi->sumkaloriharian($id_member),
+				'member' => $this->mmember->getprofilmember($this->session->userdata('id_member'))->result_array()
 			];
 			$data['data_nutrisihr']=$this->mnutrisi->getnutrisihrn($id_member)->result_array();
 			$data['data_aktivitashr']=$this->maktivitas->getaktivitashrn($id_member)->result_array();
+
+			// Calculate daily nutritional needs
+			$hasil_gizi = $this->mmember->hitung_kebutuhan_gizi($id_member);
+
+			// Add the calculated nutritional needs to the data array
+			$data['kalori_harian'] = $hasil_gizi['kalori_harian'];
+			$data['kebutuhan_protein'] = $hasil_gizi['kebutuhan_protein'];
+			$data['kebutuhan_karbohidrat'] = $hasil_gizi['kebutuhan_karbohidrat'];
+			$data['kebutuhan_lemak'] = $hasil_gizi['kebutuhan_lemak'];
+
+			
+			// Panggil fungsi hitung_indeks_kecukupan_nutrisi
+			$kekurangan_nutrisi = $this->mmember->hitung_indeks_kecukupan_nutrisi($id_member);
+			$data['kekurangan_nutrisi'] = $kekurangan_nutrisi;
+			$data['pesan']=$kekurangan_nutrisi;
+
+    		$hasil_indeks_nutrisi = $this->mmember->hitung_indeks_kecukupan_nutrisi($id_member);
+			$data['hasil_indeks_nutrisi'] = $hasil_indeks_nutrisi;
+			
 			$this->load->view('member/index',$data);	
 			
 		}
@@ -84,15 +103,17 @@
 				}
 
 			//mengambil inputan user
-			$nama=$this->input->post('nama_lengkap');
 			$user=$this->input->post('username');
+			$nama=$this->input->post('nama_lengkap');
 			$tgl=$this->input->post('tgl_lahir');
-			$jk=$this->input->post('jenis_kelamin');
+			$usia=$this->input->post('usia');
 			$bb=$this->input->post('berat_badan');
 			$tb=$this->input->post('tinggi_badan');
+			$jk=$this->input->post('jenis_kelamin');
+			$akt=$this->input->post('aktivitas');
 			$email=$this->input->post('email');
 
-			$this->mmember->simpanprofile($nama, $user, $tgl, $jk, $bb, $tb, $email, $member->id_member);
+			$this->mmember->simpanprofile( $user, $nama, $tgl, $usia, $bb, $tb, $jk, $akt, $email, $member->id_member);
 			$this->session->set_flashdata('pesan', $error);
 			redirect('cmember/profilemember');
 

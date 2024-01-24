@@ -38,9 +38,8 @@ class Martikel extends CI_Model{
                 if (!empty($old_photo)) {
                     $this->deletePhotoFromDirectory($old_photo);
                 }
-    
                 // Upload the new photo
-                $data['foto_artikel'] = $this->uploadfoto($_FILES['foto_artikel'], 'foto_artikel', $keterangan);
+                $data['foto_artikel'] = $upload_foto;
             }
     
             $this->db->where($update);

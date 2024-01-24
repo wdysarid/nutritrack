@@ -27,6 +27,10 @@
 			$data1['total_protein']=$this->mvalidasi->sumproteinharian($id_member);
 			$data1['total_lemak']=$this->mvalidasi->sumlemakharian($id_member);
 			$data1['total_kalori']=$this->mvalidasi->sumkaloriharian($id_member);
+			// Panggil fungsi hitung_indeks_kecukupan_nutrisi
+			$kekurangan_nutrisi = $this->mmember->hitung_indeks_kecukupan_nutrisi($id_member);
+			$data1['pesan']=$kekurangan_nutrisi;
+
 			require_once(APPPATH . 'libraries/dompdf/autoload.inc.php');
             $pdf = new Dompdf\Dompdf();
 

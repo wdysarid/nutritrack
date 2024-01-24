@@ -106,7 +106,7 @@
 							<td><?php echo $row->keterangan?></td>
 							<td>
 								<button type="button" class="btn btn-warning"
-									onclick="editnutrisi(<?php echo $row->id_nutrisi?>)">Edit</button>
+									onclick="editnutrisi(<?php echo $row->id_nutrisi?>)"></button>
 								<button type="button" class="btn btn-danger"
 									onclick="hapusnutrisi(<?php echo $row->id_nutrisi?>)">Hapus</button>
 							</td>
@@ -125,7 +125,7 @@
 			let table = new DataTable('#myTable');
 
 			function hapusnutrisi(id_nutrisi) {
-				if (confirm('Apakah anda ingin menghapus?')) {
+				if (confirm('Apakah anda yakin ingin menghapus?')) {
 					window.open('<?= base_url ("cnutrisi/hapusnutrisi/")?>' + id_nutrisi, '_self')
 				}
 			}

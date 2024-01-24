@@ -40,9 +40,11 @@ class Mauth extends CI_Model
                         'username' => $data1['username'],
                         'id_member' => $data1['id_member'],
                         'email' => $data1['email'],
-                        'jenis_kelamin' => $data1['jenis_kelamin'],
-                        'password' => $data1['password'],
                         'tgl_lahir' => $data1['tgl_lahir'],
+                        'usia' => $data1['usia'],
+                        'jenis_kelamin' => $data1['jenis_kelamin'],
+                        'aktivitas' => $data1['aktivitas'],
+                        'password' => $data1['password'],
                     ];
 
                     // Periksa status verifikasi sebelum login
@@ -66,32 +68,6 @@ class Mauth extends CI_Model
         }
     }
 
-    public function change_password($id_member, $current_password, $new_password, $re_password)
-    {
-        // Ambil password dari database berdasarkan id_member
-        $this->db->where('id_member', $id_member);
-        $query = $this->db->get('tbmember');
-        $user = $query->row();
-
-        // Verifikasi password lama
-        if (password_verify($current_password, $user->password)) {
-            // Hash password baru
-            if($new_password==$re_password){
-                $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
-
-                // Simpan password baru ke database
-                $this->db->where('id_member', $id_member);
-                $this->db->update('tbmember', ['password' => $hashed_new_password]);
-                $this->session->set_flashdata('pesan','Password berhasil diperbarui');
-            }
-            else{
-                $this->session->set_flashdata('error','Password tidak sama!');
-            }
-        }
-        else{
-            $this->session->set_flashdata('error','Password salah');
-        }
-    }
 
     public function prosesregister()
     {
@@ -104,8 +80,11 @@ class Mauth extends CI_Model
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
         $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required');
+        $this->form_validation->set_rules('usia', 'Usia', 'required');
         $this->form_validation->set_rules('berat_badan', 'Berat Badan', 'required');
         $this->form_validation->set_rules('tinggi_badan', 'Tinggi Badan', 'required');
+        $this->form_validation->set_rules('aktivitas', 'Aktivitas', 'required');
+        
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]', [
             'min_length' => 'Password too short!'
         ]);
@@ -119,8 +98,10 @@ class Mauth extends CI_Model
                 'email' => $this->input->post('email'),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
+                'usia' => $this->input->post('usia'),
                 'berat_badan' => $this->input->post('berat_badan'),
                 'tinggi_badan' => $this->input->post('tinggi_badan'),
+                'aktivitas' => $this->input->post('aktivitas'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             ];
 
@@ -253,26 +234,32 @@ class Mauth extends CI_Model
             }
         }
 
+        public function change_password($id_member, $current_password, $new_password, $re_password)
+        {
+            // Ambil password dari database berdasarkan id_member
+            $this->db->where('id_member', $id_member);
+            $query = $this->db->get('tbmember');
+            $user = $query->row();
+    
+            // Verifikasi password lama
+            if (password_verify($current_password, $user->password)) {
+                // Hash password baru
+                if($new_password==$re_password){
+                    $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
+    
+                    // Simpan password baru ke database
+                    $this->db->where('id_member', $id_member);
+                    $this->db->update('tbmember', ['password' => $hashed_new_password]);
+                    $this->session->set_flashdata('pesan','Password berhasil diperbarui');
+                }
+                else{
+                    $this->session->set_flashdata('error','Password tidak sama!');
+                }
+            }
+            else{
+                $this->session->set_flashdata('error','Password salah');
+            }
+        }
 
-
-
-    // public function check_session()
-    // {
-    //     if ($this->session->userdata('id_admin')) {
-    //         // Admin masih memiliki sesi, arahkan ke halaman admin
-    //         redirect(base_url('cadmin/index'), 'refresh');
-    //     } elseif ($this->session->userdata('id_member')) {
-    //         // Member masih memiliki sesi, arahkan ke halaman member
-    //         redirect(base_url('cmember/index'), 'refresh');
-    //     } else {
-    //         // Tidak ada sesi, lanjutkan ke halaman login
-    //         redirect(base_url('auth/login'), 'refresh');
-    //     }
-    // }
-
-
-    // function getdataadmin(){
-    //     return $this->db->get('tbadmin')->result();
-    // }
 }
 ?>

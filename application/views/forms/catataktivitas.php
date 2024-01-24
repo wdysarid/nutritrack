@@ -140,7 +140,7 @@
     // });
     let table = new DataTable('#myTable');
 		function hapusaktivitas(id_aktivitas){
-		if(confirm('Apakah anda ingin menghapus?')){
+		if(confirm('Apakah anda yakin ingin menghapus?')){
 			window.open('<?= base_url ("caktivitas/hapusaktivitas/")?>'+id_aktivitas,'_self')
 		}
 		}

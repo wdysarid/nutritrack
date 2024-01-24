@@ -115,30 +115,51 @@
         <table>
 								<thead>
 									<tr>
-									<th >Total Karbohidrat Harian</th> 
+									<th >Total Karbohidrat</th> 
                                         <td class="td2">
                                             <?php echo number_format($total_karbohidrat, 2, '.', ''); ?> gr
                                         </td>
                                     </tr>
                                     <tr>
-                                    <th >Total Protein Harian </th>
+                                    <th >Total Protein</th>
                                     <td class="td2"> 
                                             <?php echo number_format($total_protein, 2, '.', ''); ?> gr
                                         </td>
                                     </tr>
                                     <tr>
-                                    <th >Total Lemak Harian </th>
+                                    <th >Total Lemak</th>
                                         <td class="td2">
                                             <?php echo number_format($total_lemak, 2, '.', ''); ?> gr
                                         </td>
                                     </tr>
                                     <tr>
-                                    <th >Total Kalori Harian </th>
+                                    <th >Total Kalori</th>
                                         <td class="td2">
                                             <?php echo number_format($total_kalori, 0, '.', ''); ?> kkal
                                         </td>
 									</tr>
+                                    <tr>
+                                    <th >Indeks Kebutuhan Nutrisi</th>
+                                        <td class="td2">
+                                        <?php
+												if($pesan=="sudah"):
+												?>
+												<p>Selamat ! Anda telah berhasil mencapai target harian nutrisi Anda. 
+													Dengan mengonsumsi sebanyak<b> <?=number_format($total_kalori, 0, '.', '');?> kkal</b> kalori
+							                    </p>
+												<?php
+												else:
+												?>
+												<p>
+												Nutrisi yang Anda konsumsi belum mencukupi untuk mencapai target harian. 
+												</p>
+												<?php
+												endif;
+												?>
+                                        </td>
+									</tr>
 								</thead>
+
 
 </body>
 </html>

@@ -124,10 +124,9 @@
 								</div>
 
 								<div class="row">
-									<div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-									<div class="col-lg-9 col-md-8"><?= $key['jenis_kelamin']?></div>
+									<div class="col-lg-3 col-md-4 label">Usia</div>
+									<div class="col-lg-9 col-md-8"><?= $key['usia']?> tahun</div>
 								</div>
-
 								
 								<div class="row">
 									<div class="col-lg-3 col-md-4 label">Berat Badan</div>
@@ -137,6 +136,15 @@
 								<div class="row">
 									<div class="col-lg-3 col-md-4 label">Tinggi Badan</div>
 									<div class="col-lg-9 col-md-8"><?= $key['tinggi_badan']?> cm</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
+									<div class="col-lg-9 col-md-8"><?= $key['jenis_kelamin']?></div>
+								</div>
+
+								<div class="row">
+									<div class="col-lg-3 col-md-4 label">Aktivitas</div>
+									<div class="col-lg-9 col-md-8"><?= $key['aktivitas']?></div>
 								</div>
 
 								<div class="row">
@@ -192,16 +200,15 @@
 									</div>
 
 									<div class="row mb-3">
-										<label for="jenis_kelamin" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
+										<label for="usia" class="col-md-4 col-lg-3 col-form-label">Usia (tahun)</label>
 										<div class="col-md-8 col-lg-9">
-											<input name="jenis_kelamin" type="text" class="form-control" id="jenis_kelamin"
-												value="<?=$key['jenis_kelamin']?>">
+											<input name="usia" type="text" class="form-control" id="usia"
+												value="<?=$key['usia']?>">
 										</div>
 									</div>
 
-									
 									<div class="row mb-3">
-										<label for="berat_badan" class="col-md-4 col-lg-3 col-form-label">Berat Badan</label>
+										<label for="berat_badan" class="col-md-4 col-lg-3 col-form-label">Berat Badan (kg)</label>
 										<div class="col-md-8 col-lg-9">
 											<input name="berat_badan" type="text" class="form-control" id="berat_badan"
 												value="<?=$key['berat_badan']?>">
@@ -210,10 +217,30 @@
 
 									
 									<div class="row mb-3">
-										<label for="tinggi_badan" class="col-md-4 col-lg-3 col-form-label">Tinggi Badan</label>
+										<label for="tinggi_badan" class="col-md-4 col-lg-3 col-form-label">Tinggi Badan (cm)</label>
 										<div class="col-md-8 col-lg-9">
 											<input name="tinggi_badan" type="text" class="form-control" id="tinggi_badan"
 												value="<?=$key['tinggi_badan']?>">
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="jenis_kelamin" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
+										<div class="col-md-8 col-lg-9">
+											<input name="jenis_kelamin" type="text" class="form-control" id="jenis_kelamin"
+												value="<?=$key['jenis_kelamin']?>">
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="aktivitas" class="col-md-4 col-lg-3 col-form-label">Aktivitas</label>
+										<div class="col-md-8 col-lg-9">
+											<select name="aktivitas" class="form-control" id="aktivitas">
+												<option value="" <?=$key['aktivitas']=="" ? "selected" : ""?>>Tidak Ada Aktivitas</option>
+												<option value="sangat jarang berolahraga" <?=$key['aktivitas']=="sangat jarang berolahraga" ? "selected" : ""?>>Sangat jarang berolahraga</option>
+												<option value="jarang olahraga" <?=$key['aktivitas']=="jarang olahraga" ? "selected" : ""?>>Jarang olahraga</option>
+												<option value="cukup olahraga" <?=$key['aktivitas']=="cukup olahraga" ? "selected" : ""?>>Cukup olahraga</option>
+												<option value="sering olahraga" <?=$key['aktivitas']=="sering olahraga" ? "selected" : ""?>>Sering olahraga</option>
+												<option value="sangat sering olahraga" <?=$key['aktivitas']=="sangat sering olahraga" ? "selected" : ""?>>Sangat sering olahraga</option>
+											</select>
 										</div>
 									</div>
 
@@ -282,7 +309,16 @@
 			window.open(link, "_blank");
 		});
 	});
+    document.getElementById("aktivitas").addEventListener("change", function() {
+        var aktivitasSelect = document.getElementById("aktivitas");
+        var selectedValue = aktivitasSelect.options[aktivitasSelect.selectedIndex].value;
 
+        if (selectedValue === "") {
+            aktivitasSelect.setCustomValidity("Pilih aktivitas terlebih dahulu");
+        } else {
+            aktivitasSelect.setCustomValidity("");
+        }
+    });
 </script>
 
 <?php $this->load->view($footer);?>

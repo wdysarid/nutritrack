@@ -120,10 +120,10 @@
 							</td>
 
 							<td>
-							<button type="button" class="btn btn-warning"
-								onclick="editartikel(<?php echo $row->id_artikel?>)">Edit</button>
-							<button type="button" class="btn btn-danger"
-								onclick="hapusartikel(<?php echo $row->id_artikel?>)">Hapus</button>
+								<div class="btn-group" role="group">
+									<button type="button" class="btn btn-warning" onclick="editartikel(<?php echo $row->id_artikel ?>)">Edit</button>
+									<button type="button" class="btn btn-danger" onclick="hapusartikel(<?php echo $row->id_artikel ?>)">Hapus</button>
+								</div>
 							</td>
 
 					</tr>
@@ -141,7 +141,7 @@
 		let table = new DataTable('#myTable');
 
 		function hapusartikel(id_artikel) {
-			if (confirm('Apakah anda ingin menghapus?')) {
+			if (confirm('Apakah anda yakin ingin menghapus?')) {
 				window.open('<?= base_url ("cartikel/hapusartikel/")?>' + id_artikel, '_self')
 			}
 		}

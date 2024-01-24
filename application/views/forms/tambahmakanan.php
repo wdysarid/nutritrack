@@ -145,7 +145,7 @@ endforeach;
 		let table = new DataTable('#myTable');
 
 		function hapusmakanan(id_makanan) {
-			if (confirm('Apakah anda ingin menghapus?')) {
+			if (confirm('Apakah anda yakin ingin menghapus?')) {
 				window.open('<?= base_url ("cmakanan/hapusmakanan/")?>' + id_makanan, '_self')
 			}
 		}
