@@ -29,7 +29,7 @@ Other: API Integration (optional), Basic CRUD operations
 
 📦 Installation
 Clone the repository:
-git clone https://github.com/yourusername/nutritrack.git
+git clone https://github.com/wdysarid/nutritrack.git
 
 Import the SQL file to your MySQL server.
 
